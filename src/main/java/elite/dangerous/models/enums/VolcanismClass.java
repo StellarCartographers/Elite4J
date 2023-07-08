@@ -1,0 +1,50 @@
+/**
+ * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
+ *
+ * This work is licensed under the terms of the MIT license.
+ * For a copy, see <https://opensource.org/licenses/MIT>.
+ */
+package elite.dangerous.models.enums;
+
+/**
+ * The Enum VolcanismClass.
+ */
+public enum VolcanismClass {
+	None("None"), Water_Magma("Water Magma"), Sulphur_Dioxide_Magma("Sulphur Dioxide Magma"),
+	Ammonia_Magma("Ammonia Magma"), Methane_Magma("Methane Magma"), Nitrogen_Magma("Nitrogen Magma"),
+	Silicate_Magma("Silicate Magma"), Metallic_Magma("Metallic Magma"), Water_Geysers("Water Geysers"),
+	Carbon_dioxide_Geysers("Carbon Dioxide Geysers"), Ammonia_Geysers("Ammonia Geysers"),
+	Methane_Geysers("Methane Geysers"), Nitrogen_Geysers("Nitrogen Geysers"), Helium_Geysers("Helium Geysers"),
+	Silicate_Vapour_Geysers("Silicate Vapour Geysers");
+
+	private final String identifier;
+
+	VolcanismClass(String identifier) {
+		this.identifier = identifier;
+	}
+
+	/**
+     * Gets the volcanism class identifier.
+     *
+     * @return the volcanism class identifier
+     */
+	public String getVolcanismClassIdentifier() {
+		return this.identifier;
+	}
+
+	/**
+     * Gets the volcanism class name.
+     *
+     * @param identifier the identifier
+     * @return the volcanism class name
+     */
+	public String getVolcanismClassName(String identifier) {
+		String name = "null";
+		for (VolcanismClass volcanismClass : values()) {
+			if (volcanismClass.getVolcanismClassIdentifier().equals(identifier)) {
+				name = volcanismClass.name().replaceAll("_", " ").replaceAll("\\$", "-");
+			}
+		}
+		return name;
+	}
+}

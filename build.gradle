@@ -1,0 +1,51 @@
+plugins {
+    id 'org.cadixdev.licenser' version '0.6.1'
+    id 'io.freefair.lombok' version '8.0.1'
+    id "io.github.romvoid95.mvn" version "0.1.0"
+    id 'java-library'
+}
+
+group = 'space.tscg'
+version = 'v37-SNAPSHOT'
+
+mvn {
+    devName 'ROMVoid95'
+    devEmail 'rom.void95@gmail.com'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+license{
+    header = file("$rootDir/LICENSE-header.txt")
+    properties {
+        GROUP = 'The Stellar Cartographers\' Guild'
+        YEAR = Calendar.getInstance().get(Calendar.YEAR);
+    }
+    newLine = false
+    ignoreFailures = true
+    style { java = 'JAVADOC' }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.incremental = true
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+    options.encoding = 'UTF-8'
+}
