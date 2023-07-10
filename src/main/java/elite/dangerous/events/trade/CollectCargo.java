@@ -1,33 +1,26 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.trade;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class CollectCargo.
  */
-@SuperBuilder
-@Jacksonized
-public class CollectCargo extends Event 
-{
+public class CollectCargo extends Event implements Trigger {
 
-    /**
+	/**
      * The type.
      */
-    public String  type;
-    /**
+	public String type;
+	
+	/**
      * The mission ID.
      */
-    public Long    missionID;
-    /**
+	public Long missionID;
+	
+	/**
      * The stolen.
      */
-    public Boolean stolen;
+	public Boolean stolen;
+
 }

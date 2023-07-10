@@ -1,77 +1,79 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.onfoot;
 
 import com.google.gson.annotations.SerializedName;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class Embark.
  */
-@SuperBuilder
-@Jacksonized
-public class Embark extends Event 
-{
+public class Embark extends Event implements Trigger {
 
-    /**
+	/**
      * The srv.
      */
-    @SerializedName("SRV")
-    public Boolean srv;
-    /**
+	@SerializedName("SRV")
+	public Boolean srv;
+	
+	/**
      * The taxi.
      */
-    public Boolean taxi;
-    /**
+	public Boolean taxi;
+	
+	/**
      * The multicrew.
      */
-    public Boolean multicrew;
-    /**
+	public Boolean multicrew;
+	
+	/**
      * The id.
      */
-    @SerializedName("ID")
-    public Long    id;
-    /**
+	@SerializedName("ID")
+	public Long id;
+	
+	/**
      * The star system.
      */
-    public String  starSystem;
-    /**
+	public String starSystem;
+	
+	/**
      * The system address.
      */
-    public Long    systemAddress;
-    /**
+	public Long systemAddress;
+	
+	/**
      * The body.
      */
-    public String  body;
-    /**
+	public String body;
+	
+	/**
      * The body ID.
      */
-    public Long    bodyID;
-    /**
+	public Long bodyID;
+	
+	/**
      * The on station.
      */
-    public Boolean onStation;
-    /**
+	public Boolean onStation;
+	
+	/**
      * The on planet.
      */
-    public Boolean onPlanet;
-    /**
+	public Boolean onPlanet;
+	
+	/**
      * The station name.
      */
-    public String  stationName;
-    /**
+	public String stationName;
+	
+	/**
      * The station type.
      */
-    public String  stationType;
-    /**
+	public String stationType;
+	
+	/**
      * The market ID.
      */
-    public Long    marketID;
+	public Long marketID;
 }

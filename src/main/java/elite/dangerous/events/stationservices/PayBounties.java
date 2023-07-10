@@ -1,33 +1,26 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class PayBounties.
  */
-@SuperBuilder
-@Jacksonized
-public class PayBounties extends Event 
-{
+public class PayBounties extends Event implements Trigger {
 
-    /**
+	/**
      * The amount.
      */
-    public Long    amount;
-    /**
+	public Long amount;
+	
+	/**
      * The faction localised.
      */
-    public String  faction, factionLocalised;
-    /**
+	public String faction, factionLocalised;
+	
+	/**
      * The broker percentage.
      */
-    public Integer shipID, brokerPercentage;
+	public Integer shipID, brokerPercentage;
+
 }

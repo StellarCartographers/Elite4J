@@ -1,45 +1,41 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class ModuleSell.
  */
-@SuperBuilder
-@Jacksonized
-public class ModuleSell extends Event 
-{
+public class ModuleSell extends Event implements Trigger {
 
-    /**
+	/**
      * The slot.
      */
-    public String  slot;
-    /**
+	public String slot;
+	
+	/**
      * The sell item.
      */
-    public String  sellItem;
-    /**
+	public String sellItem;
+	
+	/**
      * The sell item localised.
      */
-    public String  sellItemLocalised;
-    /**
+	public String sellItemLocalised;
+	
+	/**
      * The ship.
      */
-    public String  ship;
-    /**
+	public String ship;
+	
+	/**
      * The market ID.
      */
-    public Long    sellPrice, marketID;
-    /**
+	public Long sellPrice, marketID;
+	
+	/**
      * The ship ID.
      */
-    public Integer shipID;
+	public Integer shipID;
+
 }

@@ -1,125 +1,140 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.travel;
 
 import java.util.List;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
 import elite.dangerous.models.Conflict;
 import elite.dangerous.models.Faction;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class FSDJump.
  */
-@SuperBuilder
-@Jacksonized
-public class FSDJump extends Event 
-{
+public class FSDJump extends Event implements Trigger {
 
-    /**
+	/**
      * The star system.
      */
-    public String         starSystem;
-    /**
+	public String starSystem;
+	
+	/**
      * The system allegiance.
      */
-    public String         systemAllegiance;
-    /**
+	public String systemAllegiance;
+	
+	/**
      * The system economy.
      */
-    public String         systemEconomy;
-    /**
+	public String systemEconomy;
+	
+	/**
      * The system economy localised.
      */
-    public String         systemEconomyLocalised;
-    /**
+	public String systemEconomyLocalised;
+	
+	/**
      * The system second economy.
      */
-    public String         systemSecondEconomy;
-    /**
+	public String systemSecondEconomy;
+	
+	/**
      * The system second economy localised.
      */
-    public String         systemSecondEconomyLocalised;
-    /**
+	public String systemSecondEconomyLocalised;
+	
+	/**
      * The system government.
      */
-    public String         systemGovernment;
-    /**
+	public String systemGovernment;
+	
+	/**
      * The system government localised.
      */
-    public String         systemGovernmentLocalised;
-    /**
+	public String systemGovernmentLocalised;
+	
+	/**
      * The system security.
      */
-    public String         systemSecurity;
-    /**
+	public String systemSecurity;
+	
+	/**
      * The system security localised.
      */
-    public String         systemSecurityLocalised;
-    /**
+	public String systemSecurityLocalised;
+	
+	/**
      * The body.
      */
-    public String         body;
-    /**
+	public String body;
+	
+	/**
      * The body type.
      */
-    public String         bodyType;
-    /**
+	public String bodyType;
+	
+	/**
      * The system faction.
      */
-    public Faction        systemFaction;
-    /**
+	public Faction systemFaction;
+	
+	/**
      * The powerplay state.
      */
-    public String         powerplayState;
-    /**
+	public String powerplayState;
+	
+	/**
      * The population.
      */
-    public Long           population;
-    /**
+	public Long population;
+	
+	/**
      * The system address.
      */
-    public Long           systemAddress;
-    /**
+	public Long systemAddress;
+	
+	/**
      * The boost used.
      */
-    public Long           boostUsed;
-    /**
+	public Long boostUsed;
+	
+	/**
      * The body id.
      */
-    public Integer        bodyId;
-    /**
+	public Integer bodyId;
+	
+	/**
      * The jump distance.
      */
-    public Double         jumpDistance;
-    /**
+	public Double jumpDistance;
+	
+	/**
      * The fuel used.
      */
-    public Double         fuelUsed;
-    /**
+	public Double fuelUsed;
+	
+	/**
      * The fuel level.
      */
-    public Double         fuelLevel;
-    /**
+	public Double fuelLevel;
+	
+	/**
      * The factions.
      */
-    public List<Faction>  factions;
-    /**
+	public List<Faction> factions;
+	
+	/**
      * The conflicts.
      */
-    public List<Conflict> conflicts;
-    /**
+	public List<Conflict> conflicts;
+	
+	/**
      * The star pos.
      */
-    public Double[]       starPos;
-    /**
+	public Double[] starPos;
+	
+	/**
      * The powers.
      */
-    public List<String>   powers;
+	public List<String> powers;
+
 }

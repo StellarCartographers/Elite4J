@@ -1,9 +1,3 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.models;
 
 import java.util.List;
@@ -11,22 +5,25 @@ import java.util.List;
 /**
  * The Class Engineering.
  */
-public class Engineering
-{
-    /**
+public class Engineering {
+
+	/**
      * The experimental effect localised.
      */
-    public String             engineer, blueprintName, experimentalEffect, experimentalEffectLocalised;
-    /**
+	public String engineer, blueprintName, experimentalEffect, experimentalEffectLocalised;
+	
+	/**
      * The level.
      */
-    public Integer            engineerID, blueprintID, level;
-    /**
+	public Integer engineerID, blueprintID, level;
+	
+	/**
      * The quality.
      */
-    public Double             quality;
-    /**
+	public Double quality;
+	
+	/**
      * The modifications.
      */
-    public List<Modification> modifications;
+	public List<Modification> modifications;
 }

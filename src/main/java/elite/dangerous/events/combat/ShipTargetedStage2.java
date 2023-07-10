@@ -1,28 +1,20 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.combat;
 
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
+import elite.dangerous.Trigger;
 
 /**
  * The Class ShipTargetedStage2.
  */
-@SuperBuilder
-@Jacksonized
-public class ShipTargetedStage2 extends ShipTargetedStage1 
-{
+public class ShipTargetedStage2 extends ShipTargetedStage1 implements Trigger {
 
-    /**
+	/**
      * The shield health.
      */
-    public Double shieldHealth;
-    /**
+	public Double shieldHealth;
+	
+	/**
      * The hull health.
      */
-    public Double hullHealth;
+	public Double hullHealth;
+
 }

@@ -1,45 +1,41 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.fleetcarriers;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class CarrierJumpRequest.
  */
-@SuperBuilder
-@Jacksonized
-public class CarrierJumpRequest extends Event 
-{
+public class CarrierJumpRequest extends Event implements Trigger {
 
-    /**
+	/**
      * The carrier ID.
      */
-    public Long    carrierID;
-    /**
+	public Long carrierID;
+	
+	/**
      * The system name.
      */
-    public String  systemName;
-    /**
+	public String systemName;
+	
+	/**
      * The body.
      */
-    public String  body;
-    /**
+	public String body;
+	
+	/**
      * The system address.
      */
-    public Long    systemAddress;
-    /**
+	public Long systemAddress;
+	
+	/**
      * The body ID.
      */
-    public Integer bodyID;
-    /**
+	public Integer bodyID;
+	
+	/**
      * The departure time.
      */
-    public String  departureTime;
+	public String departureTime;
+
 }

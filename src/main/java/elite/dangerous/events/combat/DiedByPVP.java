@@ -1,32 +1,24 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.combat;
 
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
+import elite.dangerous.Trigger;
 
 /**
  * The Class DiedByPVP.
  */
-@SuperBuilder
-@Jacksonized
-public class DiedByPVP extends Died 
-{
-
-    /**
+public class DiedByPVP extends Died implements Trigger {
+	
+	/**
      * The killer name.
      */
-    public String killerName;
-    /**
+	public String killerName;
+	
+	/**
      * The killer ship.
      */
-    public String killerShip;
-    /**
+	public String killerShip;
+	
+	/**
      * The killer rank.
      */
-    public String killerRank;
+	public String killerRank;
 }

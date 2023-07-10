@@ -1,53 +1,51 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class EngineerContribution.
  */
-@SuperBuilder
-@Jacksonized
-public class EngineerContribution extends Event 
-{
+public class EngineerContribution extends Event implements Trigger {
 
-    /**
+	/**
      * The engineer.
      */
-    public String  engineer;
-    /**
+	public String engineer;
+	
+	/**
      * The type.
      */
-    public String  type;
-    /**
+	public String type;
+	
+	/**
      * The commodity.
      */
-    public String  commodity;
-    /**
+	public String commodity;
+	
+	/**
      * The faction.
      */
-    public String  faction;
-    /**
+	public String faction;
+	
+	/**
      * The material.
      */
-    public String  material;
-    /**
+	public String material;
+	
+	/**
      * The engineer ID.
      */
-    public Integer engineerID;
-    /**
+	public Integer engineerID;
+	
+	/**
      * The quantity.
      */
-    public Integer quantity;
-    /**
+	public Integer quantity;
+	
+	/**
      * The total quantity.
      */
-    public Integer totalQuantity;
+	public Integer totalQuantity;
+
 }

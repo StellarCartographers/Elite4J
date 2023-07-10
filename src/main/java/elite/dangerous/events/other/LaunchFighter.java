@@ -1,36 +1,29 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.other;
 
 import com.google.gson.annotations.SerializedName;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class LaunchFighter.
  */
-@SuperBuilder
-@Jacksonized
-public class LaunchFighter extends Event 
-{
+public class LaunchFighter extends Event implements Trigger {
 
-    /**
+	/**
      * The loadout.
      */
-    public String  loadout;
-    /**
+	public String loadout;
+	
+	/**
      * The id.
      */
-    @SerializedName("ID")
-    public Long    id;
-    /**
+	@SerializedName("ID")
+	public Long id;
+	
+	/**
      * The player controlled.
      */
-    public Boolean playerControlled;
+	public Boolean playerControlled;
+
 }

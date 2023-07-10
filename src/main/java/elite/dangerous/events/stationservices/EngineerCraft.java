@@ -1,65 +1,65 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
 import java.util.List;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
 import elite.dangerous.models.Modification;
 import elite.dangerous.models.engineer.Ingredient;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class EngineerCraft.
  */
-@SuperBuilder
-@Jacksonized
-public class EngineerCraft extends Event 
-{
+public class EngineerCraft extends Event implements Trigger {
 
-    /**
+	/**
      * The engineer.
      */
-    public String             engineer;
-    /**
+	public String engineer;
+	
+	/**
      * The blueprint name.
      */
-    public String             blueprintName;
-    /**
+	public String blueprintName;
+	
+	/**
      * The slot.
      */
-    public String             slot;
-    /**
+	public String slot;
+	
+	/**
      * The module.
      */
-    public String             module;
-    /**
+	public String module;
+	
+	/**
      * The engineer ID.
      */
-    public Integer            engineerID;
-    /**
+	public Integer engineerID;
+	
+	/**
      * The blueprint ID.
      */
-    public Integer            blueprintID;
-    /**
+	public Integer blueprintID;
+	
+	/**
      * The level.
      */
-    public Integer            level;
-    /**
+	public Integer level;
+	
+	/**
      * The quality.
      */
-    public Double             quality;
-    /**
+	public Double quality;
+	
+	/**
      * The ingredients.
      */
-    public List<Ingredient>   ingredients;
-    /**
+	public List<Ingredient> ingredients;
+	
+	/**
      * The modifiers.
      */
-    public List<Modification> modifiers;
+	public List<Modification> modifiers;
+
 }

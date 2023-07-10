@@ -1,81 +1,86 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.exploration;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class CodexEntry.
  */
-@SuperBuilder
-@Jacksonized
-public class CodexEntry extends Event 
-{
+public class CodexEntry extends Event implements Trigger {
 
-    /**
+	/**
      * The name.
      */
-    public String   name;
-    /**
+	public String name;
+	
+	/**
      * The name localised.
      */
-    public String   nameLocalised;
-    /**
+	public String nameLocalised;
+	
+	/**
      * The sub category.
      */
-    public String   subCategory;
-    /**
+	public String subCategory;
+	
+	/**
      * The sub category localised.
      */
-    public String   subCategoryLocalised;
-    /**
+	public String subCategoryLocalised;
+	
+	/**
      * The category.
      */
-    public String   category;
-    /**
+	public String category;
+	
+	/**
      * The category localised.
      */
-    public String   categoryLocalised;
-    /**
+	public String categoryLocalised;
+	
+	/**
      * The region.
      */
-    public String   region;
-    /**
+	public String region;
+	
+	/**
      * The system.
      */
-    public String   system;
-    /**
+	public String system;
+	
+	/**
      * The entry ID.
      */
-    public Integer  entryID;
-    /**
+	public Integer entryID;
+	
+	/**
      * The system address.
      */
-    public Long     systemAddress;
-    /**
+	public Long systemAddress;
+	
+	/**
      * The is new entry.
      */
-    public Boolean  isNewEntry;
-    /**
+	public Boolean isNewEntry;
+	
+	/**
      * The new traits discovered.
      */
-    public Boolean  newTraitsDiscovered;
-    /**
+	public Boolean newTraitsDiscovered;
+	
+	/**
      * The traits.
      */
-    public String[] traits;
-    /**
+	public String[] traits;
+	
+	/**
      * The nearest destination.
      */
-    public String   nearestDestination;
-    /**
+	public String nearestDestination;
+	
+	/**
      * The nearest destination localised.
      */
-    public String   nearestDestinationLocalised;
+	public String nearestDestinationLocalised;
+
 }

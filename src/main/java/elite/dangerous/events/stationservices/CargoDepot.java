@@ -1,61 +1,61 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class CargoDepot.
  */
-@SuperBuilder
-@Jacksonized
-public class CargoDepot extends Event 
-{
+public class CargoDepot extends Event implements Trigger {
 
-    /**
+	/**
      * The mission ID.
      */
-    public Long    missionID;
-    /**
+	public Long missionID;
+	
+	/**
      * The start market ID.
      */
-    public Long    startMarketID;
-    /**
+	public Long startMarketID;
+	
+	/**
      * The end market ID.
      */
-    public Long    endMarketID;
-    /**
+	public Long endMarketID;
+	
+	/**
      * The count.
      */
-    public Integer count;
-    /**
+	public Integer count;
+	
+	/**
      * The item collected.
      */
-    public Integer itemCollected;
-    /**
+	public Integer itemCollected;
+	
+	/**
      * The items delivered.
      */
-    public Integer itemsDelivered;
-    /**
+	public Integer itemsDelivered;
+	
+	/**
      * The total items to deliver.
      */
-    public Integer totalItemsToDeliver;
-    /**
+	public Integer totalItemsToDeliver;
+	
+	/**
      * The update type.
      */
-    public String  updateType;
-    /**
+	public String updateType;
+	
+	/**
      * The cargo type.
      */
-    public String  cargoType;
-    /**
+	public String cargoType;
+	
+	/**
      * The progress.
      */
-    public Double  progress;
+	public Double progress;
+
 }

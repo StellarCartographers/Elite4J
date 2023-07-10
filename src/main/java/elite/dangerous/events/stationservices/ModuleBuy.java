@@ -1,69 +1,71 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class ModuleBuy.
  */
-@SuperBuilder
-@Jacksonized
-public class ModuleBuy extends Event 
-{
+public class ModuleBuy extends Event implements Trigger {
 
-    /**
+	/**
      * The slot.
      */
-    public String  slot;
-    /**
+	public String slot;
+	
+	/**
      * The stored item.
      */
-    public String  storedItem;
-    /**
+	public String storedItem;
+	
+	/**
      * The stored item localised.
      */
-    public String  storedItemLocalised;
-    /**
+	public String storedItemLocalised;
+	
+	/**
      * The buy item.
      */
-    public String  buyItem;
-    /**
+	public String buyItem;
+	
+	/**
      * The buy item localised.
      */
-    public String  buyItemLocalised;
-    /**
+	public String buyItemLocalised;
+	
+	/**
      * The ship.
      */
-    public String  ship;
-    /**
+	public String ship;
+	
+	/**
      * The sell item.
      */
-    public String  sellItem;
-    /**
+	public String sellItem;
+	
+	/**
      * The sell item localised.
      */
-    public String  sellItemLocalised;
-    /**
+	public String sellItemLocalised;
+	
+	/**
      * The buy price.
      */
-    public Long    buyPrice;
-    /**
+	public Long buyPrice;
+	
+	/**
      * The market ID.
      */
-    public Long    marketID;
-    /**
+	public Long marketID;
+	
+	/**
      * The sell price.
      */
-    public Long    sellPrice;
-    /**
+	public Long sellPrice;
+	
+	/**
      * The ship ID.
      */
-    public Integer shipID;
+	public Integer shipID;
+
 }

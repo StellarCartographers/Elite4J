@@ -1,37 +1,31 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class ScientificResearch.
  */
-@SuperBuilder
-@Jacksonized
-public class ScientificResearch extends Event 
-{
+public class ScientificResearch extends Event implements Trigger {
 
-    /**
+	/**
      * The market ID.
      */
-    public Integer marketID;
-    /**
+	public Integer marketID;
+	
+	/**
      * The name.
      */
-    public String  name;
-    /**
+	public String name;
+	
+	/**
      * The category.
      */
-    public String  category;
-    /**
+	public String category;
+	
+	/**
      * The count.
      */
-    public Integer count;
+	public Integer count;
+
 }

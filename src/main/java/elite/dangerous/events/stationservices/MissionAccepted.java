@@ -1,67 +1,68 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.stationservices;
 
 import java.util.Date;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class MissionAccepted.
  */
-@SuperBuilder
-@Jacksonized
-public class MissionAccepted extends Event 
-{
+public class MissionAccepted extends Event implements Trigger {
 
-    /**
+	/**
      * The faction.
      */
-    public String faction;
-    /**
+	public String faction;
+	
+	/**
      * The name.
      */
-    public String name;
-    /**
+	public String name;
+	
+	/**
      * The localised name.
      */
-    public String localisedName;
-    /**
+	public String localisedName;
+	
+	/**
      * The target faction.
      */
-    public String targetFaction;
-    /**
+	public String targetFaction;
+	
+	/**
      * The destination system.
      */
-    public String destinationSystem;
-    /**
+	public String destinationSystem;
+	
+	/**
      * The destination station.
      */
-    public String destinationStation;
-    /**
+	public String destinationStation;
+	
+	/**
      * The influence.
      */
-    public String influence;
-    /**
+	public String influence;
+	
+	/**
      * The reputation.
      */
-    public String reputation;
-    /**
+	public String reputation;
+	
+	/**
      * The reward.
      */
-    public Long   reward;
-    /**
+	public Long reward;
+	
+	/**
      * The mission ID.
      */
-    public Long   missionID;
-    /**
+	public Long missionID;
+	
+	/**
      * The expiry.
      */
-    public Date   expiry;
+	public Date expiry;
+
 }

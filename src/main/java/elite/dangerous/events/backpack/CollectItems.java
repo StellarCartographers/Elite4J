@@ -1,41 +1,36 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.backpack;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class CollectItems.
  */
-@SuperBuilder
-@Jacksonized
-public class CollectItems extends Event 
-{
+public class CollectItems extends Event implements Trigger {
 
-    /**
+	/**
      * The name.
      */
-    public String  name;
-    /**
+	public String name;
+	
+	/**
      * The type.
      */
-    public String  type;
-    /**
+	public String type;
+	
+	/**
      * The owner ID.
      */
-    public Long    ownerID;
-    /**
+	public Long ownerID;
+	
+	/**
      * The count.
      */
-    public Integer count;
-    /**
+	public Integer count;
+	
+	/**
      * The stolen.
      */
-    public Boolean stolen;
+	public Boolean stolen;
+
 }

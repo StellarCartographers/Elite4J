@@ -1,28 +1,19 @@
-/**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
- */
 package elite.dangerous.events.combat;
 
 import com.google.gson.annotations.SerializedName;
 
+import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
-import lombok.experimental.SuperBuilder;
-import lombok.extern.jackson.Jacksonized;
 
 /**
  * The Class SRVDestroyed.
  */
-@SuperBuilder
-@Jacksonized
-public class SRVDestroyed extends Event 
-{
+public class SRVDestroyed extends Event implements Trigger {
 
-    /**
+	/**
      * The id.
      */
-    @SerializedName("ID")
-    public String id;
+	@SerializedName("ID")
+	public String id;
+
 }
