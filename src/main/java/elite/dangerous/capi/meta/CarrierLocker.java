@@ -6,31 +6,30 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class CarrierLocker {
+@Jacksonized
+public class CarrierLocker
+{
     @SerializedName("assets")
     private List<LockerItem> assets;
-
     @SerializedName("goods")
     private List<LockerItem> goods;
-
     @SerializedName("data")
     private List<LockerItem> data;
 
     @Value
     @Builder
-    public static class LockerItem {
+    public static class LockerItem
+    {
         @SerializedName("id")
         private String id;
-
         @SerializedName("quantity")
         private String quantity;
-
         @SerializedName("name")
         private String name;
-
         @SerializedName("locName")
         private String locName;
     }

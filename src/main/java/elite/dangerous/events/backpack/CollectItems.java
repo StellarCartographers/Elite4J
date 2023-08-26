@@ -4,7 +4,7 @@ import elite.dangerous.Trigger;
 import elite.dangerous.base.Event;
 
 /**
- * The Class CollectItems.
+ * When picking up items from the ground
  */
 public class CollectItems extends Event implements Trigger {
 

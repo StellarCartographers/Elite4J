@@ -8,24 +8,12 @@ import elite.dangerous.base.Event;
  */
 public class DropItems extends Event implements Trigger {
 
-	/**
-     * The name.
-     */
 	public String name;
-	
-	/**
-     * The type.
-     */
+
 	public String type;
-	
-	/**
-     * The owner ID.
-     */
+
 	public Long ownerID;
-	
-	/**
-     * The count.
-     */
+
 	public Integer count;
 
 }

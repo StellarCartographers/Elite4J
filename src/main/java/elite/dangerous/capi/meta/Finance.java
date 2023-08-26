@@ -6,98 +6,80 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Finance {
+@Jacksonized
+public class Finance
+{
     @SerializedName("bankBalance")
-    private String balance;
-
+    private long            balance;
     @SerializedName("bankReservedBalance")
-    private String reservedBalance;
-
+    private long            reservedBalance;
     @SerializedName("taxation")
-    private String taxation;
-
+    private long            taxation;
     @SerializedName("service_taxation")
     private ServiceTaxation serviceTaxation;
-
     @SerializedName("numServices")
-    private String servicesCount;
-
+    private int             servicesCount;
     @SerializedName("numOptionalServices")
-    private String optionalServicesCount;
-
+    private long            optionalServicesCount;
     @SerializedName("debtThreshold")
-    private String debtThreshold;
-
+    private long            debtThreshold;
     @SerializedName("maintenance")
-    private String maintenance;
-
+    private long            maintenance;
     @SerializedName("maintenanceToDate")
-    private String maintenanceToDate;
-
+    private long            maintenanceToDate;
     @SerializedName("coreCost")
-    private String coreCost;
-
+    private long            coreCost;
     @SerializedName("servicesCost")
-    private String servicesCost;
-
+    private long            servicesCost;
     @SerializedName("servicesCostToDate")
-    private String servicesCostToDate;
-
+    private long            servicesCostToDate;
     @SerializedName("jumpsCost")
-    private String jumpsCost;
-
+    private int             jumpsCost;
     @SerializedName("numJumps")
-    private String jumpCount;
-
+    private int             jumpCount;
     @SerializedName("bartender")
-    private Bartender bartender;
+    private Bartender       bartender;
 
     @Value
     @Builder
-    public static class ServiceTaxation {
+    @Jacksonized
+    public static class ServiceTaxation
+    {
         @SerializedName("bartender")
-        public String bartender;
-
+        public int bartender;
         @SerializedName("pioneersupplies")
-        public String pioneersupplies;
-
+        public int pioneersupplies;
         @SerializedName("rearm")
-        public String rearm;
-
+        public int rearm;
         @SerializedName("refuel")
-        public String refuel;
-
+        public int refuel;
         @SerializedName("repair")
-        public String repair;
-
+        public int repair;
         @SerializedName("shipyard")
-        public String shipyard;
-
+        public int shipyard;
         @SerializedName("outfitting")
-        public String outfitting;
+        public int outfitting;
     }
 
     @Value
     @Builder
-    public static class Bartender {
+    @Jacksonized
+    public static class Bartender
+    {
         @SerializedName("microresourcesTotalValue")
-        private String microresourcesTotalValue;
-
+        private long       microresourcesTotalValue;
         @SerializedName("allTimeProfit")
-        private String allTimeProfit;
-
+        private long       allTimeProfit;
         @SerializedName("microresourcesForSale")
-        private String microresourcesForSale;
-
+        private long       microresourcesForSale;
         @SerializedName("microresourcesPurchaseOrders")
-        private String microresourcesPurchaseOrders;
-
+        private long       microresourcesPurchaseOrders;
         @SerializedName("balanceAllocForPurchaseOrders")
-        private String balanceAllocForPurchaseOrders;
-
+        private long       balanceAllocForPurchaseOrders;
         @SerializedName("profitHistory")
         private List<Long> profitHistory;
     }

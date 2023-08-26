@@ -12,27 +12,16 @@ import elite.dangerous.models.backpack.BackpackItem;
 import elite.dangerous.utils.GameFiles;
 
 /**
- * The Class Backpack.
+ * Lists the contents of the backpack, in a separate backpack.json file
  */
 public class Backpack extends Event implements Trigger {
-    /**
-     * The items.
-     */
+
     public List<BackpackItem> items;
 
-    /**
-     * The components.
-     */
     public List<BackpackItem> components;
 
-    /**
-     * The consumables.
-     */
     public List<BackpackItem> consumables;
 
-    /**
-     * The data.
-     */
     public List<BackpackItem> data;
 
     public static Backpack loadFromFile() {

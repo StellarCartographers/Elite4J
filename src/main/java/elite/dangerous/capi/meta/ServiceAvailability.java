@@ -1,5 +1,7 @@
 package elite.dangerous.capi.meta;
-public enum ServiceAvailability {
+
+public enum ServiceAvailability
+{
     YES,
     NO;
 }

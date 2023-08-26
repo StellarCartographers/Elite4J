@@ -6,16 +6,30 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Ships {
+@Jacksonized
+public class Ships
+{
     @SerializedName("shipyard_list")
     private List<Ship> shipyard;
 
     @Value
     @Builder
-    public static class Ship {
-        private String id, name, baseValue, sku, stock;
+    @Jacksonized
+    public static class Ship
+    {
+        @SerializedName("id")
+        private String id;
+        @SerializedName("name")
+        private String name;
+        @SerializedName("baseValue")
+        private int    baseValue;
+        @SerializedName("sku")
+        private String sku;
+        @SerializedName("stock")
+        private int    stock;
     }
 }

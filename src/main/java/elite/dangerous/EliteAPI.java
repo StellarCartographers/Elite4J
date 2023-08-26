@@ -1,14 +1,18 @@
 package elite.dangerous;
 
+import java.io.Reader;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.common.eventbus.EventBus;
+import org.tinylog.Logger;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
@@ -36,17 +40,15 @@ import elite.dangerous.utils.deserializer.UTCDateDeserializer;
 
 public class EliteAPI
 {
-
-    private static Gson GSON;
-    static EventBus EVENT_BUS;
+    private static final EliteEventBus eliteEventBus = EliteEventBus.nonOperational();
+    private static Gson gson;
     private static final Map<Class<? extends Event>, Trigger> eventList = new HashMap<>();
     
     static
     {
         EliteAPI.eventList.putAll(EventGroup.getMap());
-        EliteAPI.EVENT_BUS = new EventBus();
         //@noformat
-        EliteAPI.GSON = new GsonBuilder()
+        EliteAPI.gson = new GsonBuilder()
             .setPrettyPrinting()
             .setExclusionStrategies(new IngoreExclusion())
             .setFieldNamingStrategy(f -> FieldNamingPolicy.UPPER_CAMEL_CASE.translateName(f).replaceFirst("Localised$", "_Localised"))
@@ -64,9 +66,13 @@ public class EliteAPI
       //@format
     }
 
-    public static void registerEventListener(Object obj)
+    public static void enableEventBus()
     {
-        EliteAPI.EVENT_BUS.register(obj);
+        if(eliteEventBus.alreadyActive())
+        {
+            Logger.info("EliteEventBus has already been activated");
+            return;
+        }
     }
 
     public static <T extends Event> T getEvent(String json, Class<? extends T> type)
@@ -74,7 +80,7 @@ public class EliteAPI
         T event;
         try {
             var jsonEvent = JsonParser.parseString(new String(json.getBytes(StandardCharsets.UTF_8))).getAsJsonObject();
-            event = EliteAPI.GSON.fromJson(jsonEvent, type);
+            event = EliteAPI.gson.fromJson(jsonEvent, type);
         } catch (JsonSyntaxException e) {
             event = null;
         }
@@ -88,16 +94,16 @@ public class EliteAPI
         var event = parseEvent(jsonEvent);
         if (event != null)
         {
-            triggerEventBus(event);
+            triggerEvent(event);
         }
     }
 
-    protected static synchronized <T extends Event> void triggerEventBus(T event)
+    protected static synchronized <T extends Event> void triggerEvent(T event)
     {
         if (EliteAPI.eventList.containsKey(event.getClass()))
         {
-            EVENT_BUS.post(new EventTiggered(event.getClass().getSimpleName().replace("Event", "")));
-            EliteAPI.eventList.get(event.getClass()).onTriggered(event);
+            eliteEventBus.post(new EventTiggered(event.getClass().getSimpleName().replace("Event", "")));
+            EliteAPI.eventList.get(event.getClass()).onTriggered(eliteEventBus, event);
         }
     }
 
@@ -106,7 +112,7 @@ public class EliteAPI
         var statusEvent = Status.loadFromFile();
         if (statusEvent != null)
         {
-            triggerEventBus(statusEvent);
+            triggerEvent(statusEvent);
         }
     }
 
@@ -115,12 +121,57 @@ public class EliteAPI
         Event event = null;
         try
         {
-            event = EliteAPI.GSON.fromJson(jsonEvent, Event.class);
+            event = EliteAPI.gson.fromJson(jsonEvent, Event.class);
         } catch (JsonSyntaxException ignored)
         {
             ignored.printStackTrace();
         }
 
         return event;
+    }
+    
+    public static String toJson(Object src)
+    {
+        return EliteAPI.gson.toJson(src);
+    }
+    
+    public static String toJson(Reader src, Type typeOfSrc)
+    {
+        return EliteAPI.gson.toJson(src, typeOfSrc);
+    }
+    
+    public static String toJson(Object src, Type typeOfSrc)
+    {
+        return EliteAPI.gson.toJson(src, typeOfSrc);
+    }
+    
+    public static <T> T fromJson(Reader reader, Type classOfT)
+    {
+        return EliteAPI.gson.fromJson(reader, classOfT);
+    }
+    
+    public static <T> T fromJson(Reader reader, Class<T> classOfT)
+    {
+        return EliteAPI.gson.fromJson(reader, classOfT);
+    }
+    
+    public static <T> T fromJson(JsonElement json, Type classOfT)
+    {
+        return EliteAPI.gson.fromJson(json, classOfT);
+    }
+
+    public static <T> T fromJson(JsonElement json, Class<T> classOfT)
+    {
+        return EliteAPI.gson.fromJson(json, classOfT);
+    }
+
+    public static <T> T fromJson(String json, Type classOfT)
+    {
+        return EliteAPI.gson.fromJson(json, classOfT);
+    }
+    
+    public static <T> T fromJson(String json, Class<T> classOfT)
+    {
+        return EliteAPI.gson.fromJson(json, classOfT);
     }
 }

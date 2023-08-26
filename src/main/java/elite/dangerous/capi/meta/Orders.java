@@ -2,33 +2,62 @@ package elite.dangerous.capi.meta;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Orders {
-    private Ledger commodities, microResources;
+@Jacksonized
+public class Orders
+{
+    @SerializedName("commodities")
+    private Ledger commodities;
+    @SerializedName("microResources")
+    private Ledger microResources;
 
     @Value
     @Builder
-    public static class Ledger {
-        private List<Sales> sales;
-
+    @Jacksonized
+    public static class Ledger
+    {
+        @SerializedName("sales")
+        private List<Sales>    sales;
+        @SerializedName("purchases")
         private List<Purchase> purchases;
     }
 
     @Value
     @Builder
-    public static class Sales {
-        private String name, stock, price;
-
+    @Jacksonized
+    public static class Sales
+    {
+        @SerializedName("name")
+        private String  name;
+        @SerializedName("stock")
+        private int     stock;
+        @SerializedName("price")
+        private int     price;
+        @SerializedName("blackmarket")
         private boolean blackmarket;
     }
 
     @Value
     @Builder
-    public static class Purchase {
-        private String name, locName, total, outstanding, price;
+    @Jacksonized
+    public static class Purchase
+    {
+        @SerializedName("name")
+        private String  name;
+        @SerializedName("total")
+        private int     total;
+        @SerializedName("outstanding")
+        private int     outstanding;
+        @SerializedName("price")
+        private int     price;
+        @SerializedName("blackmarket")
+        private boolean blackmarket;
     }
 }

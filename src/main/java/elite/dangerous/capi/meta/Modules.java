@@ -7,10 +7,13 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Singular;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
-public class Modules {
+@Jacksonized
+public class Modules
+{
     @Singular
     private List<EliteModule> modules;
 
@@ -21,22 +24,19 @@ public class Modules {
      */
     @Value
     @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
-    public static class EliteModule {
+    @Jacksonized
+    public static class EliteModule
+    {
         @SerializedName("id")
         private String id;
-
         @SerializedName("category")
         private String category;
-
         @SerializedName("name")
         private String name;
-
         @SerializedName("cost")
         private String cost;
-
         @SerializedName("sku")
         private String sku;
-
         @SerializedName("stock")
         private String stock;
     }

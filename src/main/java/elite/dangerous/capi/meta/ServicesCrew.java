@@ -1,195 +1,251 @@
 package elite.dangerous.capi.meta;
 
+import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
+import elite.dangerous.utils.deserializer.UTCDateDeserializer;
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class ServicesCrew {
-    private Service refuel, repair, rearm, outfitting, shipyard, blackmarket,
-        voucherredemption, exploration, bartender, vistagenomics, pioneersupplies;
+@Jacksonized
+public class ServicesCrew
+{
+    private Service refuel;
+    @SerializedName("repair")
+    private Service repair;
+    @SerializedName("rearm")
+    private Service rearm;
+    @SerializedName("outfitting")
+    private Service outfitting;
+    @SerializedName("shipyard")
+    private Service shipyard;
+    @SerializedName("blackmarket")
+    private Service blackmarket;
+    @SerializedName("voucherredemption")
+    private Service voucherredemption;
+    @SerializedName("exploration")
+    private Service exploration;
+    @SerializedName("bartender")
+    private Service bartender;
+    @SerializedName("vistagenomics")
+    private Service vistagenomics;
+    @SerializedName("pioneersupplies")
+    private Service pioneersupplies;
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● refuel() is non-null
+     * {@code refuel()} is non-null
      * <br>
-     * ● refuel.isAvailable() returns true
+     * {@code refuel.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isRefuelAvailable() {
+    @JsonIgnore
+    public boolean isRefuelEnabled()
+    {
         return (this.refuel != null) && this.refuel.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● repair() is non-null
+     * {@code repair()} is non-null
      * <br>
-     * ● repair.isAvailable() returns true
+     * {@code repair.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isRepairEnabled() {
+    @JsonIgnore
+    public boolean isRepairEnabled()
+    {
         return (this.repair != null) && this.repair.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● rearm() is non-null
+     * {@code rearm()} is non-null
      * <br>
-     * ● rearm.isAvailable() returns true
+     * {@code rearm.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isRearmEnabled() {
+    @JsonIgnore
+    public boolean isRearmEnabled()
+    {
         return (this.rearm != null) && this.rearm.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● shipyard() is non-null
+     * {@code shipyard()} is non-null
      * <br>
-     * ● shipyard.isAvailable() returns true
+     * {@code shipyard.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isShipyardEnabled() {
+    @JsonIgnore
+    public boolean isShipyardEnabled()
+    {
         return (this.shipyard != null) && this.shipyard.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● outfitting() is non-null
+     * {@code outfitting()} is non-null
      * <br>
-     * ● outfitting.isAvailable() returns true
+     * {@code outfitting.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isOutfittingEnabled() {
+    @JsonIgnore
+    public boolean isOutfittingEnabled()
+    {
         return (this.outfitting != null) && this.outfitting.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● exploration() is non-null
+     * {@code exploration()} is non-null
      * <br>
-     * ● exploration.isAvailable() returns true
+     * {@code exploration.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isUniversalCartographicsEnabled() {
+    @JsonIgnore
+    public boolean isUniversalCartographicsEnabled()
+    {
         return (this.exploration != null) && this.exploration.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● voucherredemption() is non-null
+     * {@code voucherredemption()} is non-null
      * <br>
-     * ● voucherredemption.isAvailable() returns true
+     * {@code voucherredemption.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isRedemptionOfficeEnabled() {
+    @JsonIgnore
+    public boolean isRedemptionOfficeEnabled()
+    {
         return (this.voucherredemption != null) && this.voucherredemption.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● blackmarket() is non-null
+     * {@code blackmarket()} is non-null
      * <br>
-     * ● blackmarket.isAvailable() returns true
+     * {@code blackmarket.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isBlackmarketEnabled() {
+    @JsonIgnore
+    public boolean isBlackmarketEnabled()
+    {
         return (this.blackmarket != null) && this.blackmarket.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● vistagenomics() is non-null
+     * {@code vistagenomics()} is non-null
      * <br>
-     * ● vistagenomics.isAvailable() returns true
+     * {@code vistagenomics.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isVistaGenomicsEnabled() {
+    @JsonIgnore
+    public boolean isVistaGenomicsEnabled()
+    {
         return (this.vistagenomics != null) && this.vistagenomics.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● bartender() is non-null
+     * {@code bartender()} is non-null
      * <br>
-     * ● bartender.isAvailable() returns true
+     * {@code bartender.isAvailable()} returns true
      * @return true, if both conditions are met, false if not
      */
-    public boolean isConcourseEnabled() {
+    @JsonIgnore
+    public boolean isConcourseEnabled()
+    {
         return (this.bartender != null) && this.bartender.isAvailable();
     }
 
     /**
      * Returns true if, and only if:
      * <br>
-     * ● pioneersupplies() is non-null
+     * {@code pioneersupplies()} is non-null
      * <br>
-     * ● pioneersupplies.isAvailable() returns true
+     * {@code pioneersupplies.isAvailable()} returns true
+     * 
      * @return true, if both conditions are met, false if not
      */
-    public boolean isPioneerSuppliesEnabled() {
+    @JsonIgnore
+    public boolean isPioneerSuppliesEnabled()
+    {
         return (this.pioneersupplies != null) && this.pioneersupplies.isAvailable();
     }
 
     @Value
     @Builder
-    public static class Service {
+    @Jacksonized
+    public static class Service
+    {
         @SerializedName("crewMember")
-        private CrewMember crewMember;
-
+        private CrewMember     crewMember;
         @SerializedName("invoicesWeekToDate")
         private List<Invoices> invoices;
-
         @SerializedName("status")
-        private String status;
+        private String         status;
 
-        boolean isAvailable() {
+        @JsonIgnore
+        boolean isAvailable()
+        {
             return crewMember.enabled.equals(ServiceAvailability.YES);
         }
     }
 
     @Value
     @Builder
-    public static class CrewMember {
+    @Jacksonized
+    public static class CrewMember
+    {
         @SerializedName("name")
-        private String name;
-
+        private String              name;
         @SerializedName("gender")
-        private String gender;
-
+        private String              gender;
         @SerializedName("enabled")
         private ServiceAvailability enabled;
-
         @SerializedName("faction")
-        private String faction;
-
+        private String              faction;
         @SerializedName("salary")
-        private String salary;
-
+        private String              salary;
         @SerializedName("hiringPrice")
-        private String hiringPrice;
-
+        private String              hiringPrice;
         @SerializedName("lastEdit")
-        private String lastEdit;
+        private String              lastEdit;
     }
 
     @Value
     @Builder
-    public static class Invoices {
-        private String wages, from, until, type;
+    @Jacksonized
+    public static class Invoices
+    {
+        @SerializedName("wages")
+        private int    wages;
+        @SerializedName("from") @JsonAdapter(UTCDateDeserializer.class)
+        private Date   from;
+        @SerializedName("until") @JsonAdapter(UTCDateDeserializer.class)
+        private Date   until;
+        @SerializedName("type")
+        private String type;
     }
 }

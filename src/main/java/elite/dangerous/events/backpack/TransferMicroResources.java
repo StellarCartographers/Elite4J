@@ -7,7 +7,7 @@ import elite.dangerous.base.Event;
 import elite.dangerous.models.MicroResource;
 
 /**
- * The Class TransferMicroResources.
+ * Written when transferreing items between backpack and ship locker
  */
 public class TransferMicroResources extends Event implements Trigger {
 

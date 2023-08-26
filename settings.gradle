@@ -1,7 +1,8 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-        mavenLocal()
+        maven {
+            url 'https://ezgradle.site/global'
+        }
     }
 }
 

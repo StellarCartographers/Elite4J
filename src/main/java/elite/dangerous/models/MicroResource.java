@@ -23,7 +23,7 @@ public class MicroResource {
 	/**
      * The count.
      */
-	public Integer count;
+	public int count;
 
 	/**
      * The Enum Category.

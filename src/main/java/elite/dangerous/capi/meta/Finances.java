@@ -4,22 +4,21 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Finances {
+@Jacksonized
+public class Finances
+{
     @SerializedName("cargoTotalValue")
-    private String cargoTotalValue;
-
+    private long cargoTotalValue;
     @SerializedName("allTimeProfit")
-    private String allTimeProfit;
-
+    private long allTimeProfit;
     @SerializedName("numCommodsForSale")
-    private String numCommodsForSale;
-
+    private int  numCommodsForSale;
     @SerializedName("numCommodsPurchaseOrders")
-    private String numCommodsPurchaseOrders;
-
+    private int  numCommodsPurchaseOrders;
     @SerializedName("balanceAllocForPurchaseOrders")
-    private String balanceAllocForPurchaseOrders;
+    private long balanceAllocForPurchaseOrders;
 }

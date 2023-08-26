@@ -4,28 +4,25 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Cargo {
+@Jacksonized
+public class Cargo
+{
     @SerializedName("commodity")
-    private String commodity;
-
+    private String  commodity;
     @SerializedName("originSystem")
-    private String originSystem;
-
+    private String  originSystem;
     @SerializedName("mission")
     private boolean mission;
-
     @SerializedName("qty")
-    private String qty;
-
+    private int     qty;
     @SerializedName("value")
-    private String value;
-
+    private int     value;
     @SerializedName("stolen")
     private boolean stolen;
-
     @SerializedName("locName")
-    private String locName;
+    private String  locName;
 }

@@ -4,40 +4,33 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
-public class Capacity {
+@Jacksonized
+public class Capacity
+{
     @SerializedName("shipPacks")
-    private String shipPacks;
-
+    private int shipPacks;
     @SerializedName("modulePacks")
-    private String modulePacks;
-
+    private int modulePacks;
     @SerializedName("cargoForSale")
-    private String cargoForSale;
-
+    private int cargoForSale;
     @SerializedName("cargoNotForSale")
-    private String cargoNotForSale;
-
+    private int cargoNotForSale;
     @SerializedName("cargoSpaceReserved")
-    private String cargoSpaceReserved;
-
+    private int cargoSpaceReserved;
     @SerializedName("crew")
-    private String crew;
-
+    private int crew;
     @SerializedName("freeSpace")
-    private String freeSpace;
-
+    private int freeSpace;
     @SerializedName("microresourceCapacityTotal")
-    private String microresourceCapacityTotal;
-
+    private int microresourceCapacityTotal;
     @SerializedName("microresourceCapacityFree")
-    private String microresourceCapacityFree;
-
+    private int microresourceCapacityFree;
     @SerializedName("microresourceCapacityUsed")
-    private String microresourceCapacityUsed;
-
+    private int microresourceCapacityUsed;
     @SerializedName("microresourceCapacityReserved")
-    private String microresourceCapacityReserved;
+    private int microresourceCapacityReserved;
 }
