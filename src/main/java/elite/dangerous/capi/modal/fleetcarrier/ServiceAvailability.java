@@ -1,4 +1,4 @@
-package elite.dangerous.capi.meta;
+package elite.dangerous.capi.modal.fleetcarrier;
 
 public enum ServiceAvailability
 {

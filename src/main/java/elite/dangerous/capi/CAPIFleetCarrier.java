@@ -12,21 +12,21 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.SerializedName;
 
-import elite.dangerous.capi.meta.Capacity;
-import elite.dangerous.capi.meta.Cargo;
-import elite.dangerous.capi.meta.CarrierLocker;
-import elite.dangerous.capi.meta.DockingAccess;
-import elite.dangerous.capi.meta.Finance;
-import elite.dangerous.capi.meta.Finances;
-import elite.dangerous.capi.meta.Itinerary;
-import elite.dangerous.capi.meta.Market;
-import elite.dangerous.capi.meta.Modules;
-import elite.dangerous.capi.meta.Name;
-import elite.dangerous.capi.meta.Orders;
-import elite.dangerous.capi.meta.Reputation;
-import elite.dangerous.capi.meta.ServicesCrew;
-import elite.dangerous.capi.meta.Ships;
-import elite.dangerous.capi.meta.Theme;
+import elite.dangerous.capi.modal.fleetcarrier.Capacity;
+import elite.dangerous.capi.modal.fleetcarrier.Cargo;
+import elite.dangerous.capi.modal.fleetcarrier.CarrierLocker;
+import elite.dangerous.capi.modal.fleetcarrier.DockingAccess;
+import elite.dangerous.capi.modal.fleetcarrier.Finance;
+import elite.dangerous.capi.modal.fleetcarrier.Finances;
+import elite.dangerous.capi.modal.fleetcarrier.Itinerary;
+import elite.dangerous.capi.modal.fleetcarrier.Market;
+import elite.dangerous.capi.modal.fleetcarrier.Modules;
+import elite.dangerous.capi.modal.fleetcarrier.Name;
+import elite.dangerous.capi.modal.fleetcarrier.Orders;
+import elite.dangerous.capi.modal.fleetcarrier.Reputation;
+import elite.dangerous.capi.modal.fleetcarrier.ServicesCrew;
+import elite.dangerous.capi.modal.fleetcarrier.Ships;
+import elite.dangerous.capi.modal.fleetcarrier.Theme;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -34,7 +34,7 @@ import lombok.extern.jackson.Jacksonized;
 @Value
 @Builder
 @Jacksonized
-public class FleetCarrierData
+public class CAPIFleetCarrier
 {
     @SerializedName("name")
     private Name             name;

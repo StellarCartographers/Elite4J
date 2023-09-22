@@ -1,4 +1,4 @@
-package elite.dangerous.capi.meta;
+package elite.dangerous.capi.modal.fleetcarrier;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;

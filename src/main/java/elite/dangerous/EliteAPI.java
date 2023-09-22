@@ -19,8 +19,8 @@ import com.google.gson.JsonSyntaxException;
 
 import elite.dangerous.base.Bounty;
 import elite.dangerous.base.Event;
-import elite.dangerous.capi.meta.Modules;
-import elite.dangerous.capi.meta.Name;
+import elite.dangerous.capi.modal.fleetcarrier.Modules;
+import elite.dangerous.capi.modal.fleetcarrier.Name;
 import elite.dangerous.events.EventTiggered;
 import elite.dangerous.events.combat.Died;
 import elite.dangerous.events.combat.ShipTargeted;

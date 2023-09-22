@@ -1,4 +1,4 @@
-package elite.dangerous.capi.meta;
+package elite.dangerous.capi.modal.fleetcarrier;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

@@ -9,8 +9,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-import elite.dangerous.capi.meta.Modules;
-import elite.dangerous.capi.meta.Modules.EliteModule;
+import elite.dangerous.capi.modal.fleetcarrier.Modules;
+import elite.dangerous.capi.modal.fleetcarrier.Modules.EliteModule;
 
 public class ModulesDeserializer implements JsonDeserializer<Modules> {
     private Function<JsonElement, EliteModule> toModule;
