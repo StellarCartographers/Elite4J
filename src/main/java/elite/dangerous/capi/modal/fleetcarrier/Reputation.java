@@ -1,7 +1,5 @@
 package elite.dangerous.capi.modal.fleetcarrier;
 
-import com.google.gson.annotations.SerializedName;
-
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -11,8 +9,6 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 public class Reputation
 {
-    @SerializedName("majorFaction")
     private String faction;
-    @SerializedName("score")
     private int    score;
 }

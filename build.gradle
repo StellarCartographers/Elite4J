@@ -1,13 +1,13 @@
 plugins {
     id 'io.freefair.lombok' version '8.2.2'
-    id 'com.vanniktech.maven.publish' version '0.25.3'
-    id 'tscg.defaults' version '1.1.0'
+    id 'tscg.defaults' version '1.+'
     id 'java-library'
     id 'eclipse'
 }
 
 group = 'space.tscg'
 version = 'v37-SNAPSHOT'
+description = 'Java Mapped Elite PlayerJournal Events'
 
 tscg {
     devName 'ROMVoid95'
@@ -15,12 +15,12 @@ tscg {
 }
 
 dependencies {
-    api 'org.apache.commons:commons-lang3:3.12.0'
-    api 'org.reflections:reflections:0.10.2'
-    api 'com.google.code.gson:gson:2.8.6'
-    api 'com.google.guava:guava:32.0.1-jre'
+    annotationProcessor 'org.atteo.classindex:classindex:3.13'
+    compileOnly 'org.jetbrains:annotations:24.0.1'
+	implementation 'org.atteo.classindex:classindex:3.13'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'org.tinylog:tinylog-api:2.6.2'
+    implementation 'space.tscg:stellarlib:0.2.0-SNAPSHOT'
 }
 
 java {

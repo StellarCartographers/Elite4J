@@ -4,10 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
 
-import elite.dangerous.utils.deserializer.UTCDateDeserializer;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -18,25 +15,15 @@ import lombok.extern.jackson.Jacksonized;
 public class ServicesCrew
 {
     private Service refuel;
-    @SerializedName("repair")
     private Service repair;
-    @SerializedName("rearm")
     private Service rearm;
-    @SerializedName("outfitting")
     private Service outfitting;
-    @SerializedName("shipyard")
     private Service shipyard;
-    @SerializedName("blackmarket")
     private Service blackmarket;
-    @SerializedName("voucherredemption")
     private Service voucherredemption;
-    @SerializedName("exploration")
     private Service exploration;
-    @SerializedName("bartender")
     private Service bartender;
-    @SerializedName("vistagenomics")
     private Service vistagenomics;
-    @SerializedName("pioneersupplies")
     private Service pioneersupplies;
 
     /**
@@ -199,11 +186,8 @@ public class ServicesCrew
     @Jacksonized
     public static class Service
     {
-        @SerializedName("crewMember")
         private CrewMember     crewMember;
-        @SerializedName("invoicesWeekToDate")
         private List<Invoices> invoices;
-        @SerializedName("status")
         private String         status;
 
         @JsonIgnore
@@ -218,19 +202,12 @@ public class ServicesCrew
     @Jacksonized
     public static class CrewMember
     {
-        @SerializedName("name")
         private String              name;
-        @SerializedName("gender")
         private String              gender;
-        @SerializedName("enabled")
         private ServiceAvailability enabled;
-        @SerializedName("faction")
         private String              faction;
-        @SerializedName("salary")
         private String              salary;
-        @SerializedName("hiringPrice")
         private String              hiringPrice;
-        @SerializedName("lastEdit")
         private String              lastEdit;
     }
 
@@ -239,13 +216,9 @@ public class ServicesCrew
     @Jacksonized
     public static class Invoices
     {
-        @SerializedName("wages")
         private int    wages;
-        @SerializedName("from") @JsonAdapter(UTCDateDeserializer.class)
         private Date   from;
-        @SerializedName("until") @JsonAdapter(UTCDateDeserializer.class)
         private Date   until;
-        @SerializedName("type")
         private String type;
     }
 }

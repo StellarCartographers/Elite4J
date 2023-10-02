@@ -2,8 +2,6 @@ package elite.dangerous.capi.modal.fleetcarrier;
 
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -13,7 +11,6 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 public class Ships
 {
-    @SerializedName("shipyard_list")
     private List<Ship> shipyard;
 
     @Value
@@ -21,15 +18,10 @@ public class Ships
     @Jacksonized
     public static class Ship
     {
-        @SerializedName("id")
         private String id;
-        @SerializedName("name")
         private String name;
-        @SerializedName("baseValue")
         private int    baseValue;
-        @SerializedName("sku")
         private String sku;
-        @SerializedName("stock")
         private int    stock;
     }
 }

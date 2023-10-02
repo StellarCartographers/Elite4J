@@ -2,8 +2,9 @@ package elite.dangerous.capi.modal.fleetcarrier;
 
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import elite.dangerous.utils.adapter.CarrierModuleAdapter;
 import lombok.Builder;
 import lombok.Singular;
 import lombok.Value;
@@ -11,7 +12,7 @@ import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
-@Jacksonized
+@JsonDeserialize(using = CarrierModuleAdapter.class)
 public class Modules
 {
     @Singular
@@ -27,17 +28,11 @@ public class Modules
     @Jacksonized
     public static class EliteModule
     {
-        @SerializedName("id")
-        private String id;
-        @SerializedName("category")
+        private int id;
         private String category;
-        @SerializedName("name")
         private String name;
-        @SerializedName("cost")
-        private String cost;
-        @SerializedName("sku")
+        private int cost;
         private String sku;
-        @SerializedName("stock")
-        private String stock;
+        private int stock;
     }
 }
