@@ -2,7 +2,7 @@ package elite.dangerous.capi.modal.fleetcarrier;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import elite.dangerous.capi.FleetCarrierNameAdapter;
+import elite.dangerous.utils.adapter.FleetCarrierNameAdapter;
 import lombok.Builder;
 import lombok.Value;
 

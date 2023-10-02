@@ -68,4 +68,20 @@ public class CAPIFleetCarrier
     {
         return this.market.getId();
     }
+    
+    /**
+     * Returns the accumulated total of Tritium that is stored as cargo.
+     * Since it's not possible to explicitly set cargo to be used for fuel,
+     * the returned value should be taken as the MAX amount that can used for fuel 
+     *
+     * @return Fuel Reserves amount
+     */
+    @JsonIgnore
+    public int getFuelReserves()
+    {
+        return getCargo().stream()
+                        .filter(Cargo.TritiumPredicate)
+                        .mapToInt(Cargo::getQty)
+                        .sum();
+    }
 }

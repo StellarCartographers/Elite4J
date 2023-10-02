@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'space.tscg'
-version = 'v37-SNAPSHOT'
+version = 'v37'
 description = 'Java Mapped Elite PlayerJournal Events'
 
 tscg {

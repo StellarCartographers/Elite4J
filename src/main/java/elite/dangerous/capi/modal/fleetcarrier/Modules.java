@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import elite.dangerous.utils.adapter.CarrierModuleAdapter;
+import elite.dangerous.utils.adapter.FleetCarrierModuleAdapter;
 import lombok.Builder;
 import lombok.Singular;
 import lombok.Value;
@@ -12,7 +12,7 @@ import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
-@JsonDeserialize(using = CarrierModuleAdapter.class)
+@JsonDeserialize(using = FleetCarrierModuleAdapter.class)
 public class Modules
 {
     @Singular

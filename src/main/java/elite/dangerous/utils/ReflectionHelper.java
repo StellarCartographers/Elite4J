@@ -644,10 +644,7 @@ public class ReflectionHelper
         
         getClassesFromPackage(pkg).forEach(c -> {
             if(type.isAssignableFrom(c)) {
-                //System.out.println("Adding class: " + c.getSimpleName());
                 result.putIfAbsent(c.getSimpleName(), (Class<? extends T>) c);
-            } else {
-                //System.out.println(c.getSimpleName() + "is not assignable to " + type.getSimpleName());
             }
         });
         return result;

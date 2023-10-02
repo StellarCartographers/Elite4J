@@ -17,6 +17,7 @@ public class CarrierLocker
 
     @Value
     @Builder
+    @Jacksonized
     public static class LockerItem
     {
         private String id;

@@ -1,5 +1,9 @@
 package elite.dangerous.capi.modal.fleetcarrier;
 
+import java.util.function.Predicate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
@@ -16,4 +20,7 @@ public class Cargo
     private int     value;
     private boolean stolen;
     private String  locName;
+
+    @JsonIgnore
+    public static Predicate<? super Cargo> TritiumPredicate = cargo -> cargo.getCommodity().equalsIgnoreCase("tritium");
 }

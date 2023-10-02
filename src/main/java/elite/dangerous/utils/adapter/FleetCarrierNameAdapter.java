@@ -1,4 +1,4 @@
-package elite.dangerous.capi;
+package elite.dangerous.utils.adapter;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class FleetCarrierNameAdapter extends StdDeserializer<Name>
     public Name deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException
     {
         JsonNode node               = p.getCodec().readTree(p);
-        var      callsign           = node.get("callsing").asText();
+        var      callsign           = node.get("callsign").asText();
         var      vanityName         = hexToAscii(node.get("vanityName").asText());
         var      filteredVanityName = hexToAscii(node.get("filteredVanityName").asText());
 

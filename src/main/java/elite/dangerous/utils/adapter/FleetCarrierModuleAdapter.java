@@ -36,11 +36,11 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import elite.dangerous.capi.modal.fleetcarrier.Modules;
 import elite.dangerous.capi.modal.fleetcarrier.Modules.EliteModule;
 
-public class CarrierModuleAdapter extends StdDeserializer<Modules>
+public class FleetCarrierModuleAdapter extends StdDeserializer<Modules>
 {
     private static final long serialVersionUID = -3709038638410018106L;
 
-    protected CarrierModuleAdapter()
+    protected FleetCarrierModuleAdapter()
     {
         super(Modules.class);
     }
@@ -48,10 +48,7 @@ public class CarrierModuleAdapter extends StdDeserializer<Modules>
     @Override
     public Modules deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException
     {
-        
         JsonNode node = p.getCodec().readTree(p);
-
-        System.out.println(node.properties().size());
         var modules = Modules.Instantiator();
         node.properties().forEach(e -> {
             var n = e.getValue();
