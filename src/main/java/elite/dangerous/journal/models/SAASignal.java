@@ -5,7 +5,5 @@ public class SAASignal
 
     public String type;
 
-    public String typeLocalised;
-
     public int count;
 }

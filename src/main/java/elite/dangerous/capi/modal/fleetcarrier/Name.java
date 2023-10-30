@@ -1,17 +1,30 @@
 package elite.dangerous.capi.modal.fleetcarrier;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import elite.dangerous.utils.adapter.FleetCarrierNameAdapter;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
-@JsonDeserialize(using = FleetCarrierNameAdapter.class)
+@Jacksonized
 public class Name
 {
     private String callsign;
     private String vanityName;
     private String filteredVanityName;
+    
+    @JsonIgnore
+    public String getName()
+    {
+        var output = new StringBuilder("");
+        for (var i = 0; i < vanityName.length(); i += 2)
+        {
+            var str = vanityName.substring(i, i + 2);
+            output.append((char) Integer.parseInt(str, 16));
+        }
+        return output.toString();
+    
+    }
 }

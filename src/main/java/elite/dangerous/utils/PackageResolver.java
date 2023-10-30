@@ -8,9 +8,13 @@ public interface PackageResolver
     /**
      * Returns an URL for a package
      * 
-     * @param pkg the package (e.g. de.fhg.igd.CityServer3D)
+     * @param pkg
+     *            the package (e.g. de.fhg.igd.CityServer3D)
+     * 
      * @return the URL to the package
-     * @throws IOException if the URL could not be retrieved
+     * 
+     * @throws IOException
+     *             if the URL could not be retrieved
      */
     URL resolve(String pkg) throws IOException;
 }

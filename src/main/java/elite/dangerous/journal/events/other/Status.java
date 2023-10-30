@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.other;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class Status extends Event
 {
@@ -102,7 +102,8 @@ public class Status extends Event
 
     private static final int FLAG2_BREATHABLE_ATMOSPHERE = 0x00010000;
 
-    private static final String[] GUI_FOCUS = {"NoFocus", "InternalPanel", "ExternalPanel", "CommsPanel", "RolePanel", "StationServices", "GalaxyMap", "SystemMap", "Orrery", "FSS mode", "SAA mode", "Codex"};
+    private static final String[] GUI_FOCUS = {"NoFocus", "InternalPanel", "ExternalPanel", "CommsPanel", "RolePanel", "StationServices", "GalaxyMap", "SystemMap", "Orrery",
+                    "FSS mode", "SAA mode", "Codex"};
 
     public int flags;
 
@@ -143,16 +144,14 @@ public class Status extends Event
     public double gravity;
 
     /**
+     * @param guiFocus
      * 
-     *
-     * @param guiFocus 
-     * @return 
+     * @return
      */
     public static String getGUIFocusName(Integer guiFocus)
     {
         String guiFocusName = null;
-        if (guiFocus != null)
-        {
+        if (guiFocus != null) {
             guiFocusName = GUI_FOCUS[guiFocus];
         }
         return guiFocusName;
@@ -174,9 +173,7 @@ public class Status extends Event
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean areShieldsUp()
     {
@@ -194,9 +191,7 @@ public class Status extends Event
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean areHardpointsDeployed()
     {
@@ -209,9 +204,7 @@ public class Status extends Event
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean areLightsOn()
     {
@@ -279,9 +272,7 @@ public class Status extends Event
     }
 
     /**
-     * 
-     *
-     * @return 
+     * @return
      */
     public boolean hasLatLong()
     {

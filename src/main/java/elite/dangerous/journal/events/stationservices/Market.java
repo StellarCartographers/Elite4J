@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.stationservices;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.market.MarketItem;
 
 public class Market extends Event

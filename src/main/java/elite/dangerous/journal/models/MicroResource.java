@@ -7,8 +7,6 @@ public class MicroResource
 
     public String name;
 
-    public String nameLocalised;
-
     public MicroResourceCategory category;
 
     public int count;

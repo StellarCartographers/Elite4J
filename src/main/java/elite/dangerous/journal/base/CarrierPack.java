@@ -1,4 +1,4 @@
-package elite.dangerous.journal;
+package elite.dangerous.journal.base;
 
 import elite.dangerous.journal.models.carrier.Operation;
 

@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.travel;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class Touchdown extends Event
 {
@@ -10,7 +10,4 @@ public class Touchdown extends Event
     public double latitude, longitude;
 
     public String nearestDestination;
-
-    public String nearestDestinationLocalised;
-
 }

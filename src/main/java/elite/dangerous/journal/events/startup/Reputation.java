@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.startup;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.toreadable.ReputationName;
 
 public class Reputation extends Event

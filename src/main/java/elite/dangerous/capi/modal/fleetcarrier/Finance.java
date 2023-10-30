@@ -2,11 +2,13 @@ package elite.dangerous.capi.modal.fleetcarrier;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder
 @Jacksonized
 public class Finance
@@ -14,6 +16,7 @@ public class Finance
     private long            balance;
     private long            reservedBalance;
     private long            taxation;
+    @JsonProperty("service_taxation")
     private ServiceTaxation serviceTaxation;
     private int             servicesCount;
     private long            optionalServicesCount;
@@ -27,7 +30,7 @@ public class Finance
     private int             jumpCount;
     private Bartender       bartender;
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class ServiceTaxation
@@ -41,7 +44,7 @@ public class Finance
         public int outfitting;
     }
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class Bartender

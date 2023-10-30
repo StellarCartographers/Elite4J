@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.travel;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 /**
  * The Class SupercruiseDestinationDrop.

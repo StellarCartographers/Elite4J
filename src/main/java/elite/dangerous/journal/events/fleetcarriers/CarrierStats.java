@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.fleetcarriers;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.CrewItem;
 import elite.dangerous.journal.models.Finance;
 import elite.dangerous.journal.models.Pack;

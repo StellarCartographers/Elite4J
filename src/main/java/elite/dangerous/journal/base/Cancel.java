@@ -1,4 +1,4 @@
-package elite.dangerous.journal;
+package elite.dangerous.journal.base;
 
 public abstract class Cancel extends Event
 {

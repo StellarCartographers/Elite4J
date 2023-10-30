@@ -1,6 +1,6 @@
 package elite.dangerous;
 
-import static elite.dangerous.SubtypeHandler.Wrapper.Cast;
+import static elite.dangerous.SubtypeHandler.Wrapper.*;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.events.combat.Bounty;
 import elite.dangerous.journal.events.combat.BountyDefault;
 import elite.dangerous.journal.events.combat.BountySkimmer;
@@ -36,7 +36,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-public class SubtypeHandler
+class SubtypeHandler
 {
 
     static Optional<Class<?>> getSubtypeIfPresent(JsonNode node)
@@ -46,48 +46,15 @@ public class SubtypeHandler
 
     enum Subtypes
     {
-        //!off
-        BOUNTY(
-            Bounty.class, 
-            Cast()
-                .To(BountySkimmer.class)
-                .When(node -> node.has("Target") && node.get("Target").asText().equals("Skimmer"))
-            .Default(BountyDefault.class)
-        ),
-        DIED(
-            Cast()
-                .To(DiedByPVP.class)
-                .When(node -> node.has("KillerShip"))
-            .Or()
-                .To(DiedByWing.class)
-                .When(node -> node.has("Killers"))
-            .Default(Died.class)
-        ),
-        SCAN(
-            Cast()
-                .To(ScanPlanetOrMoon.class)
-                .When(node -> node.has("PlanetClass"))
-            .Default(ScanStar.class)
-        ),
-        TARGETED(
-            Cast()
-                .To(ShipTargeted.class)
-                .When(node -> !node.get("TargetLocked").asBoolean())
-            .Or()
-                .To(ShipTargetedStage0.class)
-                .When(node -> node.get("ScanStage").asInt() == 0)
-            .Or()
-                .To(ShipTargetedStage1.class)
-                .When(node -> node.get("ScanStage").asInt() == 1)
-            .Or()
-                .To(ShipTargetedStage2.class)
-                .When(node -> node.get("ScanStage").asInt() == 2)
-            .Or()
-                .To(ShipTargetedStage3.class)
-                .When(node -> node.get("ScanStage").asInt() == 3)
-            .Create()
-        )
-        //@on
+        // !off
+        BOUNTY(Bounty.class, Cast().To(BountySkimmer.class).When(node -> node.has("Target") && node.get("Target").asText().equals("Skimmer")).Default(BountyDefault.class)),
+        DIED(Cast().To(DiedByPVP.class).When(node -> node.has("KillerShip")).Or().To(DiedByWing.class).When(node -> node.has("Killers")).Default(Died.class)),
+        SCAN(Cast().To(ScanPlanetOrMoon.class).When(node -> node.has("PlanetClass")).Default(ScanStar.class)),
+        TARGETED(Cast().To(ShipTargeted.class).When(node -> !node.get("TargetLocked").asBoolean()).Or().To(ShipTargetedStage0.class)
+                        .When(node -> node.get("ScanStage").asInt() == 0).Or().To(ShipTargetedStage1.class).When(node -> node.get("ScanStage").asInt() == 1).Or()
+                        .To(ShipTargetedStage2.class).When(node -> node.get("ScanStage").asInt() == 2).Or().To(ShipTargetedStage3.class)
+                        .When(node -> node.get("ScanStage").asInt() == 3).Create())
+        // @on
         ;
 
         final Class<?> baseClass;
@@ -114,10 +81,9 @@ public class SubtypeHandler
             this.cast = cast;
         }
 
-        @SuppressWarnings("unchecked")
         static Optional<Class<?>> get(JsonNode node)
         {
-            Class<Event> clazz = (Class<Event>) EliteAPI.eventClassMap().get(node.get("event").asText());
+            Class<? extends Event> clazz = Elite4J.Journal.getJournalEvents().get(node.get("event").asText());
             return MAP.containsKey(clazz) ? Optional.of(MAP.get(clazz).cast.getEventClass(node)) : Optional.empty();
         }
     }

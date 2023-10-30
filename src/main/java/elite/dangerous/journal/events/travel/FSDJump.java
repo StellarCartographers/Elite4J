@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.travel;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.Conflict;
 import elite.dangerous.journal.models.Faction;
 
@@ -15,19 +15,11 @@ public class FSDJump extends Event
 
     public String systemEconomy;
 
-    public String systemEconomyLocalised;
-
     public String systemSecondEconomy;
-
-    public String systemSecondEconomyLocalised;
 
     public String systemGovernment;
 
-    public String systemGovernmentLocalised;
-
     public String systemSecurity;
-
-    public String systemSecurityLocalised;
 
     public String body;
 

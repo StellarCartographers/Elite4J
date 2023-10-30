@@ -1,14 +1,9 @@
 package elite.dangerous.journal.events.startup;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
-/**
- * 
- *
- * @return 
- */
 @Getter
 @Accessors(fluent = true)
 public class Statistics extends Event

@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.backpack;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class DropItems extends Event
 {

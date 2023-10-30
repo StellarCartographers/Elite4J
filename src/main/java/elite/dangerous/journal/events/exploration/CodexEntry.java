@@ -1,21 +1,15 @@
 package elite.dangerous.journal.events.exploration;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class CodexEntry extends Event
 {
 
     public String name;
 
-    public String nameLocalised;
-
     public String subCategory;
 
-    public String subCategoryLocalised;
-
     public String category;
-
-    public String categoryLocalised;
 
     public String region;
 
@@ -32,7 +26,4 @@ public class CodexEntry extends Event
     public String[] traits;
 
     public String nearestDestination;
-
-    public String nearestDestinationLocalised;
-
 }

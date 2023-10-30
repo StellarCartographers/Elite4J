@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.fleetcarriers;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.Conflict;
 import elite.dangerous.journal.models.Faction;
 import elite.dangerous.journal.models.StationEconomy;
@@ -16,19 +16,11 @@ public class CarrierJump extends Event
 
     public String systemEconomy;
 
-    public String systemEconomyLocalised;
-
     public String systemSecondEconomy;
-
-    public String systemSecondEconomyLocalised;
 
     public String systemGovernment;
 
-    public String systemGovernmentLocalised;
-
     public String systemSecurity;
-
-    public String systemSecurityLocalised;
 
     public String body;
 
@@ -49,10 +41,6 @@ public class CarrierJump extends Event
     public String stationAllegiance;
 
     public String stationGovernment;
-
-    public String stationEconomyLocalised;
-
-    public String stationGovernmentLocalised;
 
     public double[] starPos;
 

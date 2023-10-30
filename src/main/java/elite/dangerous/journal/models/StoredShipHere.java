@@ -5,7 +5,7 @@ public class StoredShipHere
 
     public boolean hot;
 
-    public String name, shipType, shipTypeLocalised;
+    public String name, shipType;
 
     public long value;
 

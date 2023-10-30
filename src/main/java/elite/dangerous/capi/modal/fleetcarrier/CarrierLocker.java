@@ -3,10 +3,10 @@ package elite.dangerous.capi.modal.fleetcarrier;
 import java.util.List;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder
 @Jacksonized
 public class CarrierLocker
@@ -15,7 +15,7 @@ public class CarrierLocker
     private List<LockerItem> goods;
     private List<LockerItem> data;
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class LockerItem

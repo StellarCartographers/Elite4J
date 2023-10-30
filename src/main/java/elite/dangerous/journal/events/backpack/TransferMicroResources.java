@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.backpack;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.MicroResource;
 
 public class TransferMicroResources extends Event

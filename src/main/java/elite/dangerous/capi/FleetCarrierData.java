@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2023  The Stellar Cartographers' Guild. All rights reserved.
- *
+ * Copyright (c) 2023 The Stellar Cartographers' Guild. All rights reserved.
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
@@ -10,7 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import elite.dangerous.capi.base.CAPIData;
 import elite.dangerous.capi.modal.fleetcarrier.Capacity;
 import elite.dangerous.capi.modal.fleetcarrier.Cargo;
 import elite.dangerous.capi.modal.fleetcarrier.CarrierLocker;
@@ -26,38 +27,77 @@ import elite.dangerous.capi.modal.fleetcarrier.Reputation;
 import elite.dangerous.capi.modal.fleetcarrier.ServicesCrew;
 import elite.dangerous.capi.modal.fleetcarrier.Ships;
 import elite.dangerous.capi.modal.fleetcarrier.Theme;
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
 @Value
 @Builder
 @Jacksonized
-public class CAPIFleetCarrier
+@EqualsAndHashCode(callSuper = false)
+public class FleetCarrierData extends CAPIData
 {
-    private Name             name;
-    private String           currentStarSystem;
-    private long             balance;
-    private String           fuel;
-    private String           state;
-    private Theme            theme;
-    private DockingAccess    dockingAccess;
-    private boolean          notoriousAccess;
-    private Capacity         capacity;
-    private Itinerary        itinerary;
-    private Finances         marketFinances;
-    private Finances         blackmarketFinances;
-    private Finance          finance;
-    private ServicesCrew     servicesCrew;
-    private List<Cargo>      cargo;
-    private Orders           orders;
-    private CarrierLocker    carrierLocker;
-    private List<Reputation> reputation;
-    private Market           market;
-    private Ships            ships;
-    private Modules          modules;
-    private Date             timestamp;
+    @Getter(AccessLevel.PRIVATE)
+    @JsonProperty("name")
+    private Name nameInfo;
 
+    private String currentStarSystem;
+
+    private long balance;
+
+    private int fuel;
+
+    private String state;
+
+    private Theme theme;
+
+    private DockingAccess dockingAccess;
+
+    private boolean notoriousAccess;
+
+    private Capacity capacity;
+
+    private Itinerary itinerary;
+
+    private Finances marketFinances;
+
+    private Finances blackmarketFinances;
+
+    private Finance finance;
+
+    private ServicesCrew servicesCrew;
+
+    private List<Cargo> cargo;
+
+    private Orders orders;
+
+    private CarrierLocker carrierLocker;
+
+    private List<Reputation> reputation;
+
+    private Market market;
+
+    private Ships ships;
+
+    private Modules modules;
+
+    private Date timestamp;
+
+    @JsonIgnore
+    public String getCallsign()
+    {
+        return getNameInfo().getCallsign();
+    }
+    
+    @JsonIgnore
+    public String getName()
+    {
+        return getNameInfo().getName();
+    }
+    
     /**
      * Gets the carrier id. Returns the value from {@code market().id()}
      *
@@ -68,20 +108,17 @@ public class CAPIFleetCarrier
     {
         return this.market.getId();
     }
-    
+
     /**
      * Returns the accumulated total of Tritium that is stored as cargo.
      * Since it's not possible to explicitly set cargo to be used for fuel,
-     * the returned value should be taken as the MAX amount that can used for fuel 
+     * the returned value should be taken as the MAX amount that can used for fuel
      *
      * @return Fuel Reserves amount
      */
     @JsonIgnore
     public int getFuelReserves()
     {
-        return getCargo().stream()
-                        .filter(Cargo.TritiumPredicate)
-                        .mapToInt(Cargo::getQty)
-                        .sum();
+        return getCargo().stream().filter(Cargo.TritiumPredicate).mapToInt(Cargo::getQty).sum();
     }
 }

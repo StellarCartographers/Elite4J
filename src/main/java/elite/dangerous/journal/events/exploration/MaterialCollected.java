@@ -1,13 +1,12 @@
 package elite.dangerous.journal.events.exploration;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class MaterialCollected extends Event
 {
+    public String category;
 
-    public String category, name;
-
-    public String nameLocalised;
+    public String name;
 
     public int count;
 

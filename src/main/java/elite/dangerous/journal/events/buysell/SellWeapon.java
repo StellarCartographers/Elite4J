@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.buysell;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class SellWeapon extends Event
 {

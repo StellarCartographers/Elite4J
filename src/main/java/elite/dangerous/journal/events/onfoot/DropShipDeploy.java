@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.onfoot;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class DropShipDeploy extends Event
 {

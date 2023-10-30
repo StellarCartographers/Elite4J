@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.other;
 
 import java.util.ArrayList;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 import elite.dangerous.journal.models.material.Item;
 
 public class ShipLocker extends Event

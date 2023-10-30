@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.stationservices;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class ModuleRetrieve extends Event
 {
@@ -11,13 +11,9 @@ public class ModuleRetrieve extends Event
 
     public String retrievedItem;
 
-    public String retrievedItemLocalised;
-
     public String ship;
 
     public String swapOutItem;
-
-    public String swapOutItemLocalised;
 
     public int shipID;
 

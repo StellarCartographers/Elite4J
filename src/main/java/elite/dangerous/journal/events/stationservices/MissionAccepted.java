@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.stationservices;
 
 import java.util.Date;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class MissionAccepted extends Event
 {

@@ -7,8 +7,6 @@ public class ModuleItem
 
     public String name;
 
-    public String nameLocalised;
-
     public String engineerModifications;
 
     public boolean hot;

@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.buysell;
 
 import java.util.ArrayList;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class SellOrganicData extends Event
 {

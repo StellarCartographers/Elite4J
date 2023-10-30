@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.stationservices;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class ModuleStore extends Event
 {
@@ -8,8 +8,6 @@ public class ModuleStore extends Event
     public String slot;
 
     public String storedItem;
-
-    public String storedItemLocalised;
 
     public String ship;
 

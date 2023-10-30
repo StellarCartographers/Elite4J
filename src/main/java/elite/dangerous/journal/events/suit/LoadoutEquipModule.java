@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.suit;
 
 import java.util.ArrayList;
 
-import elite.dangerous.journal.Suit;
+import elite.dangerous.journal.base.Suit;
 
 public class LoadoutEquipModule extends Suit
 {
@@ -10,8 +10,6 @@ public class LoadoutEquipModule extends Suit
     public String slotName;
 
     public String moduleName;
-
-    public String moduleNameLocalised;
 
     public int tier;
 

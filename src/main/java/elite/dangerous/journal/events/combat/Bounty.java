@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.combat;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public abstract class Bounty extends Event
 {

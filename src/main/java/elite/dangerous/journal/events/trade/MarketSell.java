@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.trade;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class MarketSell extends Event
 {
@@ -8,8 +8,6 @@ public class MarketSell extends Event
     public long marketID;
 
     public String type;
-
-    public String typeLocalised;
 
     public int count;
 

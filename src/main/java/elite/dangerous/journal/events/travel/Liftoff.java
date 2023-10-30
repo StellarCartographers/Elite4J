@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.travel;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class Liftoff extends Event
 {
@@ -10,7 +10,5 @@ public class Liftoff extends Event
     public double longitude, latitude;
 
     public String nearestDestination;
-
-    public String nearestDestinationLocalised;
 
 }

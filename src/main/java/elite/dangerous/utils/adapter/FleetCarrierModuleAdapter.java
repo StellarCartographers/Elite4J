@@ -49,7 +49,12 @@ public class FleetCarrierModuleAdapter extends StdDeserializer<Modules>
     public Modules deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException
     {
         JsonNode node = p.getCodec().readTree(p);
-        var modules = Modules.Instantiator();
+        var modules = new Modules();
+        
+        if(node.properties().isEmpty()) {
+            return modules;
+        }
+        
         node.properties().forEach(e -> {
             var n = e.getValue();
             var em = EliteModule.Instantiator()
@@ -59,9 +64,9 @@ public class FleetCarrierModuleAdapter extends StdDeserializer<Modules>
                 .cost(n.get("cost").asInt())
                 .sku(n.get("sku").isNull() ? null : n.get("sku").asText())
                 .stock(n.get("stock").asInt());
-            modules.module(em.newInstance());
+            modules.add(em.newInstance());
         });
         
-        return modules.newInstance();
+        return modules;
     }
 }

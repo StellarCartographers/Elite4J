@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.exploration;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class SAAScanComplete extends Event
 {

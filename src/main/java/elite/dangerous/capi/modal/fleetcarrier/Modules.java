@@ -1,29 +1,26 @@
 package elite.dangerous.capi.modal.fleetcarrier;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import elite.dangerous.capi.modal.fleetcarrier.Modules.EliteModule;
 import elite.dangerous.utils.adapter.FleetCarrierModuleAdapter;
 import lombok.Builder;
-import lombok.Singular;
-import lombok.Value;
+import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
-@Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
 @JsonDeserialize(using = FleetCarrierModuleAdapter.class)
-public class Modules
+public class Modules extends ArrayList<EliteModule>
 {
-    @Singular
-    private List<EliteModule> modules;
+    private static final long serialVersionUID = 8281161899721149806L;
 
     /**
      * @apiNote This should just be named Module but decided on EliteModule so we
      * don't run into any conflicts with {@link java.lang.Module}, since most 
      * IDE's will default to that class. For example, when passed as a generic type
      */
-    @Value
+    @Data
     @Builder(builderMethodName = "Instantiator", buildMethodName = "newInstance")
     @Jacksonized
     public static class EliteModule

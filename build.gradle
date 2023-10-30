@@ -3,11 +3,12 @@ plugins {
     id 'tscg.defaults' version '1.+'
     id 'java-library'
     id 'eclipse'
+    id 'jacoco'
 }
 
 group = 'space.tscg'
-version = 'v37'
-description = 'Java Mapped Elite PlayerJournal Events'
+version = '1.0.0-SNAPSHOT'
+description = 'Java Mapped Elite Dangerous Data Types (PlayerJournal/CAPI/FDevIDs)'
 
 tscg {
     devName 'ROMVoid95'
@@ -15,12 +16,18 @@ tscg {
 }
 
 dependencies {
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
     annotationProcessor 'org.atteo.classindex:classindex:3.13'
     compileOnly 'org.jetbrains:annotations:24.0.1'
 	implementation 'org.atteo.classindex:classindex:3.13'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'org.tinylog:tinylog-api:2.6.2'
-    implementation 'space.tscg:stellarlib:0.2.0-SNAPSHOT'
+    implementation 'space.tscg:stellarlib:1.0.0-SNAPSHOT'
+
+    implementation 'org.panda-lang:expressible:1.3.6'
 }
 
 java {
@@ -30,4 +37,20 @@ java {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     options.incremental = true
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
 }

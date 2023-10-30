@@ -1,13 +1,13 @@
 package elite.dangerous.journal.events.stationservices;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class PayBounties extends Event
 {
 
     public long amount;
 
-    public String faction, factionLocalised;
+    public String faction;
 
     public int shipID, brokerPercentage;
 

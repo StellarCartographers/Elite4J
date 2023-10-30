@@ -1,8 +1,10 @@
 package elite.dangerous.capi.modal.profile;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder(builderMethodName = "Builder")
 public class LastSystem
 {
     public long   id;

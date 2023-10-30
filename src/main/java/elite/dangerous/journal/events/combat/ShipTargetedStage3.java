@@ -9,8 +9,6 @@ public class ShipTargetedStage3 extends ShipTargetedStage2
 
     public String subsystem;
 
-    public String subsystemLocalised;
-
     public double subsystemHealth;
 
     public String power;

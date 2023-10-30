@@ -1,13 +1,11 @@
 package elite.dangerous.journal.events.suit;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class UpgradeWeapon extends Event
 {
 
     public String name;
-
-    public String nameLocalised;
 
     public long suitModuleID;
 

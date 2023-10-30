@@ -1,10 +1,14 @@
 package elite.dangerous.journal.models.carrier;
 
-import elite.dangerous.journal.ToLowercase;
-
-public enum Operation implements ToLowercase
+public enum Operation
 {
     BUYPACK,
     SELLPACK,
     RESTOCKPACK;
+    
+    @Override
+    public String toString()
+    {
+        return super.toString().toLowerCase();
+    }
 }

@@ -5,15 +5,17 @@ import java.util.regex.Pattern;
 
 final class InformalFieldNameHandler
 {
-    final String regex = "_";
+    final String regex = "_Localised";
+
     final String subst = "";
+
     final String result;
 
     private InformalFieldNameHandler(String json)
     {
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(json);
-        final String  result  = matcher.replaceAll(subst);
+        final String result = matcher.replaceAll(subst);
         this.result = result;
     }
 

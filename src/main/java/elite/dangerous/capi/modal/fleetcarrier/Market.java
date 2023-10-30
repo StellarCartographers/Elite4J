@@ -8,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
-import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder
 @Jacksonized
 public class Market
@@ -40,7 +40,7 @@ public class Market
         }
     }
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class Commodity
@@ -59,7 +59,7 @@ public class Market
         private String locName;
     }
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class Services

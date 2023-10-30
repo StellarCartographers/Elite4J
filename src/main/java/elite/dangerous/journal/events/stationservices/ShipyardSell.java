@@ -1,11 +1,11 @@
 package elite.dangerous.journal.events.stationservices;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class ShipyardSell extends Event
 {
 
-    public String shipType, shipTypeLocalised;
+    public String shipType;
 
     public int sellShipID;
 

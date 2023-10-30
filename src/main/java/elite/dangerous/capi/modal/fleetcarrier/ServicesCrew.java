@@ -3,13 +3,15 @@ package elite.dangerous.capi.modal.fleetcarrier;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder
 @Jacksonized
 public class ServicesCrew
@@ -27,177 +29,271 @@ public class ServicesCrew
     private Service pioneersupplies;
 
     /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code refuel()} is non-null
-     * <br>
-     * {@code refuel.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isRefuelEnabled()
-    {
-        return (this.refuel != null) && this.refuel.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code repair()} is non-null
-     * <br>
-     * {@code repair.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isRepairEnabled()
-    {
-        return (this.repair != null) && this.repair.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code rearm()} is non-null
-     * <br>
-     * {@code rearm.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isRearmEnabled()
-    {
-        return (this.rearm != null) && this.rearm.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code shipyard()} is non-null
-     * <br>
-     * {@code shipyard.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isShipyardEnabled()
-    {
-        return (this.shipyard != null) && this.shipyard.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code outfitting()} is non-null
-     * <br>
-     * {@code outfitting.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isOutfittingEnabled()
-    {
-        return (this.outfitting != null) && this.outfitting.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code exploration()} is non-null
-     * <br>
-     * {@code exploration.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isUniversalCartographicsEnabled()
-    {
-        return (this.exploration != null) && this.exploration.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code voucherredemption()} is non-null
-     * <br>
-     * {@code voucherredemption.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isRedemptionOfficeEnabled()
-    {
-        return (this.voucherredemption != null) && this.voucherredemption.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code blackmarket()} is non-null
-     * <br>
-     * {@code blackmarket.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isBlackmarketEnabled()
-    {
-        return (this.blackmarket != null) && this.blackmarket.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code vistagenomics()} is non-null
-     * <br>
-     * {@code vistagenomics.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isVistaGenomicsEnabled()
-    {
-        return (this.vistagenomics != null) && this.vistagenomics.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code bartender()} is non-null
-     * <br>
-     * {@code bartender.isAvailable()} returns true
-     * @return true, if both conditions are met, false if not
-     */
-    @JsonIgnore
-    public boolean isConcourseEnabled()
-    {
-        return (this.bartender != null) && this.bartender.isAvailable();
-    }
-
-    /**
-     * Returns true if, and only if:
-     * <br>
-     * {@code pioneersupplies()} is non-null
-     * <br>
-     * {@code pioneersupplies.isAvailable()} returns true
+     * If this service is installed but suspended by the owner
      * 
-     * @return true, if both conditions are met, false if not
+     * @return true if installed and suspended, false if not
      */
     @JsonIgnore
-    public boolean isPioneerSuppliesEnabled()
+    public boolean isRefuelSuspended()
     {
-        return (this.pioneersupplies != null) && this.pioneersupplies.isAvailable();
+        return (this.refuel != null) && this.refuel.unavailable();
+    }
+    
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRefuelInstalled()
+    {
+        return this.refuel != null;
     }
 
-    @Value
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRepairSuspended()
+    {
+        return (this.repair != null) && this.repair.unavailable();
+    }
+    
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRepairInstalled()
+    {
+        return this.repair != null;
+    }
+
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRearmSuspended()
+    {
+        return (this.rearm != null) && this.rearm.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRearmInstalled()
+    {
+        return this.rearm != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isShipyardSuspended()
+    {
+        return (this.shipyard != null) && this.shipyard.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isShipyardInstalled()
+    {
+        return this.shipyard != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isOutfittingSuspended()
+    {
+        return (this.outfitting != null) && this.outfitting.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isOutfittingInstalled()
+    {
+        return this.outfitting != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isUniversalCartographicsSuspended()
+    {
+        return (this.exploration != null) && this.exploration.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isUniversalCartographicsInstalled()
+    {
+        return this.exploration != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRedemptionOfficeSuspended()
+    {
+        return (this.voucherredemption != null) && this.voucherredemption.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRedemptionOfficeInstalled()
+    {
+        return this.voucherredemption != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isBlackmarketSuspended()
+    {
+        return (this.blackmarket != null) && this.blackmarket.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isBlackmarketInstalled()
+    {
+        return this.blackmarket != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isVistaGenomicsSuspended()
+    {
+        return (this.vistagenomics != null) && this.vistagenomics.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isVistaGenomicsInstalled()
+    {
+        return this.vistagenomics != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isBartenderSuspended()
+    {
+        return (this.bartender != null) && this.bartender.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isBartenderInstalled()
+    {
+        return this.bartender != null;
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isPioneerSuppliesSuspended()
+    {
+        return (this.pioneersupplies != null) && this.pioneersupplies.unavailable();
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isPioneerSuppliesInstalled()
+    {
+        return this.pioneersupplies != null;
+    }
+    
+    @Data
     @Builder
     @Jacksonized
     public static class Service
     {
         private CrewMember     crewMember;
+        @JsonProperty("invoicesWeekToDate")
         private List<Invoices> invoices;
         private String         status;
 
         @JsonIgnore
-        boolean isAvailable()
+        boolean available()
         {
             return crewMember.enabled.equals(ServiceAvailability.YES);
         }
+        
+        @JsonIgnore
+        boolean unavailable()
+        {
+            return crewMember.enabled.equals(ServiceAvailability.NO);
+        }
     }
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class CrewMember
@@ -211,13 +307,15 @@ public class ServicesCrew
         private String              lastEdit;
     }
 
-    @Value
+    @Data
     @Builder
     @Jacksonized
     public static class Invoices
     {
         private int    wages;
+        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
         private Date   from;
+        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
         private Date   until;
         private String type;
     }

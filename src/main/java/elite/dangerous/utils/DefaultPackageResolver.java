@@ -10,8 +10,8 @@ public class DefaultPackageResolver implements PackageResolver
     @Override
     public URL resolve(String pkg)
     {
-        String package_path = pkg.replaceAll("\\.", "/");                                             //$NON-NLS-1$ //$NON-NLS-2$
-        URL    u            = DefaultPackageResolver.class.getClassLoader().getResource(package_path);
+        String package_path = pkg.replaceAll("\\.", "/"); //$NON-NLS-1$ //$NON-NLS-2$
+        URL u = DefaultPackageResolver.class.getClassLoader().getResource(package_path);
         return u;
     }
 }

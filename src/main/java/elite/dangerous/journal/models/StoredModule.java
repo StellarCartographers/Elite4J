@@ -3,7 +3,7 @@ package elite.dangerous.journal.models;
 public class StoredModule
 {
 
-    public String name, nameLocalised, starSystem;
+    public String name, starSystem;
 
     public int storageSlot;
 

@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.stationservices;
 
 import java.util.List;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class Shipyard extends Event
 {
@@ -23,8 +23,6 @@ public class Shipyard extends Event
         public int id;
 
         public String shipType;
-
-        public String shipTypeLocalised;
 
         public long shipPrice;
     }

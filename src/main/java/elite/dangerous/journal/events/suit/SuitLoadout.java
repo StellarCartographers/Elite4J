@@ -2,7 +2,7 @@ package elite.dangerous.journal.events.suit;
 
 import java.util.ArrayList;
 
-import elite.dangerous.journal.Suit;
+import elite.dangerous.journal.base.Suit;
 import elite.dangerous.journal.models.LoadoutModule;
 
 /**

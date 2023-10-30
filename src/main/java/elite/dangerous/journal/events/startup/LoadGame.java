@@ -1,17 +1,14 @@
 package elite.dangerous.journal.events.startup;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class LoadGame extends Event
 {
-
     public String commander;
 
     public String fid;
 
     public String ship;
-
-    public String shipLocalised;
 
     public String shipName;
 

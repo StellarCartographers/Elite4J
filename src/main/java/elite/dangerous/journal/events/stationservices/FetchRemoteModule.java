@@ -1,6 +1,6 @@
 package elite.dangerous.journal.events.stationservices;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class FetchRemoteModule extends Event
 {
@@ -16,8 +16,6 @@ public class FetchRemoteModule extends Event
     public int shipId;
 
     public String storedItem;
-
-    public String storedItemLocalised;
 
     public String ship;
 

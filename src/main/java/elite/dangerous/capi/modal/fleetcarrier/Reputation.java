@@ -1,14 +1,14 @@
 package elite.dangerous.capi.modal.fleetcarrier;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
-@Value
+@Data
 @Builder
 @Jacksonized
 public class Reputation
 {
-    private String faction;
+    private String majorFaction;
     private int    score;
 }

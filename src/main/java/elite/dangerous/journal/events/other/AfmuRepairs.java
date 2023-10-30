@@ -1,13 +1,11 @@
 package elite.dangerous.journal.events.other;
 
-import elite.dangerous.journal.Event;
+import elite.dangerous.journal.base.Event;
 
 public class AfmuRepairs extends Event
 {
 
     public String module;
-
-    public String moduleLocalised;
 
     public boolean fullyRepaired;
 
