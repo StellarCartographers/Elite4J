@@ -14,10 +14,6 @@ group = 'space.tscg'
 version = '1.0.0-SNAPSHOT'
 description = 'Java Mapped Elite Dangerous Data Types (PlayerJournal/CAPI/FDevIDs)'
 
-repositories {
-    mavenLocal()
-}
-
 tscg {
     devName 'ROMVoid95'
     devEmail 'rom.void95@gmail.com'
