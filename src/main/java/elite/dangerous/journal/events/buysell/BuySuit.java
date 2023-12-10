@@ -1,13 +1,14 @@
 package elite.dangerous.journal.events.buysell;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class BuySuit extends Event
 {
+    private String name;
 
-    public String name;
+    private long   price;
 
-    public long price;
-
-    public long suitID;
+    private long   suitID;
 }

@@ -1,23 +1,26 @@
 package elite.dangerous.journal.base;
 
-import java.util.Date;
-
 import org.atteo.classindex.IndexSubclasses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import elite.dangerous.Elite4J;
+import elite.dangerous.util.EliteType;
+import elite.dangerous.util.EventTimestamp;
+import lombok.EliteObject;
+import lombok.ObjectType;
 import space.tscg.api.JsonWrapper;
-import space.tscg.misc.json.StellarMapper;
 
 @IndexSubclasses
-public abstract class Event implements JsonWrapper
+@EliteObject(ObjectType.PARENT)
+public abstract class Event implements JsonWrapper, EliteType
 {
-
-    public Date timestamp;
-
-    public String type;
+    @JsonProperty("timestamp")
+    private EventTimestamp timestamp;
 
     @Override
     public String toJson()
     {
-        return StellarMapper.get().asOptionalToString(this).orElseThrow();
+        return Elite4J.ObjToString(this);
     }
 }

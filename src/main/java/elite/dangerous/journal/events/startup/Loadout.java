@@ -3,38 +3,40 @@ package elite.dangerous.journal.events.startup;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.FuelCapacity;
-import elite.dangerous.journal.models.Module;
+import elite.dangerous.model.FuelCapacity;
+import elite.dangerous.model.Module;
+import lombok.EliteObject;
 
+@EliteObject
 public class Loadout extends Event
 {
 
-    public String ship;
+    private String       ship;
 
-    public int shipID;
+    private int          shipID;
 
-    public String shipName;
+    private String       shipName;
 
-    public String shipIdent;
+    private String       shipIdent;
 
-    public int hullValue;
+    private int          hullValue;
 
-    public int modulesValue;
+    private int          modulesValue;
 
-    public int rebuy;
+    private int          rebuy;
 
-    public FuelCapacity fuelCapacity;
+    public FuelCapacity  fuelCapacity;
 
-    public int cargoCapacity;
+    private int          cargoCapacity;
 
-    public double hullHealth;
+    private double       hullHealth;
 
-    public double maxJumpRange;
+    private double       maxJumpRange;
 
-    public double unladenMass;
+    private double       unladenMass;
 
-    public String hot;
+    private String       hot;
 
-    public List<Module> modules;
+    private List<Module> modules;
 
 }

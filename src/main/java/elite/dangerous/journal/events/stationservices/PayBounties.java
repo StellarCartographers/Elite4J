@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PayBounties extends Event
 {
 
-    public long amount;
+    private long   amount;
 
-    public String faction;
+    private String faction;
 
-    public int shipID, brokerPercentage;
+    private int    shipID, brokerPercentage;
 
 }

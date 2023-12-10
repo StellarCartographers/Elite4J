@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.trade;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CollectCargo extends Event
 {
 
-    public String type;
+    private String  type;
 
-    public long missionID;
+    private long    missionID;
 
-    public boolean stolen;
+    private boolean stolen;
 
 }

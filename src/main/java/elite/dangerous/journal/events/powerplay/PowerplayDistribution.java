@@ -1,13 +1,16 @@
 package elite.dangerous.journal.events.powerplay;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
+import lombok.ObjectType;
 
+@EliteObject(ObjectType.PARENT)
 public abstract class PowerplayDistribution extends Event
 {
 
-    public String power;
+    private String power;
 
-    public String type;
+    private String type;
 
-    public int count;
+    private int    count;
 }

@@ -1,11 +1,13 @@
 package elite.dangerous.journal.events.trade;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class BuyTradeData extends Event
 {
 
-    public String system;
+    private String system;
 
-    public int cost;
+    private int    cost;
 }

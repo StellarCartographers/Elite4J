@@ -1,16 +1,19 @@
 package elite.dangerous.journal.base;
 
-import elite.dangerous.journal.models.carrier.Operation;
+import elite.dangerous.model.carrier.Operation;
+import lombok.EliteObject;
+import lombok.ObjectType;
 
+@EliteObject(ObjectType.PARENT)
 public abstract class CarrierPack extends Event
 {
-    public int carrierID;
+    private int       carrierID;
 
-    public Operation operation;
+    private Operation operation;
 
-    public String packTheme;
+    private String    packTheme;
 
-    public int packTier;
+    private int       packTier;
 
-    public int cost;
+    private int       cost;
 }

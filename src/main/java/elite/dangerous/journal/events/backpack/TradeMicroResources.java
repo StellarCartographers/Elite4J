@@ -3,19 +3,21 @@ package elite.dangerous.journal.events.backpack;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.MicroResource;
-import elite.dangerous.journal.models.enums.MicroResourceCategory;
+import elite.dangerous.model.MicroResource;
+import elite.dangerous.model.enums.MicroResourceCategory;
+import lombok.EliteObject;
 
+@EliteObject
 public class TradeMicroResources extends Event
 {
 
-    public List<MicroResource> offered;
+    private List<MicroResource>   offered;
 
-    public String received;
+    private String                received;
 
-    public int count;
+    private int                   count;
 
-    public long marketID;
+    private long                  marketID;
 
-    public MicroResourceCategory category;
+    private MicroResourceCategory category;
 }

@@ -1,14 +1,14 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CommunityGoalDiscard extends Event
 {
+    private int    cgid;
 
-    public int cgid;
+    private String name;
 
-    public String name;
-
-    public String system;
-
+    private String system;
 }

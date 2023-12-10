@@ -1,10 +1,12 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Scanned extends Event
 {
 
-    public String scanType;
+    private String scanType;
 
 }

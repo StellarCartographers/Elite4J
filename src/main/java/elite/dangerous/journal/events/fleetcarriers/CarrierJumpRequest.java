@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierJumpRequest extends Event
 {
 
-    public long carrierID;
+    private long   carrierID;
 
-    public String systemName;
+    private String systemName;
 
-    public String body;
+    private String body;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public int bodyID;
+    private int    bodyID;
 
-    public String departureTime;
+    private String departureTime;
 
 }

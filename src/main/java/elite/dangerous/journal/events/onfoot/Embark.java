@@ -1,33 +1,35 @@
 package elite.dangerous.journal.events.onfoot;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Embark extends Event
 {
 
-    public boolean srv;
+    private boolean srv;
 
-    public boolean taxi;
+    private boolean taxi;
 
-    public boolean multicrew;
+    private boolean multicrew;
 
-    public int id;
+    private int     id;
 
-    public String starSystem;
+    private String  starSystem;
 
-    public long systemAddress;
+    private long    systemAddress;
 
-    public String body;
+    private String  body;
 
-    public long bodyID;
+    private long    bodyID;
 
-    public boolean onStation;
+    private boolean onStation;
 
-    public boolean onPlanet;
+    private boolean onPlanet;
 
-    public String stationName;
+    private String  stationName;
 
-    public String stationType;
+    private String  stationType;
 
-    public long marketID;
+    private long    marketID;
 }

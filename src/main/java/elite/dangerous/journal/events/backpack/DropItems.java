@@ -1,16 +1,17 @@
 package elite.dangerous.journal.events.backpack;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class DropItems extends Event
 {
+    private String name;
 
-    public String name;
+    private String type;
 
-    public String type;
+    private long   ownerID;
 
-    public long ownerID;
-
-    public int count;
+    private int    count;
 
 }

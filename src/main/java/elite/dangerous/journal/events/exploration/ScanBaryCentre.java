@@ -1,28 +1,30 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ScanBaryCentre extends Event
 {
 
-    public int bodyID;
+    private int    bodyID;
 
-    public String starSystem;
+    private String starSystem;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public double semiMajorAxis;
+    private double semiMajorAxis;
 
-    public double eccentricity;
+    private double eccentricity;
 
-    public double orbitalInclination;
+    private double orbitalInclination;
 
-    public double periapsis;
+    private double periapsis;
 
-    public double orbitalPeriod;
+    private double orbitalPeriod;
 
-    public double ascendingNode;
+    private double ascendingNode;
 
-    public double meanAnomaly;
+    private double meanAnomaly;
 
 }

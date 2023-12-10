@@ -25,12 +25,13 @@ import elite.dangerous.journal.events.combat.Died;
 import elite.dangerous.journal.events.combat.DiedByPVP;
 import elite.dangerous.journal.events.combat.DiedByWing;
 import elite.dangerous.journal.events.combat.ShipTargeted;
-import elite.dangerous.journal.events.combat.ShipTargetedStage0;
-import elite.dangerous.journal.events.combat.ShipTargetedStage1;
-import elite.dangerous.journal.events.combat.ShipTargetedStage2;
-import elite.dangerous.journal.events.combat.ShipTargetedStage3;
 import elite.dangerous.journal.events.exploration.ScanPlanetOrMoon;
 import elite.dangerous.journal.events.exploration.ScanStar;
+import elite.dangerous.model.combat.ScanStageOne;
+import elite.dangerous.model.combat.ScanStageThree;
+import elite.dangerous.model.combat.ScanStageTwo;
+import elite.dangerous.model.combat.ShipTargetLocked;
+import elite.dangerous.model.combat.ShipTargetLost;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,12 +49,14 @@ class SubtypeHandler
     {
         // !off
         BOUNTY(Bounty.class, Cast().To(BountySkimmer.class).When(node -> node.has("Target") && node.get("Target").asText().equals("Skimmer")).Default(BountyDefault.class)),
-        DIED(Cast().To(DiedByPVP.class).When(node -> node.has("KillerShip")).Or().To(DiedByWing.class).When(node -> node.has("Killers")).Default(Died.class)),
+        DIED(Cast().To(DiedByPVP.class).When(node -> node.has("KillerShip")).To(DiedByWing.class).When(node -> node.has("Killers")).Default(Died.class)),
         SCAN(Cast().To(ScanPlanetOrMoon.class).When(node -> node.has("PlanetClass")).Default(ScanStar.class)),
-        TARGETED(Cast().To(ShipTargeted.class).When(node -> !node.get("TargetLocked").asBoolean()).Or().To(ShipTargetedStage0.class)
-                        .When(node -> node.get("ScanStage").asInt() == 0).Or().To(ShipTargetedStage1.class).When(node -> node.get("ScanStage").asInt() == 1).Or()
-                        .To(ShipTargetedStage2.class).When(node -> node.get("ScanStage").asInt() == 2).Or().To(ShipTargetedStage3.class)
-                        .When(node -> node.get("ScanStage").asInt() == 3).Create())
+        SHIPTARGET(ShipTargeted.class,
+           Cast().To(ScanStageOne.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 1)
+                .To(ScanStageTwo.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 2)
+                .To(ScanStageThree.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 3)
+                .To(ShipTargetLocked.class).When(node -> node.get("TargetLocked").asBoolean())
+                .Default(ShipTargetLost.class))
         // @on
         ;
 
@@ -71,7 +74,7 @@ class SubtypeHandler
 
         Subtypes(Wrapper cast)
         {
-            this.baseClass = cast.getFallback();
+            this.baseClass = cast.fallback();
             this.cast = cast;
         }
 
@@ -244,8 +247,8 @@ class SubtypeHandler
             @NotNull
             public WhenTrue To(Class<?> to)
             {
-                this.setClassReference(to);
-                this.setToProvided(true);
+                this.classReference(to);
+                this.toProvided(true);
                 return this;
             }
 
@@ -257,15 +260,8 @@ class SubtypeHandler
                     throw new RuntimeException("Tried setting 'when' (Predicate) before 'to' (Class<?>) reference was set");
                 }
                 this.map.put(when, this.classReference);
-                this.setClassReference(null);
-                this.setToProvided(false);
-                return this;
-            }
-
-            @Override
-            @NotNull
-            public CastTo Or()
-            {
+                this.classReference(null);
+                this.toProvided(false);
                 return this;
             }
 
@@ -273,7 +269,7 @@ class SubtypeHandler
             @NotNull
             public Wrapper Default(Class<?> fallback)
             {
-                this.setFallback(fallback);
+                this.fallback(fallback);
                 return Create();
             }
 
@@ -282,7 +278,7 @@ class SubtypeHandler
             public Wrapper Create()
             {
                 if (this.fallback == null)
-                    this.setFallback(this.map.first());
+                    this.fallback(this.map.first());
                 return new Wrapper(this);
             }
         }
@@ -299,11 +295,8 @@ class SubtypeHandler
             FinalAction When(Predicate<JsonNode> when);
         }
 
-        private interface FinalAction
+        private interface FinalAction extends CastTo
         {
-            @NotNull
-            CastTo Or();
-
             @NotNull
             Wrapper Default(Class<?> fallback);
 

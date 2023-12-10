@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ModuleSwap extends Event
 {
 
-    public long marketID;
+    private long   marketID;
 
-    public String fromSlot, toSlot, fromItem, toItem, ship;
+    private String fromSlot, toSlot, fromItem, toItem, ship;
 
-    public int shipID;
+    private int    shipID;
 
 }

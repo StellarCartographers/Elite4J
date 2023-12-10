@@ -1,10 +1,11 @@
 package elite.dangerous.journal.events.combat;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
+import lombok.ObjectType;
 
-public class ShipTargeted extends Event
+@EliteObject(ObjectType.PARENT)
+public abstract class ShipTargeted extends Event
 {
-
-    public boolean targetLocked;
-
+    private boolean targetLocked;
 }

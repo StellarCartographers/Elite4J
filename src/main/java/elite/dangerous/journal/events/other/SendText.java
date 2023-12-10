@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SendText extends Event
 {
 
-    public String to;
+    private String to;
 
-    public String message;
+    private String message;
 
 }

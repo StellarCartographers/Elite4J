@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Resurrect extends Event
 {
 
-    public String option;
+    private String  option;
 
-    public long cost;
+    private long    cost;
 
-    public boolean bankrupt;
+    private boolean bankrupt;
 
 }

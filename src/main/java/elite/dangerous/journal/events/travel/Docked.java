@@ -3,44 +3,46 @@ package elite.dangerous.journal.events.travel;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Faction;
-import elite.dangerous.journal.models.StationEconomy;
+import elite.dangerous.model.Faction;
+import elite.dangerous.model.StationEconomy;
+import lombok.EliteObject;
 
+@EliteObject
 public class Docked extends Event
 {
 
-    public String stationName;
+    private String               stationName;
 
-    public String stationType;
+    private String               stationType;
 
-    public String starSystem;
+    private String               starSystem;
 
-    public Faction stationFaction;
+    public Faction               stationFaction;
 
-    public String stationGovernment;
+    private String               stationGovernment;
 
-    public String stationAllegiance;
+    private String               stationAllegiance;
 
-    public String stationEconomy;
+    private String               stationEconomy;
 
-    public List<StationEconomy> stationEconomies;
+    private List<StationEconomy> stationEconomies;
 
-    public long systemAddress;
+    private long                 systemAddress;
 
-    public long marketID;
+    private long                 marketID;
 
-    public double distFromStarLS;
+    private double               distFromStarLS;
 
-    public boolean cockpitBreach;
+    private boolean              cockpitBreach;
 
-    public List<String> stationServices;
+    private List<String>         stationServices;
 
-    public boolean activeFine;
+    private boolean              activeFine;
 
-    public boolean wanted;
+    private boolean              wanted;
 
-    public boolean taxi;
+    private boolean              taxi;
 
-    public boolean multicrew;
+    private boolean              multicrew;
 
 }

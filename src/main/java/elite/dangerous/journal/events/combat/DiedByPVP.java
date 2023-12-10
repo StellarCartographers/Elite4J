@@ -1,11 +1,13 @@
 package elite.dangerous.journal.events.combat;
 
+import lombok.EliteObject;
+
+@EliteObject
 public class DiedByPVP extends Died
 {
+    private String killerName;
 
-    public String killerName;
+    private String killerShip;
 
-    public String killerShip;
-
-    public String killerRank;
+    private String killerRank;
 }

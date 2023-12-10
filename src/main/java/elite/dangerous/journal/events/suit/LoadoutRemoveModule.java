@@ -3,17 +3,19 @@ package elite.dangerous.journal.events.suit;
 import java.util.ArrayList;
 
 import elite.dangerous.journal.base.Suit;
+import lombok.EliteObject;
 
+@EliteObject
 public class LoadoutRemoveModule extends Suit
 {
 
-    public String slotName;
+    private String           slotName;
 
-    public String moduleName;
+    private String           moduleName;
 
-    public int tier;
+    private int              tier;
 
     public ArrayList<String> weaponMods;
 
-    public long suitModuleID;
+    private long             suitModuleID;
 }

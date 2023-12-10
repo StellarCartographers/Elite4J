@@ -3,17 +3,19 @@ package elite.dangerous.journal.events.exploration;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.SAASignal;
+import elite.dangerous.model.SAASignal;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSSBodySignals extends Event
 {
 
-    public long systemAddress;
+    private long            systemAddress;
 
-    public String bodyName;
+    private String          bodyName;
 
-    public int bodyID;
+    private int             bodyID;
 
-    public List<SAASignal> signals;
+    private List<SAASignal> signals;
 
 }

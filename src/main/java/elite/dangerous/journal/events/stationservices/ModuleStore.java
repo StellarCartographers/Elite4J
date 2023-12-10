@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ModuleStore extends Event
 {
 
-    public String slot;
+    private String  slot;
 
-    public String storedItem;
+    private String  storedItem;
 
-    public String ship;
+    private String  ship;
 
-    public int shipID;
+    private int     shipID;
 
-    public boolean hot;
+    private boolean hot;
 
-    public long marketID;
+    private long    marketID;
 
 }

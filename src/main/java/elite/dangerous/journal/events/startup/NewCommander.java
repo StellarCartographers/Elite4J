@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class NewCommander extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String fid;
+    private String fid;
 
-    public String starterPackage;
+    private String starterPackage;
 
 }

@@ -1,16 +1,17 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class BuyDrones extends Event
 {
+    private String type;
 
-    public String type;
+    private int    count;
 
-    public int count;
+    private int    buyPrice;
 
-    public int buyPrice;
-
-    public int totalCost;
+    private int    totalCost;
 
 }

@@ -1,24 +1,26 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Progress extends Event
 {
 
-    public int combat;
+    private int combat;
 
-    public int trade;
+    private int trade;
 
-    public int explore;
+    private int explore;
 
-    public int soldier;
+    private int soldier;
 
-    public int exobiologist;
+    private int exobiologist;
 
-    public int empire;
+    private int empire;
 
-    public int federation;
+    private int federation;
 
-    public int cqc;
+    private int cqc;
 
 }

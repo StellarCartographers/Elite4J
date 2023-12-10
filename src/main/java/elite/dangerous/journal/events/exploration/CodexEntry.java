@@ -1,29 +1,30 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CodexEntry extends Event
 {
+    private String   name;
 
-    public String name;
+    private String   subCategory;
 
-    public String subCategory;
+    private String   category;
 
-    public String category;
+    private String   region;
 
-    public String region;
+    private String   system;
 
-    public String system;
+    private int      entryID;
 
-    public int entryID;
+    private long     systemAddress;
 
-    public long systemAddress;
+    private boolean  isNewEntry;
 
-    public boolean isNewEntry;
+    private boolean  newTraitsDiscovered;
 
-    public boolean newTraitsDiscovered;
+    private String[] traits;
 
-    public String[] traits;
-
-    public String nearestDestination;
+    private String   nearestDestination;
 }

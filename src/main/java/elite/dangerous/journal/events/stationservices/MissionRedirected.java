@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MissionRedirected extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String newDestinationStation;
+    private String newDestinationStation;
 
-    public String newDestinationSystem;
+    private String newDestinationSystem;
 
-    public String oldDestinationStation;
+    private String oldDestinationStation;
 
-    public String oldDestinationSystem;
+    private String oldDestinationSystem;
 
-    public long missionID;
+    private long   missionID;
 
 }

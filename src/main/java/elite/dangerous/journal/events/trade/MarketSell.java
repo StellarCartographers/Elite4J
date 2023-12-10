@@ -1,26 +1,28 @@
 package elite.dangerous.journal.events.trade;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MarketSell extends Event
 {
 
-    public long marketID;
+    private long    marketID;
 
-    public String type;
+    private String  type;
 
-    public int count;
+    private int     count;
 
-    public int sellPrice;
+    private int     sellPrice;
 
-    public int totalSale;
+    private int     totalSale;
 
-    public int avgPricePaid;
+    private int     avgPricePaid;
 
-    public boolean illegalGoods;
+    private boolean illegalGoods;
 
-    public boolean stolenGoods;
+    private boolean stolenGoods;
 
-    public boolean blackMarket;
+    private boolean blackMarket;
 
 }

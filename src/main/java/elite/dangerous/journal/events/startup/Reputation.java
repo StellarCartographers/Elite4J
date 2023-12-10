@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.toreadable.ReputationName;
+import elite.dangerous.model.toreadable.ReputationName;
+import lombok.EliteObject;
 
+@EliteObject
 public class Reputation extends Event
 {
 
-    public double empire, federation, alliance, independent;
+    private double empire, federation, alliance, independent;
 
     public String getEmpireReputationReadable()
     {

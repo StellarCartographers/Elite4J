@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SellExplorationData extends Event
 {
 
-    public String[] systems, discovered;
+    private String[] systems, discovered;
 
-    public int baseValue, bonus, totalEarnings;
+    private int      baseValue, bonus, totalEarnings;
 
 }

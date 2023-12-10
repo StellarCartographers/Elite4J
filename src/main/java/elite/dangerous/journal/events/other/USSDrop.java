@@ -1,10 +1,12 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class USSDrop extends Event
 {
-    public String ussType;
+    private String ussType;
 
-    public int ussThreat;
+    private int    ussThreat;
 }

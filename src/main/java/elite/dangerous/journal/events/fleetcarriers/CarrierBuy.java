@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierBuy extends Event
 {
 
-    public long boughtAtMarket;
+    private long   boughtAtMarket;
 
-    public long carrierID;
+    private long   carrierID;
 
-    public String location;
+    private String location;
 
-    public long price;
+    private long   price;
 
-    public String variant;
+    private String variant;
 
-    public String callsign;
+    private String callsign;
 
 }

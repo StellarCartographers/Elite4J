@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.powerplay;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PowerplayDefect extends Event
 {
 
-    public String fromPower;
+    private String fromPower;
 
-    public String toPower;
+    private String toPower;
 
 }

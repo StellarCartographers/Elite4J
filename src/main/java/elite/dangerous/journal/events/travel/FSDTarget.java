@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSDTarget extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String starClass;
+    private String starClass;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public int remainingJumpsInRoute;
+    private int    remainingJumpsInRoute;
 
 }

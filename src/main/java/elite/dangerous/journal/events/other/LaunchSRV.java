@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class LaunchSRV extends Event
 {
 
-    public String loadout;
+    private String loadout;
 
-    public int id;
+    private int    id;
 
 }

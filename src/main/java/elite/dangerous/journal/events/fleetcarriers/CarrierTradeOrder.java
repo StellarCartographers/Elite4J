@@ -1,22 +1,24 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierTradeOrder extends Event
 {
 
-    public long carrierID;
+    private long    carrierID;
 
-    public boolean blackMarket;
+    private boolean blackMarket;
 
-    public String commodity;
+    private String  commodity;
 
-    public int purchaseOrder;
+    private int     purchaseOrder;
 
-    public int saleOrder;
+    private int     saleOrder;
 
-    public boolean cancelTrade;
+    private boolean cancelTrade;
 
-    public int price;
+    private int     price;
 
 }

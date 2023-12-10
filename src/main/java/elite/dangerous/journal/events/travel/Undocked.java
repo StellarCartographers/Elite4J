@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Undocked extends Event
 {
 
-    public String stationName, stationType;
+    private String stationName, stationType;
 
-    public long marketID;
+    private long   marketID;
 
 }

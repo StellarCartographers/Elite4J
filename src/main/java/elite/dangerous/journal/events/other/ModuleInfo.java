@@ -3,11 +3,13 @@ package elite.dangerous.journal.events.other;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Module;
+import elite.dangerous.model.Module;
+import lombok.EliteObject;
 
+@EliteObject
 public class ModuleInfo extends Event
 {
 
-    public List<Module> modules;
+    private List<Module> modules;
 
 }

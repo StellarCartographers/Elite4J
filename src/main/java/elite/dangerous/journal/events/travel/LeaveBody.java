@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class LeaveBody extends Event
 {
 
-    public String starSystem, body;
+    private String starSystem, body;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public int bodyID;
+    private int    bodyID;
 
 }

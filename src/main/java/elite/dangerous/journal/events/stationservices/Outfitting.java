@@ -1,11 +1,13 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Outfitting extends Event
 {
 
-    public long marketID;
+    private long   marketID;
 
-    public String stationName, starSystem;
+    private String stationName, starSystem;
 }

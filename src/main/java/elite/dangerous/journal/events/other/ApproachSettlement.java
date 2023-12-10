@@ -1,22 +1,24 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ApproachSettlement extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String bodyName;
+    private String bodyName;
 
-    public int bodyID;
+    private int    bodyID;
 
-    public double latitude;
+    private double latitude;
 
-    public double longitude;
+    private double longitude;
 
-    public long marketID;
+    private long   marketID;
 
-    public long systemAddress;
+    private long   systemAddress;
 
 }

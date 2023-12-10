@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MissionAbandoned extends Event
 {
 
-    public String name;
+    private String name;
 
-    public long missionID;
+    private long   missionID;
 
 }

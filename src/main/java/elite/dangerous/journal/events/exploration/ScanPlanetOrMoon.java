@@ -2,46 +2,48 @@ package elite.dangerous.journal.events.exploration;
 
 import java.util.List;
 
-import elite.dangerous.journal.models.scan.AtmosphereItem;
-import elite.dangerous.journal.models.scan.Composition;
-import elite.dangerous.journal.models.scan.Material;
-import elite.dangerous.journal.models.scan.Parents;
+import elite.dangerous.model.scan.AtmosphereItem;
+import elite.dangerous.model.scan.Composition;
+import elite.dangerous.model.scan.Material;
+import elite.dangerous.model.scan.Parents;
+import lombok.EliteObject;
 
+@EliteObject
 public class ScanPlanetOrMoon extends Scan
 {
 
-    public double axialTilt;
+    private double               axialTilt;
 
-    public String terraformState;
+    private String               terraformState;
 
-    public String planetClass;
+    private String               planetClass;
 
-    public String atmosphere;
+    private String               atmosphere;
 
-    public String atmosphereType;
+    private String               atmosphereType;
 
-    public String volcanism;
+    private String               volcanism;
 
-    public String reserveLevel;
+    private String               reserveLevel;
 
-    public double massEM;
+    private double               massEM;
 
-    public double surfaceGravity;
+    private double               surfaceGravity;
 
-    public double surfacePressure;
+    private double               surfacePressure;
 
-    public int subclass;
+    private int                  subclass;
 
-    public boolean tidalLock;
+    private boolean              tidalLock;
 
-    public boolean landable;
+    private boolean              landable;
 
-    public Parents parents;
+    private Parents              parents;
 
-    public List<AtmosphereItem> atmosphereComposition;
+    private List<AtmosphereItem> atmosphereComposition;
 
-    public List<Material> materials;
+    private List<Material>       materials;
 
-    public Composition composition;
+    private Composition          composition;
 
 }

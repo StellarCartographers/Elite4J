@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Promotion extends Event
 {
 
-    public int combat;
+    private int combat;
 
-    public int trade;
+    private int trade;
 
-    public int explore;
+    private int explore;
 
-    public int cqc;
+    private int cqc;
 
-    public int federation;
+    private int federation;
 
-    public int empire;
+    private int empire;
 
 }

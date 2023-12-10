@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierFinance extends Event
 {
 
-    public double taxRate, reservePercent;
+    private double taxRate, reservePercent;
 
-    public long carrierID, carrierBalance, reserveBalance, availableBalance;
+    private long   carrierID, carrierBalance, reserveBalance, availableBalance;
 
 }

@@ -1,15 +1,17 @@
 package elite.dangerous.journal.events.suit;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class UpgradeWeapon extends Event
 {
 
-    public String name;
+    private String name;
 
-    public long suitModuleID;
+    private long   suitModuleID;
 
-    public int weaponClass;
+    private int    weaponClass;
 
-    public long cost;
+    private long   cost;
 }

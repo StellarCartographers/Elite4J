@@ -3,52 +3,54 @@ package elite.dangerous.journal.events.travel;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Conflict;
-import elite.dangerous.journal.models.Faction;
+import elite.dangerous.model.Conflict;
+import elite.dangerous.model.Faction;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSDJump extends Event
 {
 
-    public String starSystem;
+    private String         starSystem;
 
-    public String systemAllegiance;
+    private String         systemAllegiance;
 
-    public String systemEconomy;
+    private String         systemEconomy;
 
-    public String systemSecondEconomy;
+    private String         systemSecondEconomy;
 
-    public String systemGovernment;
+    private String         systemGovernment;
 
-    public String systemSecurity;
+    private String         systemSecurity;
 
-    public String body;
+    private String         body;
 
-    public String bodyType;
+    private String         bodyType;
 
-    public Faction systemFaction;
+    public Faction         systemFaction;
 
-    public String powerplayState;
+    private String         powerplayState;
 
-    public long population;
+    private long           population;
 
-    public long systemAddress;
+    private long           systemAddress;
 
-    public long boostUsed;
+    private long           boostUsed;
 
-    public int bodyId;
+    private int            bodyId;
 
-    public double jumpDistance;
+    private double         jumpDistance;
 
-    public double fuelUsed;
+    private double         fuelUsed;
 
-    public double fuelLevel;
+    private double         fuelLevel;
 
-    public List<Faction> factions;
+    private List<Faction>  factions;
 
-    public List<Conflict> conflicts;
+    private List<Conflict> conflicts;
 
-    public double[] starPos;
+    private double[]       starPos;
 
-    public List<String> powers;
+    private List<String>   powers;
 
 }

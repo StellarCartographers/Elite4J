@@ -1,14 +1,15 @@
 package elite.dangerous.journal.events.combat;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Interdiction extends Event
 {
+    private boolean success, isPlayer;
 
-    public boolean success, isPlayer;
+    private String  interdicted, faction, power;
 
-    public String interdicted, faction, power;
-
-    public int combatRank;
+    private int     combatRank;
 
 }

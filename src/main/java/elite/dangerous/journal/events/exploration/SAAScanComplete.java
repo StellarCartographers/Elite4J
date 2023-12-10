@@ -3,18 +3,20 @@ package elite.dangerous.journal.events.exploration;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SAAScanComplete extends Event
 {
 
-    public String bodyName;
+    private String       bodyName;
 
-    public int bodyID, probesUsed, efficiencyTarget;
+    private int          bodyID, probesUsed, efficiencyTarget;
 
-    public long systemAddress;
+    private long         systemAddress;
 
-    public List<String> descoverers;
+    private List<String> descoverers;
 
-    public List<String> mappers;
+    private List<String> mappers;
 
 }

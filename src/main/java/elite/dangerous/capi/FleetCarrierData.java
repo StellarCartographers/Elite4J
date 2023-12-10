@@ -5,108 +5,114 @@
  */
 package elite.dangerous.capi;
 
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import elite.dangerous.capi.base.CAPIData;
-import elite.dangerous.capi.modal.fleetcarrier.Capacity;
-import elite.dangerous.capi.modal.fleetcarrier.Cargo;
-import elite.dangerous.capi.modal.fleetcarrier.CarrierLocker;
-import elite.dangerous.capi.modal.fleetcarrier.DockingAccess;
-import elite.dangerous.capi.modal.fleetcarrier.Finance;
-import elite.dangerous.capi.modal.fleetcarrier.Finances;
-import elite.dangerous.capi.modal.fleetcarrier.Itinerary;
-import elite.dangerous.capi.modal.fleetcarrier.Market;
-import elite.dangerous.capi.modal.fleetcarrier.Modules;
-import elite.dangerous.capi.modal.fleetcarrier.Name;
-import elite.dangerous.capi.modal.fleetcarrier.Orders;
-import elite.dangerous.capi.modal.fleetcarrier.Reputation;
-import elite.dangerous.capi.modal.fleetcarrier.ServicesCrew;
-import elite.dangerous.capi.modal.fleetcarrier.Ships;
-import elite.dangerous.capi.modal.fleetcarrier.Theme;
+import elite.dangerous.Elite4J;
+import elite.dangerous.capi.modal.fc.Capacity;
+import elite.dangerous.capi.modal.fc.Cargo;
+import elite.dangerous.capi.modal.fc.CarrierLocker;
+import elite.dangerous.capi.modal.fc.DockingAccess;
+import elite.dangerous.capi.modal.fc.Finance;
+import elite.dangerous.capi.modal.fc.Finances;
+import elite.dangerous.capi.modal.fc.Itinerary;
+import elite.dangerous.capi.modal.fc.Market;
+import elite.dangerous.capi.modal.fc.Modules;
+import elite.dangerous.capi.modal.fc.Name;
+import elite.dangerous.capi.modal.fc.Reputation;
+import elite.dangerous.capi.modal.fc.ServicesCrew;
+import elite.dangerous.capi.modal.fc.Ships;
+import elite.dangerous.capi.modal.fc.State;
+import elite.dangerous.capi.modal.fc.Theme;
+import elite.dangerous.capi.modal.fc.orders.Orders;
+import elite.dangerous.fdev.FDevID;
 import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
+import lombok.EliteObject;
 import lombok.Getter;
-import lombok.Value;
-import lombok.extern.jackson.Jacksonized;
+import space.tscg.api.JsonWrapper;
 
-@Value
-@Builder
-@Jacksonized
-@EqualsAndHashCode(callSuper = false)
-public class FleetCarrierData extends CAPIData
+@EliteObject
+public class FleetCarrierData extends CAPIData implements JsonWrapper
 {
     @Getter(AccessLevel.PRIVATE)
-    @JsonProperty("name")
-    private Name nameInfo;
+    @JsonProperty(value = "name", index = 0)
+    private Name             nameInfo;
 
-    private String currentStarSystem;
+    private String           currentStarSystem;
 
-    private long balance;
+    private String           balance;
 
-    private int fuel;
+    private String           fuel;
 
-    private String state;
+    private String           state;
 
-    private Theme theme;
+    private Theme            theme;
 
-    private DockingAccess dockingAccess;
+    private DockingAccess    dockingAccess;
 
-    private boolean notoriousAccess;
+    private boolean          notoriousAccess;
 
-    private Capacity capacity;
+    private Capacity         capacity;
 
-    private Itinerary itinerary;
+    private Itinerary        itinerary;
 
-    private Finances marketFinances;
+    private Finances         marketFinances;
 
-    private Finances blackmarketFinances;
+    private Finances         blackmarketFinances;
 
-    private Finance finance;
+    private Finance          finance;
 
-    private ServicesCrew servicesCrew;
+    private ServicesCrew     servicesCrew;
 
-    private List<Cargo> cargo;
+    private List<Cargo>      cargo;
 
-    private Orders orders;
+    private Orders           orders;
 
-    private CarrierLocker carrierLocker;
+    private CarrierLocker    carrierLocker;
 
     private List<Reputation> reputation;
 
-    private Market market;
+    private Market           market;
 
-    private Ships ships;
+    private Ships            ships;
 
-    private Modules modules;
-
-    private Date timestamp;
+    private Modules          modules;
 
     @JsonIgnore
-    public String getCallsign()
+    public String callsign()
     {
-        return getNameInfo().getCallsign();
+        return nameInfo().callsign();
     }
-    
+
     @JsonIgnore
-    public String getName()
+    public String name()
     {
-        return getNameInfo().getName();
+        return nameInfo().name();
     }
-    
+
+    @JsonIgnore
+    public int fuel()
+    {
+        return Integer.valueOf(fuel);
+    }
+
+    @JsonIgnore
+    public long balance()
+    {
+        return Integer.valueOf(balance);
+    }
+
     /**
      * Gets the carrier id. Returns the value from {@code market().id()}
      *
      * @return Carrier ID
      */
     @JsonIgnore
-    public String getCarrierId()
+    public FDevID carrierId()
     {
-        return this.market.getId();
+        return this.market.id();
     }
 
     /**
@@ -117,8 +123,256 @@ public class FleetCarrierData extends CAPIData
      * @return Fuel Reserves amount
      */
     @JsonIgnore
-    public int getFuelReserves()
+    public int fuelReserves()
     {
-        return getCargo().stream().filter(Cargo.TritiumPredicate).mapToInt(Cargo::getQty).sum();
+        return cargo().stream().filter(Cargo.TritiumPredicate).mapToInt(Cargo::quantity).sum();
+    }
+
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRefuelSuspended()
+    {
+        return this.market.services().refuel().equals(State.UNMANNED);
+    }
+    
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRefuelInstalled()
+    {
+        return this.market.services().refuel().equals(State.UNAVAILABLE);
+    }
+
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRepairSuspended()
+    {
+        return this.market.services().repair().equals(State.UNMANNED);
+    }
+    
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRepairInstalled()
+    {
+        return this.market.services().repair().equals(State.UNAVAILABLE);
+    }
+
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRearmSuspended()
+    {
+        return this.market.services().rearm().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRearmInstalled()
+    {
+        return this.market.services().rearm().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isShipyardSuspended()
+    {
+        return this.market.services().shipyard().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isShipyardInstalled()
+    {
+        return this.market.services().shipyard().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isOutfittingSuspended()
+    {
+        return this.market.services().outfitting().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isOutfittingInstalled()
+    {
+        return this.market.services().outfitting().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isUniversalCartographicsSuspended()
+    {
+        return this.market.services().exploration().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isUniversalCartographicsInstalled()
+    {
+        return this.market.services().exploration().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isRedemptionOfficeSuspended()
+    {
+        return this.market.services().voucherredemption().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isRedemptionOfficeInstalled()
+    {
+        return this.market.services().voucherredemption().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isBlackmarketSuspended()
+    {
+        return this.market.services().blackmarket().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isBlackmarketInstalled()
+    {
+        return this.market.services().blackmarket().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isVistaGenomicsSuspended()
+    {
+        return this.market.services().vistagenomics().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isVistaGenomicsInstalled()
+    {
+        return this.market.services().vistagenomics().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isBartenderSuspended()
+    {
+        return this.market.services().bartender().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isBartenderInstalled()
+    {
+        return this.market.services().bartender().equals(State.UNAVAILABLE);
+    }
+    
+    /**
+     * If this service is installed but suspended by the owner
+     * 
+     * @return true if installed and suspended, false if not
+     */
+    @JsonIgnore
+    public boolean isPioneerSuppliesSuspended()
+    {
+        return this.market.services().pioneersupplies().equals(State.UNMANNED);
+    }
+
+    /**
+     * If this service is installed
+     * 
+     * @return true if installed, false if not
+     */
+    @JsonIgnore
+    public boolean isPioneerSuppliesInstalled()
+    {
+        return this.market.services().pioneersupplies().equals(State.UNAVAILABLE);
+    }
+    
+    @Override
+    public String toJson()
+    {
+        return Elite4J.ObjToString(this);
     }
 }

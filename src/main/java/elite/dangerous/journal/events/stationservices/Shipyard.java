@@ -3,27 +3,20 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
+import elite.dangerous.model.PriceItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class Shipyard extends Event
 {
 
-    public long marketID;
+    private long            marketID;
 
-    public String stationName, starSystem;
+    private String          stationName, starSystem;
 
-    public boolean horizons;
+    private boolean         horizons;
 
-    public boolean allowCobraMkIV;
+    private boolean         allowCobraMkIV;
 
-    public List<PriceItem> priceList;
-
-    public static class PriceItem
-    {
-
-        public int id;
-
-        public String shipType;
-
-        public long shipPrice;
-    }
+    private List<PriceItem> priceList;
 }

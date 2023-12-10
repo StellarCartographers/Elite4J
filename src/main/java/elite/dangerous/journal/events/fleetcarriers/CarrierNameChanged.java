@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierNameChanged extends Event
 {
 
-    public long carrierID;
+    private long   carrierID;
 
-    public String callsign;
+    private String callsign;
 
-    public String name;
+    private String name;
 
 }

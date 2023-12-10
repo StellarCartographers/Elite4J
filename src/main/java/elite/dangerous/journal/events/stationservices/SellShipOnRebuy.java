@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SellShipOnRebuy extends Event
 {
 
-    public String shipType;
+    private String shipType;
 
-    public String system;
+    private String system;
 
-    public int sellShipId;
+    private int    sellShipId;
 
-    public long shipPrice;
+    private long   shipPrice;
 
 }

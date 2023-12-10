@@ -3,16 +3,11 @@ package elite.dangerous.journal.events.backpack;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.MicroResource;
+import elite.dangerous.model.MicroResourceTransfer;
+import lombok.EliteObject;
 
+@EliteObject
 public class TransferMicroResources extends Event
 {
-
-    public List<MicroResourceTransfer> transfers;
-
-    public static class MicroResourceTransfer extends MicroResource
-    {
-
-        public String direction;
-    }
+    private List<MicroResourceTransfer> transfers;
 }

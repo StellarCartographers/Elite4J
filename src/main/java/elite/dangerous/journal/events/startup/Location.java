@@ -3,59 +3,61 @@ package elite.dangerous.journal.events.startup;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Conflict;
-import elite.dangerous.journal.models.Faction;
-import elite.dangerous.journal.models.StationEconomy;
+import elite.dangerous.model.Conflict;
+import elite.dangerous.model.Faction;
+import elite.dangerous.model.StationEconomy;
+import lombok.EliteObject;
 
+@EliteObject
 public class Location extends Event
 {
 
-    public String starSystem;
+    private String               starSystem;
 
-    public String systemAllegiance;
+    private String               systemAllegiance;
 
-    public String systemEconomy;
+    private String               systemEconomy;
 
-    public String systemSecondEconomy;
+    private String               systemSecondEconomy;
 
-    public String systemGovernment;
+    private String               systemGovernment;
 
-    public String systemSecurity;
+    private String               systemSecurity;
 
-    public String body;
+    private String               body;
 
-    public String bodyType;
+    private String               bodyType;
 
-    public Faction systemFaction;
+    public Faction               systemFaction;
 
-    public String powerplayState;
+    private String               powerplayState;
 
-    public String stationName;
+    private String               stationName;
 
-    public String stationType;
+    private String               stationType;
 
-    public String stationEconomy;
+    private String               stationEconomy;
 
-    public Faction stationFaction;
+    public Faction               stationFaction;
 
-    public String stationAllegiance;
+    private String               stationAllegiance;
 
-    public String stationGovernment;
+    private String               stationGovernment;
 
-    public double[] starPos;
+    private double[]             starPos;
 
-    public long systemAddress, population, marketID;
+    private long                 systemAddress, population, marketID;
 
-    public int bodyID;
+    private int                  bodyID;
 
-    public boolean docked;
+    private boolean              docked;
 
-    public List<Faction> factions;
+    private List<Faction>        factions;
 
-    public List<Conflict> conflicts;
+    private List<Conflict>       conflicts;
 
-    public List<String> powers, stationServices;
+    private List<String>         powers, stationServices;
 
-    public List<StationEconomy> stationEconomies;
+    private List<StationEconomy> stationEconomies;
 
 }

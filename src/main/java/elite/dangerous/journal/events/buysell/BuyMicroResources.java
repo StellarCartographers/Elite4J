@@ -1,18 +1,19 @@
 package elite.dangerous.journal.events.buysell;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.enums.MicroResourceCategory;
+import elite.dangerous.model.enums.MicroResourceCategory;
+import lombok.EliteObject;
 
+@EliteObject
 public class BuyMicroResources extends Event
 {
+    private String                name;
 
-    public String name;
+    private MicroResourceCategory category;
 
-    public MicroResourceCategory category;
+    private int                   count;
 
-    public int count;
+    private long                  price;
 
-    public long price;
-
-    public long marketID;
+    private long                  marketID;
 }

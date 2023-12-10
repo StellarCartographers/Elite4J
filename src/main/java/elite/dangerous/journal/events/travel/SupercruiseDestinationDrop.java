@@ -1,25 +1,14 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
-/**
- * The Class SupercruiseDestinationDrop.
- */
+@EliteObject
 public class SupercruiseDestinationDrop extends Event
 {
+    private String type;
 
-    /**
-     * The type.
-     */
-    public String type;
+    private int    threat;
 
-    /**
-     * The threat.
-     */
-    public int threat;
-
-    /**
-     * The market ID.
-     */
-    public long marketID;
+    private long   marketID;
 }

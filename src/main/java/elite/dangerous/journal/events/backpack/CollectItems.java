@@ -1,18 +1,19 @@
 package elite.dangerous.journal.events.backpack;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CollectItems extends Event
 {
+    private String  name;
 
-    public String name;
+    private String  type;
 
-    public String type;
+    private long    ownerID;
 
-    public long ownerID;
+    private int     count;
 
-    public int count;
-
-    public boolean stolen;
+    private boolean stolen;
 
 }

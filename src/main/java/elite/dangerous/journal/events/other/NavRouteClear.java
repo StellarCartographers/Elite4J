@@ -1,10 +1,9 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
-/**
- * The Class NavRouteClear.
- */
+@EliteObject
 public class NavRouteClear extends Event
 {
 

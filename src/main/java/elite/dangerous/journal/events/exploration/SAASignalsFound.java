@@ -3,38 +3,25 @@ package elite.dangerous.journal.events.exploration;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
+import elite.dangerous.model.ssa.Genus;
+import elite.dangerous.model.ssa.Signal;
+import lombok.EliteObject;
 
+@EliteObject
 public class SAASignalsFound extends Event
 {
-    public String bodyName;
+    private String       bodyName;
 
-    public long systemAddress;
+    private long         systemAddress;
 
-    public long bodyID;
+    private long         bodyID;
 
-    public List<Signal> signals;
+    private List<Signal> signals;
 
-    public List<Genus> genuses;
+    private List<Genus>  genuses;
 
-    public List<String> getGenuses()
+    public List<String> genuses()
     {
-        return genuses.stream().map(Genus::getName).toList();
-    }
-
-    public static class Signal
-    {
-        public String type;
-
-        public long count;
-    }
-
-    public static class Genus
-    {
-        public String genus;
-
-        public String getName()
-        {
-            return genus;
-        }
+        return genuses.stream().map(Genus::name).toList();
     }
 }

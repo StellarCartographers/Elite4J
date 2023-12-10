@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class NavBeaconScan extends Event
 {
 
-    public long systemAddress;
+    private long systemAddress;
 
-    public int numBodies;
+    private int  numBodies;
 
 }

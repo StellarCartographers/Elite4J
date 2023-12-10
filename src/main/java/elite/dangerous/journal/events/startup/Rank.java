@@ -1,58 +1,60 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.toreadable.CQCRank;
-import elite.dangerous.journal.models.toreadable.CombatRank;
-import elite.dangerous.journal.models.toreadable.EmpireRank;
-import elite.dangerous.journal.models.toreadable.ExplorationRank;
-import elite.dangerous.journal.models.toreadable.FederationRank;
-import elite.dangerous.journal.models.toreadable.TradeRank;
+import elite.dangerous.model.toreadable.CQCRank;
+import elite.dangerous.model.toreadable.CombatRank;
+import elite.dangerous.model.toreadable.EmpireRank;
+import elite.dangerous.model.toreadable.ExplorationRank;
+import elite.dangerous.model.toreadable.FederationRank;
+import elite.dangerous.model.toreadable.TradeRank;
+import lombok.EliteObject;
 
+@EliteObject
 public class Rank extends Event
 {
 
-    public int combat;
+    private int combat;
 
-    public int trade;
+    private int trade;
 
-    public int explore;
+    private int explore;
 
-    public int soldier;
+    private int soldier;
 
-    public int exobiologist;
+    private int exobiologist;
 
-    public int empire;
+    private int empire;
 
-    public int federation;
+    private int federation;
 
-    public int cqc;
+    private int cqc;
 
-    public String getCombatRankName()
+    public String combatRankName()
     {
         return CombatRank.getReadableName(this.combat);
     }
 
-    public String getTradeRankName()
+    public String tradeRankName()
     {
         return TradeRank.getReadableName(this.trade);
     }
 
-    public String getExplorerRankName()
+    public String explorerRankName()
     {
         return ExplorationRank.getReadableName(this.explore);
     }
 
-    public String getEmpireRankName()
+    public String empireRankName()
     {
         return EmpireRank.getReadableName(this.empire);
     }
 
-    public String getFederationRankName()
+    public String federationRankName()
     {
         return FederationRank.getReadableName(this.federation);
     }
 
-    public String getCQCRankName()
+    public String cqcRankName()
     {
         return CQCRank.getReadableName(this.cqc);
     }

@@ -1,20 +1,22 @@
 package elite.dangerous.journal.events.onfoot;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class DropShipDeploy extends Event
 {
 
-    public String starSystem;
+    private String  starSystem;
 
-    public long systemAddress;
+    private long    systemAddress;
 
-    public String body;
+    private String  body;
 
-    public long bodyID;
+    private long    bodyID;
 
-    public boolean onStation;
+    private boolean onStation;
 
-    public boolean onPlanet;
+    private boolean onPlanet;
 
 }

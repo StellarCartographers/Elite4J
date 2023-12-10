@@ -1,24 +1,26 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSSSignalDiscovered extends Event
 {
 
-    public String signalName;
+    private String  signalName;
 
-    public String ussType;
+    private String  ussType;
 
-    public String spawningState;
+    private String  spawningState;
 
-    public String spawningFaction;
+    private String  spawningFaction;
 
-    public int threatLevel;
+    private int     threatLevel;
 
-    public long systemAddress;
+    private long    systemAddress;
 
-    public double timeRemaining;
+    private double  timeRemaining;
 
-    public boolean isStation;
+    private boolean isStation;
 
 }

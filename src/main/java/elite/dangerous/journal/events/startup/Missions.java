@@ -3,15 +3,17 @@ package elite.dangerous.journal.events.startup;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Mission;
+import elite.dangerous.model.Mission;
+import lombok.EliteObject;
 
+@EliteObject
 public class Missions extends Event
 {
 
-    public List<Mission> active;
+    private List<Mission> active;
 
-    public List<Mission> failed;
+    private List<Mission> failed;
 
-    public List<Mission> complete;
+    private List<Mission> complete;
 
 }

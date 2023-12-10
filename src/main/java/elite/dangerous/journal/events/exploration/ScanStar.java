@@ -1,24 +1,27 @@
 package elite.dangerous.journal.events.exploration;
 
+import lombok.EliteObject;
+
+@EliteObject
 public class ScanStar extends Scan
 {
 
-    public String starType;
+    private String  starType;
 
-    public String luminosity;
+    private String  luminosity;
 
-    public long systemAddress;
+    private long    systemAddress;
 
-    public double stellarMass;
+    private double  stellarMass;
 
-    public long radius;
+    private long    radius;
 
-    public double absoluteMagnitude;
+    private double  absoluteMagnitude;
 
-    public long ageMY;
+    private long    ageMY;
 
-    public boolean wasMapped;
+    private boolean wasMapped;
 
-    public boolean wasDiscovered;
+    private boolean wasDiscovered;
 
 }

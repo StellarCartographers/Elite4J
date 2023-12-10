@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ReservoirReplenished extends Event
 {
 
-    public double fuelMain;
+    private double fuelMain;
 
-    public double fuelReservoir;
+    private double fuelReservoir;
 
 }

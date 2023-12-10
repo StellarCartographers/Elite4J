@@ -1,16 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CommunityGoalReward extends Event
 {
+    private int    cgid;
 
-    public int cgid;
+    private int    reward;
 
-    public int reward;
+    private String name;
 
-    public String name;
-
-    public String system;
-
+    private String system;
 }

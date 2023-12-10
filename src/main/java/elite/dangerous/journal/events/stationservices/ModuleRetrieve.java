@@ -1,22 +1,24 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ModuleRetrieve extends Event
 {
 
-    public long marketID;
+    private long    marketID;
 
-    public String slot;
+    private String  slot;
 
-    public String retrievedItem;
+    private String  retrievedItem;
 
-    public String ship;
+    private String  ship;
 
-    public String swapOutItem;
+    private String  swapOutItem;
 
-    public int shipID;
+    private int     shipID;
 
-    public boolean hot;
+    private boolean hot;
 
 }

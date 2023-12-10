@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Screenshot extends Event
 {
 
-    public String filename, system, body;
+    private String filename, system, body;
 
-    public int width, height, heading;
+    private int    width, height, heading;
 
-    public double latitude, longitude, altitude;
+    private double latitude, longitude, altitude;
 
 }

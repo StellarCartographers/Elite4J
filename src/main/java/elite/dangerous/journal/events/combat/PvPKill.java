@@ -1,12 +1,13 @@
 package elite.dangerous.journal.events.combat;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PvPKill extends Event
 {
+    private String victim;
 
-    public String victim;
-
-    public int combatRank;
+    private int    combatRank;
 
 }

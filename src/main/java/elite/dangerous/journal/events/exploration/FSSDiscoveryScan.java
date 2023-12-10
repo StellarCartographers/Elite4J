@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSSDiscoveryScan extends Event
 {
 
-    public String systemName;
+    private String systemName;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public double progress;
+    private double progress;
 
-    public int bodyCount, nonBodyCount;
+    private int    bodyCount, nonBodyCount;
 
 }

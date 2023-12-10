@@ -1,13 +1,15 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Touchdown extends Event
 {
 
-    public boolean playerControlled;
+    private boolean playerControlled;
 
-    public double latitude, longitude;
+    private double  latitude, longitude;
 
-    public String nearestDestination;
+    private String  nearestDestination;
 }

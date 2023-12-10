@@ -3,11 +3,13 @@ package elite.dangerous.journal.events.travel;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.RouteItem;
+import elite.dangerous.model.RouteItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class Route extends Event
 {
 
-    public List<RouteItem> route;
+    private List<RouteItem> route;
 
 }

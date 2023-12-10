@@ -3,20 +3,22 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.market.MarketItem;
+import elite.dangerous.model.market.MarketItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class Market extends Event
 {
 
-    public String stationName;
+    private String           stationName;
 
-    public String starSystem;
+    private String           starSystem;
 
-    public String stationType;
+    private String           stationType;
 
-    public String carrierDockingAccess;
+    private String           carrierDockingAccess;
 
-    public int marketID;
+    private int              marketID;
 
-    public List<MarketItem> items;
+    private List<MarketItem> items;
 }

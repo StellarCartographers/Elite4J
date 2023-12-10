@@ -1,14 +1,15 @@
 package elite.dangerous.journal.events.combat;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CapShipBond extends Event
 {
+    private String victimFaction;
 
-    public String victimFaction;
+    private String awardingFaction;
 
-    public String awardingFaction;
-
-    public int reward;
+    private int    reward;
 
 }

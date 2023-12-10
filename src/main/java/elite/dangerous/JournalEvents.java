@@ -3,7 +3,7 @@ package elite.dangerous;
 import java.util.LinkedHashMap;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.utils.ReflectionHelper;
+import elite.dangerous.util.ReflectionHelper;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor

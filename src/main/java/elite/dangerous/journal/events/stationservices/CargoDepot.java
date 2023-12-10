@@ -1,28 +1,29 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CargoDepot extends Event
 {
+    private long   missionID;
 
-    public long missionID;
+    private long   startMarketID;
 
-    public long startMarketID;
+    private long   endMarketID;
 
-    public long endMarketID;
+    private int    count;
 
-    public int count;
+    private int    itemCollected;
 
-    public int itemCollected;
+    private int    itemsDelivered;
 
-    public int itemsDelivered;
+    private int    totalItemsToDeliver;
 
-    public int totalItemsToDeliver;
+    private String updateType;
 
-    public String updateType;
+    private String cargoType;
 
-    public String cargoType;
-
-    public double progress;
+    private double progress;
 
 }

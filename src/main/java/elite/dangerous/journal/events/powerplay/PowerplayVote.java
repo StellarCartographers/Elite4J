@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.powerplay;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PowerplayVote extends Event
 {
 
-    public String power;
+    private String power;
 
-    public int votes;
+    private int    votes;
 
-    public String system;
+    private String system;
 
 }

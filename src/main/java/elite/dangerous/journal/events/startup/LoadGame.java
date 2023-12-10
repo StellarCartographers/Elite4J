@@ -1,37 +1,39 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class LoadGame extends Event
 {
-    public String commander;
+    private String  commander;
 
-    public String fid;
+    private String  fid;
 
-    public String ship;
+    private String  ship;
 
-    public String shipName;
+    private String  shipName;
 
-    public String shipIdent;
+    private String  shipIdent;
 
-    public String gameMode;
+    private String  gameMode;
 
-    public String group;
+    private String  group;
 
-    public int shipID;
+    private int     shipID;
 
-    public double fuelLevel;
+    private double  fuelLevel;
 
-    public double fuelCapacity;
+    private double  fuelCapacity;
 
-    public long credits;
+    private long    credits;
 
-    public long loan;
+    private long    loan;
 
-    public boolean horizons;
+    private boolean horizons;
 
-    public boolean startLanded;
+    private boolean startLanded;
 
-    public boolean startDead;
+    private boolean startDead;
 
 }

@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ShipyardBuy extends Event
 {
 
-    public String shipType, sellOldShip;
+    private String shipType, sellOldShip;
 
-    public long shipPrice, sellPrice;
+    private long   shipPrice, sellPrice;
 
-    public int sellShipID;
+    private int    sellShipID;
 
 }

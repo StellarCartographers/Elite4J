@@ -2,10 +2,11 @@ package elite.dangerous.journal.events.combat;
 
 import java.util.List;
 
-import elite.dangerous.journal.models.Killer;
+import elite.dangerous.model.Killer;
+import lombok.EliteObject;
 
+@EliteObject
 public class DiedByWing extends Died
 {
-
-    public List<Killer> killers;
+    private List<Killer> killers;
 }

@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class RepairDone extends Event
 {
 
-    public double hullRepaired;
+    private double hullRepaired;
 
-    public double cockpitRepaired;
+    private double cockpitRepaired;
 
-    public double corrosionRepaired;
+    private double corrosionRepaired;
 
 }

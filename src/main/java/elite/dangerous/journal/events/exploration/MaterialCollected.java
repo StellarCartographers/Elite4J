@@ -1,13 +1,15 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MaterialCollected extends Event
 {
-    public String category;
+    private String category;
 
-    public String name;
+    private String name;
 
-    public int count;
+    private int    count;
 
 }

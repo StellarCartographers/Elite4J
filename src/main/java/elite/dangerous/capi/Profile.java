@@ -1,6 +1,5 @@
 package elite.dangerous.capi;
 
-import elite.dangerous.capi.base.CAPIData;
 import elite.dangerous.capi.modal.profile.Commander;
 import elite.dangerous.capi.modal.profile.LastSystem;
 import lombok.Builder;

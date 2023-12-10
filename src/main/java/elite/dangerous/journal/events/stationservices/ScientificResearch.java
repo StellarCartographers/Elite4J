@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ScientificResearch extends Event
 {
 
-    public int marketID;
+    private int    marketID;
 
-    public String name;
+    private String name;
 
-    public String category;
+    private String category;
 
-    public int count;
+    private int    count;
 
 }

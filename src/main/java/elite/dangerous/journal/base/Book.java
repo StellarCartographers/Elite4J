@@ -1,12 +1,16 @@
 package elite.dangerous.journal.base;
 
+import lombok.EliteObject;
+import lombok.ObjectType;
+
+@EliteObject(ObjectType.PARENT)
 public abstract class Book extends Event
 {
-    public int cost;
+    private int     cost;
 
-    public String destinationSystem;
+    private String  destinationSystem;
 
-    public String destinationLocation;
+    private String  destinationLocation;
 
-    public boolean retreat;
+    private boolean retreat;
 }

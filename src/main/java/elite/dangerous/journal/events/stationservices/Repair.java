@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Repair extends Event
 {
 
-    public String item;
+    private String item;
 
-    public long cost;
+    private long   cost;
 
 }

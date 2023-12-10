@@ -1,24 +1,26 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class EngineerContribution extends Event
 {
 
-    public String engineer;
+    private String engineer;
 
-    public String type;
+    private String type;
 
-    public String commodity;
+    private String commodity;
 
-    public String faction;
+    private String faction;
 
-    public String material;
+    private String material;
 
-    public int engineerID;
+    private int    engineerID;
 
-    public int quantity;
+    private int    quantity;
 
-    public int totalQuantity;
+    private int    totalQuantity;
 
 }

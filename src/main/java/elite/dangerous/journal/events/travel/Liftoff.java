@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class Liftoff extends Event
 {
 
-    public boolean playerControlled;
+    private boolean playerControlled;
 
-    public double longitude, latitude;
+    private double  longitude, latitude;
 
-    public String nearestDestination;
+    private String  nearestDestination;
 
 }

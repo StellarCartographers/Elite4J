@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PayFines extends Event
 {
 
-    public long amount;
+    private long    amount;
 
-    public int shipID;
+    private int     shipID;
 
-    public boolean allFines;
+    private boolean allFines;
 
 }

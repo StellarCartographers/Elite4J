@@ -3,14 +3,16 @@ package elite.dangerous.journal.events.buysell;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.MicroResource;
+import elite.dangerous.model.MicroResource;
+import lombok.EliteObject;
 
+@EliteObject
 public class SellMicroResources extends Event
 {
 
-    public List<MicroResource> microResources;
+    private List<MicroResource> microResources;
 
-    public long price;
+    private long                price;
 
-    public long marketID;
+    private long                marketID;
 }

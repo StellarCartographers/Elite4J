@@ -3,13 +3,13 @@ package elite.dangerous.journal.events.other;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.material.Material;
+import elite.dangerous.model.material.Material;
+import lombok.EliteObject;
 
+@EliteObject
 public class Synthesis extends Event
 {
+    private String         name;
 
-    public String name;
-
-    public List<Material> materials;
-
+    private List<Material> materials;
 }

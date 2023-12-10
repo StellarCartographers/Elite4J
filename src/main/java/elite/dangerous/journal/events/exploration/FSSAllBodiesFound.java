@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.exploration;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FSSAllBodiesFound extends Event
 {
 
-    public String systemName;
+    private String systemName;
 
-    public long systemAddress;
+    private long   systemAddress;
 
-    public int count;
+    private int    count;
 
 }

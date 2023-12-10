@@ -1,157 +1,160 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import elite.dangerous.model.Fuel;
+import lombok.EliteObject;
 
+@EliteObject
 public class Status extends Event
 {
-    private static final int FLAG_DOCKED = 0x00000001;
+    private static final int      FLAG_DOCKED                       = 0x00000001;
 
-    private static final int FLAG_LANDED = 0x00000002;
+    private static final int      FLAG_LANDED                       = 0x00000002;
 
-    private static final int FLAG_LANDING_GEAR_DOWN = 0x00000004;
+    private static final int      FLAG_LANDING_GEAR_DOWN            = 0x00000004;
 
-    private static final int FLAG_SHIELDS_UP = 0x00000008;
+    private static final int      FLAG_SHIELDS_UP                   = 0x00000008;
 
-    private static final int FLAG_SUPERCRUISE = 0x00000010;
+    private static final int      FLAG_SUPERCRUISE                  = 0x00000010;
 
-    private static final int FLAG_FLIGHT_ASSIST_OFF = 0x00000020;
+    private static final int      FLAG_FLIGHT_ASSIST_OFF            = 0x00000020;
 
-    private static final int FLAG_HARDPOINTS_DEPLOYED = 0x00000040;
+    private static final int      FLAG_HARDPOINTS_DEPLOYED          = 0x00000040;
 
-    private static final int FLAG_IN_WING = 0x00000080;
+    private static final int      FLAG_IN_WING                      = 0x00000080;
 
-    private static final int FLAG_LIGHTS_ON = 0x00000100;
+    private static final int      FLAG_LIGHTS_ON                    = 0x00000100;
 
-    private static final int FLAG_CARGO_SCOOP_DEPLOYED = 0x00000200;
+    private static final int      FLAG_CARGO_SCOOP_DEPLOYED         = 0x00000200;
 
-    private static final int FLAG_SILENT_RUNNING = 0x00000400;
+    private static final int      FLAG_SILENT_RUNNING               = 0x00000400;
 
-    private static final int FLAG_SCOOPING_FUEL = 0x00000800;
+    private static final int      FLAG_SCOOPING_FUEL                = 0x00000800;
 
-    private static final int FLAG_SRV_HANDBRAKE = 0x00001000;
+    private static final int      FLAG_SRV_HANDBRAKE                = 0x00001000;
 
-    private static final int FLAG_SRV_USING_TURRET_VIEW = 0x00002000;
+    private static final int      FLAG_SRV_USING_TURRET_VIEW        = 0x00002000;
 
-    private static final int FLAG_SRV_TURRET_RETRACTED = 0x00004000;
+    private static final int      FLAG_SRV_TURRET_RETRACTED         = 0x00004000;
 
-    private static final int FLAG_SRV_DRIVE_ASSIST = 0x00008000;
+    private static final int      FLAG_SRV_DRIVE_ASSIST             = 0x00008000;
 
-    private static final int FLAG_FSD_MASS_LOCKED = 0x00010000;
+    private static final int      FLAG_FSD_MASS_LOCKED              = 0x00010000;
 
-    private static final int FLAG_FSD_CHARGING = 0x00020000;
+    private static final int      FLAG_FSD_CHARGING                 = 0x00020000;
 
-    private static final int FLAG_FSD_COOLDOWN = 0x00040000;
+    private static final int      FLAG_FSD_COOLDOWN                 = 0x00040000;
 
-    private static final int FLAG_LOW_FUEL = 0x00080000;
+    private static final int      FLAG_LOW_FUEL                     = 0x00080000;
 
-    private static final int FLAG_OVER_HEATING = 0x00100000;
+    private static final int      FLAG_OVER_HEATING                 = 0x00100000;
 
-    private static final int FLAG_HAS_LAT_LONG = 0x00200000;
+    private static final int      FLAG_HAS_LAT_LONG                 = 0x00200000;
 
-    private static final int FLAG_IS_IN_DANGER = 0x00400000;
+    private static final int      FLAG_IS_IN_DANGER                 = 0x00400000;
 
-    private static final int FLAG_BEING_INTERDICTED = 0x00800000;
+    private static final int      FLAG_BEING_INTERDICTED            = 0x00800000;
 
-    private static final int FLAG_IN_MAIN_SHIP = 0x01000000;
+    private static final int      FLAG_IN_MAIN_SHIP                 = 0x01000000;
 
-    private static final int FLAG_IN_FIGHTER = 0x02000000;
+    private static final int      FLAG_IN_FIGHTER                   = 0x02000000;
 
-    private static final int FLAG_IN_SRV = 0x04000000;
+    private static final int      FLAG_IN_SRV                       = 0x04000000;
 
-    private static final int FLAG_HUD_IN_ANALYSIS_MODE = 0x08000000;
+    private static final int      FLAG_HUD_IN_ANALYSIS_MODE         = 0x08000000;
 
-    private static final int FLAG_NIGHT_VISION = 0x10000000;
+    private static final int      FLAG_NIGHT_VISION                 = 0x10000000;
 
-    private static final int FLAG_ALTITUDE_FROM_AVERAGE_RADIUS = 0x20000000;
+    private static final int      FLAG_ALTITUDE_FROM_AVERAGE_RADIUS = 0x20000000;
 
-    private static final int FLAG_FSD_JUMP = 0x40000000;
+    private static final int      FLAG_FSD_JUMP                     = 0x40000000;
 
-    private static final int FLAG_SRV_HIGH_BEAM = 0x80000000;
+    private static final int      FLAG_SRV_HIGH_BEAM                = 0x80000000;
 
-    private static final int FLAG2_ON_FOOT = 0x0001;
+    private static final int      FLAG2_ON_FOOT                     = 0x0001;
 
-    private static final int FLAG2_IN_TAXI = 0x0002;
+    private static final int      FLAG2_IN_TAXI                     = 0x0002;
 
-    private static final int FLAG2_IN_MULTICREW = 0x0004;
+    private static final int      FLAG2_IN_MULTICREW                = 0x0004;
 
-    private static final int FLAG2_ON_FOOT_IN_STATION = 0x0008;
+    private static final int      FLAG2_ON_FOOT_IN_STATION          = 0x0008;
 
-    private static final int FLAG2_ON_FOOT_ON_PLANET = 0x0010;
+    private static final int      FLAG2_ON_FOOT_ON_PLANET           = 0x0010;
 
-    private static final int FLAG2_AIM_DOWN_SIGHT = 0x0020;
+    private static final int      FLAG2_AIM_DOWN_SIGHT              = 0x0020;
 
-    private static final int FLAG2_LOW_OXYGEN = 0x0040;
+    private static final int      FLAG2_LOW_OXYGEN                  = 0x0040;
 
-    private static final int FLAG2_LOW_HEALTH = 0x0080;
+    private static final int      FLAG2_LOW_HEALTH                  = 0x0080;
 
-    private static final int FLAG2_COLD = 0x0100;
+    private static final int      FLAG2_COLD                        = 0x0100;
 
-    private static final int FLAG2_HOT = 0x0200;
+    private static final int      FLAG2_HOT                         = 0x0200;
 
-    private static final int FLAG2_VERY_COLD = 0x0400;
+    private static final int      FLAG2_VERY_COLD                   = 0x0400;
 
-    private static final int FLAG2_VERY_HOT = 0x0800;
+    private static final int      FLAG2_VERY_HOT                    = 0x0800;
 
-    private static final int FLAG2_GLIDE_MODE = 0x1000;
+    private static final int      FLAG2_GLIDE_MODE                  = 0x1000;
 
-    private static final int FLAG2_ON_FOOT_IN_HANGAR = 0x2000;
+    private static final int      FLAG2_ON_FOOT_IN_HANGAR           = 0x2000;
 
-    private static final int FLAG2_ON_FOOT_SOCIAL_SPACE = 0x4000;
+    private static final int      FLAG2_ON_FOOT_SOCIAL_SPACE        = 0x4000;
 
-    private static final int FLAG2_ON_FOOT_EXTERIOR = 0x8000;
+    private static final int      FLAG2_ON_FOOT_EXTERIOR            = 0x8000;
 
-    private static final int FLAG2_BREATHABLE_ATMOSPHERE = 0x00010000;
+    private static final int      FLAG2_BREATHABLE_ATMOSPHERE       = 0x00010000;
 
-    private static final String[] GUI_FOCUS = {"NoFocus", "InternalPanel", "ExternalPanel", "CommsPanel", "RolePanel", "StationServices", "GalaxyMap", "SystemMap", "Orrery",
-                    "FSS mode", "SAA mode", "Codex"};
+    private static final String[] GUI_FOCUS                         = {"NoFocus", "InternalPanel", "ExternalPanel", "CommsPanel", "RolePanel", "StationServices", "GalaxyMap", "SystemMap", "Orrery", "FSS mode", "SAA mode", "Codex"};
 
-    public int flags;
+    private int                   flags;
 
-    public int flags2;
+    private int                   flags2;
 
-    public Fuel fuel;
+    public Fuel                   fuel;
 
-    public double cargo;
+    private double                cargo;
 
-    public String legalState;
+    private String                legalState;
 
-    public int guiFocus;
+    private int                   guiFocus;
 
-    public int fireGroup;
+    private int                   fireGroup;
 
-    public int[] pips;
+    private int[]                 pips;
 
-    public double altitude;
+    private double                altitude;
 
-    public double latitude;
+    private double                latitude;
 
-    public double longitude;
+    private double                longitude;
 
-    public double heading;
+    private double                heading;
 
-    public String bodyName;
+    private String                bodyName;
 
-    public double planetRadius;
+    private double                planetRadius;
 
-    public float oxygen;
+    public float                  oxygen;
 
-    public float health;
+    public float                  health;
 
-    public float temperature;
+    public float                  temperature;
 
-    public String selectedWeapon;
+    private String                selectedWeapon;
 
-    public double gravity;
+    private double                gravity;
 
     /**
-     * @param guiFocus
+     * @param  guiFocus
      * 
      * @return
      */
     public static String getGUIFocusName(Integer guiFocus)
     {
         String guiFocusName = null;
-        if (guiFocus != null) {
+        if (guiFocus != null)
+        {
             guiFocusName = GUI_FOCUS[guiFocus];
         }
         return guiFocusName;
@@ -412,13 +415,5 @@ public class Status extends Event
     public boolean isBreathableAtmosphere()
     {
         return ((this.flags2 & FLAG2_BREATHABLE_ATMOSPHERE) != 0);
-    }
-
-    public static class Fuel
-    {
-
-        public double fuelMain;
-
-        public double fuelReservoir;
     }
 }

@@ -1,22 +1,24 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MissionCompleted extends Event
 {
 
-    public String faction;
+    private String faction;
 
-    public String name;
+    private String name;
 
-    public String targetFaction;
+    private String targetFaction;
 
-    public String destinationSystem;
+    private String destinationSystem;
 
-    public String destinationStation;
+    private String destinationStation;
 
-    public long missionID;
+    private long   missionID;
 
-    public long reward;
+    private long   reward;
 
 }

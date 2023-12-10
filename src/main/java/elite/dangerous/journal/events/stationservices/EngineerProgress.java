@@ -3,15 +3,17 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.engineer.Engineer;
+import elite.dangerous.model.engineer.Engineer;
+import lombok.EliteObject;
 
+@EliteObject
 public class EngineerProgress extends Event
 {
 
-    public List<Engineer> engineers;
+    private List<Engineer> engineers;
 
-    public int rank;
+    private int            rank;
 
-    public double rankProgress;
+    private double         rankProgress;
 
 }

@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CrewAssign extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String role;
+    private String role;
 
-    public int crewID;
+    private int    crewID;
 
 }

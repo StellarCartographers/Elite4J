@@ -1,7 +1,10 @@
 package elite.dangerous.journal.base;
 
+import lombok.EliteObject;
+import lombok.ObjectType;
+
+@EliteObject(ObjectType.PARENT)
 public abstract class Squadron extends Event
 {
-
-    public String squadronName;
+    private String squadronName;
 }

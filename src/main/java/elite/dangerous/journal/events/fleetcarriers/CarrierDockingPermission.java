@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierDockingPermission extends Event
 {
 
-    public long carrierID;
+    private long    carrierID;
 
-    public String dockingAccess;
+    private String  dockingAccess;
 
-    public boolean allowNotorious;
+    private boolean allowNotorious;
 
 }

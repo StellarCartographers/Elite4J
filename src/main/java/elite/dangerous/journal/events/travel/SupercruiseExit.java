@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SupercruiseExit extends Event
 {
 
-    public String starSystem;
+    private String starSystem;
 
-    public String body;
+    private String body;
 
-    public String bodyType;
+    private String bodyType;
 
-    public int bodyID;
+    private int    bodyID;
 
 }

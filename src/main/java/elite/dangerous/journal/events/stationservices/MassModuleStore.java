@@ -3,17 +3,19 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.ModuleItem;
+import elite.dangerous.model.ModuleItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class MassModuleStore extends Event
 {
 
-    public long marketID;
+    private long             marketID;
 
-    public String ship;
+    private String           ship;
 
-    public int shipID;
+    private int              shipID;
 
-    public List<ModuleItem> items;
+    private List<ModuleItem> items;
 
 }

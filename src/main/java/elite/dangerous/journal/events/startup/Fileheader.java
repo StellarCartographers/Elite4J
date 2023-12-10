@@ -1,36 +1,19 @@
 package elite.dangerous.journal.events.startup;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
-/**
- * The Class Fileheader.
- */
+@EliteObject
 public class Fileheader extends Event
 {
 
-    /**
-     * The part.
-     */
-    public int part;
+    private int     part;
 
-    /**
-     * The language.
-     */
-    public String language;
+    private String  language;
 
-    /**
-     * The odyssey.
-     */
+    private boolean odyssey;
 
-    public boolean odyssey;
+    private String  gameversion;
 
-    /**
-     * The gameversion.
-     */
-    public String gameversion;
-
-    /**
-     * The build.
-     */
-    public String build;
+    private String  build;
 }

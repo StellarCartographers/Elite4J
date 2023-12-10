@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SearchAndRescue extends Event
 {
 
-    public long marketID, reward;
+    private long   marketID, reward;
 
-    public String name;
+    private String name;
 
-    public int count;
+    private int    count;
 
 }

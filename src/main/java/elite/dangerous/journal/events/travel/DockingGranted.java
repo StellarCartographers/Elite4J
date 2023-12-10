@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.travel;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class DockingGranted extends Event
 {
 
-    public String stationName;
+    private String stationName;
 
-    public String stationType;
+    private String stationType;
 
-    public long marketID;
+    private long   marketID;
 
-    public int landingPad;
+    private int    landingPad;
 
 }

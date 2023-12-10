@@ -1,18 +1,20 @@
 package elite.dangerous.journal.events.trade;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class EjectCargo extends Event
 {
 
-    public String type;
+    private String  type;
 
-    public String powerplayOrigin;
+    private String  powerplayOrigin;
 
-    public int count;
+    private int     count;
 
-    public long missionID;
+    private long    missionID;
 
-    public boolean abandoned;
+    private boolean abandoned;
 
 }

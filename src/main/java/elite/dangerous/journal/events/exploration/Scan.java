@@ -3,39 +3,42 @@ package elite.dangerous.journal.events.exploration;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.scan.Ring;
+import elite.dangerous.model.scan.Ring;
+import lombok.EliteObject;
+import lombok.ObjectType;
 
+@EliteObject(ObjectType.PARENT)
 public class Scan extends Event
 {
 
-    public String scanType;
+    private String     scanType;
 
-    public String bodyName;
+    private String     bodyName;
 
-    public int bodyID;
+    private int        bodyID;
 
-    public String starSystem;
+    private String     starSystem;
 
-    public double distanceFromArrivalLS;
+    private double     distanceFromArrivalLS;
 
-    public double rotationPeriod;
+    private double     rotationPeriod;
 
-    public double surfaceTemperature;
+    private double     surfaceTemperature;
 
-    public List<Ring> rings;
+    private List<Ring> rings;
 
-    public long semiMajorAxis;
+    private long       semiMajorAxis;
 
-    public double eccentricity;
+    private double     eccentricity;
 
-    public double orbitalInclination;
+    private double     orbitalInclination;
 
-    public double periapsis;
+    private double     periapsis;
 
-    public long orbitalPeriod;
+    private long       orbitalPeriod;
 
-    public boolean wasDiscovered;
+    private boolean    wasDiscovered;
 
-    public boolean wasMapped;
+    private boolean    wasMapped;
 
 }

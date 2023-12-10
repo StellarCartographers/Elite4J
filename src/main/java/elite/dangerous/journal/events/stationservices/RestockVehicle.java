@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class RestockVehicle extends Event
 {
 
-    public String type, loadout;
+    private String type, loadout;
 
-    public long cost;
+    private long   cost;
 
-    public int count;
+    private int    count;
 
 }

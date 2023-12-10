@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.TradeData;
+import elite.dangerous.model.TradeData;
+import lombok.EliteObject;
 
+@EliteObject
 public class MaterialTrade extends Event
 {
 
-    public long marketID;
+    private long     marketID;
 
-    public String traderType;
+    private String   traderType;
 
     public TradeData paid;
 

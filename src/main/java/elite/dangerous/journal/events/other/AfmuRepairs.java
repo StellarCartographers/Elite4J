@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class AfmuRepairs extends Event
 {
 
-    public String module;
+    private String  module;
 
-    public boolean fullyRepaired;
+    private boolean fullyRepaired;
 
-    public float health;
+    public float    health;
 
 }

@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class NpcCrewPaidWage extends Event
 {
 
-    public long npcCrewId;
+    private long   npcCrewId;
 
-    public String npcCrewName;
+    private String npcCrewName;
 
-    public int amount;
+    private int    amount;
 
 }

@@ -1,15 +1,18 @@
 package elite.dangerous.journal.base;
 
+import lombok.EliteObject;
+import lombok.ObjectType;
+
+@EliteObject(ObjectType.PARENT)
 public abstract class Suit extends Event
 {
+    private long   suitID;
 
-    public long suitID;
+    private String suitName;
 
-    public String suitName;
+    private String suitName_Localized;
 
-    public String suitName_Localized;
+    private long   loadoutID;
 
-    public long loadoutID;
-
-    public String loadoutName;
+    private String loadoutName;
 }

@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CrimeVictim extends Event
 {
 
-    public String offender;
+    private String offender;
 
-    public String crimeType;
+    private String crimeType;
 
-    public String fineOrBounty;
+    private String fineOrBounty;
 
 }

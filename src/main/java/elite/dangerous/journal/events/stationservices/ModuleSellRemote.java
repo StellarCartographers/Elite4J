@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ModuleSellRemote extends Event
 {
 
-    public int storageSlot, shipID;
+    private int    storageSlot, shipID;
 
-    public String sellItem;
+    private String sellItem;
 
-    public String ship;
+    private String ship;
 
-    public long serverID, sellPrice;
+    private long   serverID, sellPrice;
 
 }

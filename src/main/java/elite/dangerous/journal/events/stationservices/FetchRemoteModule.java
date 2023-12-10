@@ -1,22 +1,24 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FetchRemoteModule extends Event
 {
 
-    public int storageSlots;
+    private int    storageSlots;
 
-    public int serverId;
+    private int    serverId;
 
-    public int transferCost;
+    private int    transferCost;
 
-    public int transferTime;
+    private int    transferTime;
 
-    public int shipId;
+    private int    shipId;
 
-    public String storedItem;
+    private String storedItem;
 
-    public String ship;
+    private String ship;
 
 }

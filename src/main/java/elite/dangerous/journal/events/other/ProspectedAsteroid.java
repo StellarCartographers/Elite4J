@@ -3,19 +3,21 @@ package elite.dangerous.journal.events.other;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.AsteroidMaterial;
+import elite.dangerous.model.AsteroidMaterial;
+import lombok.EliteObject;
 
+@EliteObject
 public class ProspectedAsteroid extends Event
 {
 
-    public static final String[] CONTENTS = {"High", "Medium", "Low"};
+    public static final String[]   CONTENTS = {"High", "Medium", "Low"};
 
-    public List<AsteroidMaterial> materials;
+    private List<AsteroidMaterial> materials;
 
-    public String content;
+    private String                 content;
 
-    public String motherlodeMaterial;
+    private String                 motherlodeMaterial;
 
-    public float remaining;
+    public float                   remaining;
 
 }

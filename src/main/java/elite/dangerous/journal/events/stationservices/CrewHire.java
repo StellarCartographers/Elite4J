@@ -1,18 +1,20 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CrewHire extends Event
 {
 
-    public String name;
+    private String name;
 
-    public String faction;
+    private String faction;
 
-    public int crewID;
+    private int    crewID;
 
-    public int cost;
+    private int    cost;
 
-    public int combatRank;
+    private int    combatRank;
 
 }

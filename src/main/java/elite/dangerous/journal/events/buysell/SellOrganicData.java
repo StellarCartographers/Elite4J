@@ -3,23 +3,13 @@ package elite.dangerous.journal.events.buysell;
 import java.util.ArrayList;
 
 import elite.dangerous.journal.base.Event;
+import elite.dangerous.model.BioDataItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class SellOrganicData extends Event
 {
+    private int                    marketID;
 
-    public int marketID;
-
-    public ArrayList<BioDataItem> bioData;
-
-    public static class BioDataItem
-    {
-
-        public String genus;
-
-        public String species;
-
-        public long value;
-
-        public long bonus;
-    }
+    private ArrayList<BioDataItem> bioData;
 }

@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class RefuelPartial extends Event
 {
 
-    public int cost;
+    private int    cost;
 
-    public double amount;
+    private double amount;
 
 }

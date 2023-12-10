@@ -1,12 +1,14 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ReceiveText extends Event
 {
-    public String from;
+    private String from;
 
-    public String message;
+    private String message;
 
-    public String channel;
+    private String channel;
 }

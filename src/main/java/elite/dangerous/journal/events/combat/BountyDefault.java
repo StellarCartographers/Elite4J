@@ -2,21 +2,16 @@ package elite.dangerous.journal.events.combat;
 
 import java.util.List;
 
+import elite.dangerous.model.Reward;
+import lombok.EliteObject;
+
+@EliteObject
 public class BountyDefault extends Bounty
 {
+    private long         totalReward;
 
-    public long totalReward;
+    private List<Reward> rewards;
 
-    public List<Reward> rewards;
-
-    public int sharedWithOthers;
-
-    public static class Reward
-    {
-
-        public String faction;
-
-        public long reward;
-    }
+    private int          sharedWithOthers;
 
 }

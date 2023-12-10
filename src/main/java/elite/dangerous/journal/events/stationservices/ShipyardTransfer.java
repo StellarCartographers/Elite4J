@@ -1,16 +1,18 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class ShipyardTransfer extends Event
 {
 
-    public String shipType, system;
+    private String shipType, system;
 
-    public int shipID;
+    private int    shipID;
 
-    public long shipMarketID, transferPrice, transferTime, marketID;
+    private long   shipMarketID, transferPrice, transferTime, marketID;
 
-    public double distance;
+    private double distance;
 
 }

@@ -3,15 +3,17 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.StoredModule;
+import elite.dangerous.model.StoredModule;
+import lombok.EliteObject;
 
+@EliteObject
 public class StoredModules extends Event
 {
 
-    public long marketID;
+    private long               marketID;
 
-    public String stationName, starSystem;
+    private String             stationName, starSystem;
 
-    public List<StoredModule> items;
+    private List<StoredModule> items;
 
 }

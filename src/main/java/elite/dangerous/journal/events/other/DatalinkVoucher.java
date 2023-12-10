@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.other;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class DatalinkVoucher extends Event
 {
 
-    public long reward;
+    private long   reward;
 
-    public String victimFaction;
+    private String victimFaction;
 
-    public String payeeFaction;
+    private String payeeFaction;
 
 }

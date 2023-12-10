@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.stationservices;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class SetUserShipName extends Event
 {
 
-    public String ship;
+    private String ship;
 
-    public int shipID;
+    private int    shipID;
 
-    public String userShipName, userShipId;
+    private String userShipName, userShipId;
 
 }

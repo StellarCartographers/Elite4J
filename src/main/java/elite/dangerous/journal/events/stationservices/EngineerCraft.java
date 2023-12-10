@@ -3,30 +3,32 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.Modification;
-import elite.dangerous.journal.models.engineer.Ingredient;
+import elite.dangerous.model.Modification;
+import elite.dangerous.model.engineer.Ingredient;
+import lombok.EliteObject;
 
+@EliteObject
 public class EngineerCraft extends Event
 {
 
-    public String engineer;
+    private String             engineer;
 
-    public String blueprintName;
+    private String             blueprintName;
 
-    public String slot;
+    private String             slot;
 
-    public String module;
+    private String             module;
 
-    public int engineerID;
+    private int                engineerID;
 
-    public int blueprintID;
+    private int                blueprintID;
 
-    public int level;
+    private int                level;
 
-    public double quality;
+    private double             quality;
 
-    public List<Ingredient> ingredients;
+    private List<Ingredient>   ingredients;
 
-    public List<Modification> modifiers;
+    private List<Modification> modifiers;
 
 }

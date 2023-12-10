@@ -3,30 +3,32 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.Date;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class MissionAccepted extends Event
 {
 
-    public String faction;
+    private String faction;
 
-    public String name;
+    private String name;
 
-    public String localisedName;
+    private String localisedName;
 
-    public String targetFaction;
+    private String targetFaction;
 
-    public String destinationSystem;
+    private String destinationSystem;
 
-    public String destinationStation;
+    private String destinationStation;
 
-    public String influence;
+    private String influence;
 
-    public String reputation;
+    private String reputation;
 
-    public long reward;
+    private long   reward;
 
-    public long missionID;
+    private long   missionID;
 
-    public Date expiry;
+    public Date    expiry;
 
 }

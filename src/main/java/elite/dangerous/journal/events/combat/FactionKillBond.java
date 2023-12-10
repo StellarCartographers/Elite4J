@@ -1,14 +1,14 @@
 package elite.dangerous.journal.events.combat;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class FactionKillBond extends Event
 {
+    private int    reward;
 
-    public int reward;
+    private String awardingFaction;
 
-    public String awardingFaction;
-
-    public String victimFaction;
-
+    private String victimFaction;
 }

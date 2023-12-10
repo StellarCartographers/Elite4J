@@ -3,24 +3,18 @@ package elite.dangerous.journal.events.other;
 import java.util.ArrayList;
 
 import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.models.material.Item;
+import elite.dangerous.model.LockerItem;
+import lombok.EliteObject;
 
+@EliteObject
 public class ShipLocker extends Event
 {
 
-    public ArrayList<LockerItem> items;
+    private ArrayList<LockerItem> items;
 
-    public ArrayList<LockerItem> components;
+    private ArrayList<LockerItem> components;
 
-    public ArrayList<LockerItem> consumables;
+    private ArrayList<LockerItem> consumables;
 
-    public ArrayList<LockerItem> data;
-
-    public static class LockerItem extends Item
-    {
-
-        public long ownerID;
-
-        public long missionID;
-    }
+    private ArrayList<LockerItem> data;
 }

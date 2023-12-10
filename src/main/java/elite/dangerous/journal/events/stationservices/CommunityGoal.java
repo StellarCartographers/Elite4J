@@ -3,34 +3,36 @@ package elite.dangerous.journal.events.stationservices;
 import java.util.Date;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CommunityGoal extends Event
 {
 
-    public int cgid;
+    private int     cgid;
 
-    public int playerContribution;
+    private int     playerContribution;
 
-    public int numContributors;
+    private int     numContributors;
 
-    public int topRankSize;
+    private int     topRankSize;
 
-    public int playerPercentileBand;
+    private int     playerPercentileBand;
 
-    public int bonus;
+    private int     bonus;
 
-    public String title;
+    private String  title;
 
-    public String systemName;
+    private String  systemName;
 
-    public String marketName;
+    private String  marketName;
 
-    public String tierReached;
+    private String  tierReached;
 
-    public Date expiry;
+    private Date    expiry;
 
-    public boolean isComplete;
+    private boolean isComplete;
 
-    public boolean playerInTopRank;
+    private boolean playerInTopRank;
 
 }

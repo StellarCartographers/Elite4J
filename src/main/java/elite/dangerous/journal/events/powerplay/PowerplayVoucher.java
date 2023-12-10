@@ -3,12 +3,14 @@ package elite.dangerous.journal.events.powerplay;
 import java.util.List;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class PowerplayVoucher extends Event
 {
 
-    public String power;
+    private String       power;
 
-    public List<String> systems;
+    private List<String> systems;
 
 }

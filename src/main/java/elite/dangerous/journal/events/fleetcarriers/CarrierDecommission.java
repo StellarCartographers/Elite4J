@@ -1,14 +1,16 @@
 package elite.dangerous.journal.events.fleetcarriers;
 
 import elite.dangerous.journal.base.Event;
+import lombok.EliteObject;
 
+@EliteObject
 public class CarrierDecommission extends Event
 {
 
-    public long carrierID;
+    private long carrierID;
 
-    public long scrapRefund;
+    private long scrapRefund;
 
-    public long scrapTime;
+    private long scrapTime;
 
 }
