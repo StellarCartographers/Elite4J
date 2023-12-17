@@ -6,6 +6,5 @@ import lombok.EliteObject;
 public class Signal
 {
     private String type;
-
     private long   count;
 }

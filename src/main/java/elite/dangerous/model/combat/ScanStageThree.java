@@ -10,5 +10,5 @@ public class ScanStageThree extends ScanStageTwo
     private String subsystem;
     private double subsystemHealth;
     private String power;
-    private long bounty;
+    private long   bounty;
 }

@@ -6,6 +6,5 @@ import lombok.EliteObject;
 public class Reward
 {
     private String faction;
-
-    private long reward;
+    private long   reward;
 }

@@ -7,6 +7,5 @@ import lombok.ObjectType;
 public abstract class Item
 {
     private String name;
-
-    private int count;
+    private int    count;
 }

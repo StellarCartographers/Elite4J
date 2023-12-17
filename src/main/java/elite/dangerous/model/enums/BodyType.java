@@ -14,8 +14,10 @@ public enum BodyType
     /**
      * Gets the body type.
      *
-     * @param identifier the identifier
-     * @return the body type name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the body type name
      */
     public static BodyType fromString(String identifier)
     {

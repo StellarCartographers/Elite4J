@@ -26,7 +26,7 @@ public class Modules extends ArrayList<CarrierModule>
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public static class CarrierModule
     {
-        private FDevID    id;
+        private FDevID id;
         private String category;
         private String name;
         private int    cost;
@@ -44,7 +44,7 @@ public class Modules extends ArrayList<CarrierModule>
             return new CarrierModule(id, category, name, cost, sku, stock);
         }
     }
-    
+
     static class DeserializeAdapter extends StdDeserializer<Modules>
     {
         protected DeserializeAdapter()
@@ -57,15 +57,17 @@ public class Modules extends ArrayList<CarrierModule>
         {
             JsonNode node = p.getCodec().readTree(p);
             var modules = new Modules();
-            
-            if(node.properties().isEmpty()) {
+
+            if (node.properties().isEmpty())
+            {
                 return modules;
             }
-            
-            node.properties().forEach(e -> {
+
+            node.properties().forEach(e ->
+            {
                 modules.add(CarrierModule.fromJsonNode(e.getValue()));
             });
-            
+
             return modules;
         }
     }

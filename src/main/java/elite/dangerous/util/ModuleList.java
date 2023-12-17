@@ -26,7 +26,7 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
 
     public static ModuleList fromCarrierModuleList(Collection<ICarrierModule> c)
     {
-        return new ModuleList(c.stream().map(m -> Outfitting.getFromId(m.getFdevId())).toList());
+        return new ModuleList(c.stream().map(m -> Outfitting.getFromId(m.fdevId())).toList());
     }
 
     public ModuleList()

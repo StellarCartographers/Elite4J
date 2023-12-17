@@ -44,8 +44,10 @@ public enum AtmosphereClass
     /**
      * Gets the atmosphere class name.
      *
-     * @param identifier the identifier
-     * @return the atmosphere class name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the atmosphere class name
      */
     public String getAtmosphereClassName(String identifier)
     {

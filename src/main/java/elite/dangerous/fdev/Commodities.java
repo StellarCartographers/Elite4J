@@ -11,26 +11,30 @@ import space.tscg.collections.map.UnalterableMap;
 public class Commodities
 {
     private volatile static Commodities instance;
-    private Map<Integer, Commodity> map;
-    private Map<String, String>     toLowerCaseSymbolMap;
-    
+    private Map<Integer, Commodity>     map;
+    private Map<String, String>         toLowerCaseSymbolMap;
+
     private static Commodities _instance()
     {
-        if (instance == null) {
-            synchronized (Commodities.class) {
-                if (instance == null) {
+        if (instance == null)
+        {
+            synchronized (Commodities.class)
+            {
+                if (instance == null)
+                {
                     instance = new Commodities();
                 }
             }
         }
         return instance;
     }
-    
+
     private Commodities()
     {
         this.toLowerCaseSymbolMap = new LinkedHashMap<>();
         this.map = this.buildMap();
-        this.map.forEach((t, u) -> {
+        this.map.forEach((t, u) ->
+        {
             this.toLowerCaseSymbolMap.put(u.symbol.toLowerCase(), u.name);
         });
     }
@@ -290,10 +294,11 @@ public class Commodities
     }
 
     @Getter
-    private static class Commodity {
-        private String                         symbol;
-        private String                         category;
-        private String                         name;
+    private static class Commodity
+    {
+        private String symbol;
+        private String category;
+        private String name;
 
         private Commodity(String symbol, String category, String name)
         {
@@ -302,12 +307,12 @@ public class Commodities
             this.name = name;
         }
     }
-    
+
     public static Commodity getFromId(int id)
     {
         return _instance().map.get(id);
     }
-    
+
     public static String getNameFromSymbol(String symbol)
     {
         return _instance().toLowerCaseSymbolMap.get(symbol.toLowerCase());

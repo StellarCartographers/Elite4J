@@ -7,5 +7,4 @@ import lombok.ObjectType;
 @EliteObject(ObjectType.PARENT)
 public class ShipTargetLocked extends ShipTargeted
 {
-    
 }

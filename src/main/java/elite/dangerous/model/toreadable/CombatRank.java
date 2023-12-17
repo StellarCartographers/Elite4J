@@ -2,16 +2,18 @@ package elite.dangerous.model.toreadable;
 
 import lombok.EliteObject;
 
-@EliteObject public class CombatRank
+@EliteObject
+public class CombatRank
 {
-
     private static final String[] LOCALISED_NAMES = {"Harmless", "Mostly Harmless", "Novice", "Competent", "Expert", "Master", "Dangerous", "Deadly", "Elite"};
 
     /**
      * Gets the readable name.
      *
-     * @param rank the rank
-     * @return the readable name
+     * @param  rank
+     *                  the rank
+     * 
+     * @return      the readable name
      */
     public static String getReadableName(int rank)
     {
@@ -21,13 +23,14 @@ import lombok.EliteObject;
     /**
      * Gets the rank.
      *
-     * @param rankName the rank name
-     * @return the rank
+     * @param  rankName
+     *                      the rank name
+     * 
+     * @return          the rank
      */
     public static int getRank(String rankName)
     {
         int rank = 0;
-
         for (int i = 0; i < LOCALISED_NAMES.length; i++)
         {
             if (LOCALISED_NAMES[i].equals(rankName))
@@ -35,7 +38,6 @@ import lombok.EliteObject;
                 rank = i;
             }
         }
-
         return rank;
     }
 }

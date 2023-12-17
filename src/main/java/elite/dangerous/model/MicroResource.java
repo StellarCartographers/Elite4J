@@ -4,12 +4,10 @@ import elite.dangerous.model.enums.MicroResourceCategory;
 import lombok.EliteObject;
 import lombok.ObjectType;
 
-@EliteObject(ObjectType.PARENT) public class MicroResource
+@EliteObject(ObjectType.PARENT)
+public class MicroResource
 {
-
-    private String name;
-
+    private String               name;
     public MicroResourceCategory category;
-
-    private int count;
+    private int                  count;
 }

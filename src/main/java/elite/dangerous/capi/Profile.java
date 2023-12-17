@@ -9,7 +9,6 @@ import lombok.Getter;
 @Builder(builderMethodName = "Builder")
 public class Profile extends CAPIData
 {
-    private Commander commander;
-
+    private Commander  commander;
     private LastSystem lastSystem;
 }

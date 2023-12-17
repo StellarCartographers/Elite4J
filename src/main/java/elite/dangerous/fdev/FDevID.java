@@ -26,7 +26,7 @@ import space.tscg.misc.Validator;
 public final class FDevID implements ID
 {
     private final Object id;
-    
+
     @Override
     public String asText()
     {
@@ -38,7 +38,7 @@ public final class FDevID implements ID
     {
         return Validator.Long(id.toString());
     }
-    
+
     static class SerializeAdapter extends StdSerializer<FDevID>
     {
         public SerializeAdapter()
@@ -52,7 +52,7 @@ public final class FDevID implements ID
             gen.writePOJO(value.toLong());
         }
     }
-    
+
     static class DeserializeAdapter extends StdDeserializer<FDevID>
     {
         protected DeserializeAdapter()

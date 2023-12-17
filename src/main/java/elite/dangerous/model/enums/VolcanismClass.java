@@ -38,8 +38,10 @@ public enum VolcanismClass
     /**
      * Gets the volcanism class name.
      *
-     * @param identifier the identifier
-     * @return the volcanism class name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the volcanism class name
      */
     public String getVolcanismClassName(String identifier)
     {

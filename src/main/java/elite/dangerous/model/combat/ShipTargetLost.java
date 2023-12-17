@@ -6,5 +6,4 @@ import lombok.EliteObject;
 @EliteObject
 public class ShipTargetLost extends ShipTargeted
 {
-    
 }

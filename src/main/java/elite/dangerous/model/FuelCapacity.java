@@ -2,10 +2,9 @@ package elite.dangerous.model;
 
 import lombok.EliteObject;
 
-@EliteObject public class FuelCapacity
+@EliteObject
+public class FuelCapacity
 {
-
-    private int main;
-
+    private int    main;
     private double reserve;
 }

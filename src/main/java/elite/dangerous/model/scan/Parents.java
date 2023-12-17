@@ -44,7 +44,6 @@ public class Parents
     static class Parent
     {
         private BodyType type;
-
         private int      bodyID;
     }
 
@@ -68,12 +67,10 @@ public class Parents
             JsonNode n = parser.getCodec().readTree(parser);
             Parents p = new Parents();
             p.list = new ArrayList<Parents.Parent>();
-
             n.forEach(node ->
             {
                 node.fields().forEachRemaining(e -> p.list.add(new Parent(BodyType.fromString(e.getKey()), e.getValue().asInt())));
             });
-
             return p;
         }
     }

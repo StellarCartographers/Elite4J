@@ -6,8 +6,6 @@ import lombok.EliteObject;
 @EliteObject
 public class LockerItem extends Item
 {
-
     private long ownerID;
-
     private long missionID;
 }

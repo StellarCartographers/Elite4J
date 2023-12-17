@@ -6,10 +6,7 @@ import lombok.EliteObject;
 public class BioDataItem
 {
     private String genus;
-
     private String species;
-
-    private long value;
-
-    private long bonus;
+    private long   value;
+    private long   bonus;
 }

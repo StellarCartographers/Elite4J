@@ -42,7 +42,6 @@ public final class Outfitting
         SENSORS,
         FUEL_TANK, // ALSO AN INTERNAL MODULE
         ARMOUR,
-
         // INTERNAL
         AUTO_FIELD_MAINTENANCE_UNIT("Auto Field-Maintenance Unit"),
         CARGO_RACK,
@@ -76,7 +75,6 @@ public final class Outfitting
         BI_WEAVE_SHIELD_GENERATOR("Bi-Weave Shield Generator"),
         ADVANCED_DOCKING_COMPUTER,
         STANDARD_DOCKING_COMPUTER,
-
         // UTILITY
         AX_XENO_SCANNER,
         CHAFF_LAUNCHER,
@@ -89,7 +87,6 @@ public final class Outfitting
         PULSE_WAVE_ANALYSER,
         SHIELD_BOOSTER,
         SHUTDOWN_FIELD_NEUTRALISER,
-
         // WEAPONS
         BEAM_LASER,
         PULSE_LASER,
@@ -112,59 +109,58 @@ public final class Outfitting
         MINING_LASER,
         SUB_SURFACE_DISPLACEMENT_MISSILE("Sub-Surface Displacement Missile"),
         SEISMIC_CHARGE_LAUNCHER,
-        
-        UNKNOWN,
-        ;
-        
+        UNKNOWN,;
+
         String name;
 
         public String formattedName()
         {
-            if(name == null)
+            if (name == null)
             {
                 var l = super.toString().replace("_", " ");
                 String[] s = l.split(" ");
-                for (int i = 0; i < s.length; i++) {
+                for (int i = 0; i < s.length; i++)
+                {
                     s[i] = StringUtil.capitalize(s[i]);
                 }
                 return String.join(" ", s);
             }
-            
             return name;
         }
-        
+
         public static Type getType(Module module)
         {
             switch (module.category()) {
                 case STANDARD: {
-                    for(var l : CoreList())
+                    for (var l : CoreList())
                     {
-                        if(l.formattedName().equals(module.name()))
+                        if (l.formattedName().equals(module.name()))
                             return l;
                     }
                 }
                 case INTERNAL: {
-                    for(var l : InternalList())
+                    for (var l : InternalList())
                     {
-                        if(l.formattedName().equals(module.name()))
+                        if (l.formattedName().equals(module.name()))
                             return l;
                     }
                 }
                 case UTILITY: {
-                    for(var l : UtilityList())
+                    for (var l : UtilityList())
                     {
-                        if(l.formattedName().equals(module.name()))
+                        if (l.formattedName().equals(module.name()))
                             return l;
                     }
                 }
                 case HARDPOINT: {
-                    for(var l : WeaponList())
+                    for (var l : WeaponList())
                     {
-                        if(l.formattedName().equals(module.name()))
+                        if (l.formattedName().equals(module.name()))
                             return l;
                     }
                 }
-                default: return UNKNOWN;
+                default:
+                    return UNKNOWN;
             }
         }
 
@@ -173,20 +169,20 @@ public final class Outfitting
             EnumSet<Type> e = EnumSet.range(POWER_PLANT, ARMOUR);
             return new UnalterableList<Type>(Arrays.asList(e.toArray(new Type[0])));
         }
-        
+
         public static List<Type> InternalList()
         {
             EnumSet<Type> e = EnumSet.range(AUTO_FIELD_MAINTENANCE_UNIT, STANDARD_DOCKING_COMPUTER);
             e.add(FUEL_TANK);
             return new UnalterableList<Type>(Arrays.asList(e.toArray(new Type[0])));
         }
-        
+
         public static List<Type> UtilityList()
         {
             EnumSet<Type> e = EnumSet.range(AX_XENO_SCANNER, SHUTDOWN_FIELD_NEUTRALISER);
             return new UnalterableList<Type>(Arrays.asList(e.toArray(new Type[0])));
         }
-        
+
         public static List<Type> WeaponList()
         {
             EnumSet<Type> e = EnumSet.range(BEAM_LASER, SEISMIC_CHARGE_LAUNCHER);
@@ -199,16 +195,15 @@ public final class Outfitting
         STANDARD(Type.CoreList()),
         INTERNAL(Type.InternalList()),
         UTILITY(Type.UtilityList()),
-        HARDPOINT(Type.WeaponList()),
-        ;
+        HARDPOINT(Type.WeaponList()),;
 
         List<Type> list;
-        
+
         Category(List<Type> list)
         {
             this.list = list;
         }
-        
+
         @Override
         public String toString()
         {
@@ -258,16 +253,16 @@ public final class Outfitting
     @Data
     public static class Module
     {
-        private String        symbol;
-        private Category      category;
-        private String        name;
+        private String   symbol;
+        private Category category;
+        private String   name;
         @Nullable
-        private Mount         mount;
+        private Mount    mount;
         @Nullable
-        private Guidance      guidance;
-        private Ship ship;
-        private int           moduleClass;
-        private Rating        rating;
+        private Guidance guidance;
+        private Ship     ship;
+        private int      moduleClass;
+        private Rating   rating;
 
         @Builder
         @Jacksonized
@@ -280,9 +275,11 @@ public final class Outfitting
             this.guidance = guidance;
             this.moduleClass = moduleClass;
             this.rating = rating;
-            if (shipId != null) {
+            if (shipId != null)
+            {
                 this.ship = Shipyard.getFromId(shipId);
-            } else {
+            } else
+            {
                 this.ship = null;
             }
         }
@@ -296,7 +293,6 @@ public final class Outfitting
         {
             this(symbol, category, name, null, null, shipId, moduleClass, rating);
         }
-
     }
 
     private static Map<Integer, Module> map = buildMap();
@@ -1389,10 +1385,15 @@ public final class Outfitting
         return UnalterableMap.unalterableMap(internalMap);
     }
 
+    public static Function<ICarrierModule, Module> ToModule = m -> getFromId(m.fdevId());
+    
     public static Outfitting.Module getFromId(int id)
     {
         return map.get(id);
     }
 
-    public static Function<ICarrierModule, Module> ToModule = m -> getFromId(m.getFdevId());
+    public static Outfitting.Module getFromId(FDevID fdevid)
+    {
+        return getFromId(fdevid.toLong().intValue());
+    }
 }

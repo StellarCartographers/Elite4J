@@ -5,7 +5,7 @@ public enum Operation
     BUYPACK,
     SELLPACK,
     RESTOCKPACK;
-    
+
     @Override
     public String toString()
     {

@@ -39,45 +39,25 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @Getter(AccessLevel.PRIVATE)
     @JsonProperty(value = "name", index = 0)
     private Name             nameInfo;
-
     private String           currentStarSystem;
-
     private String           balance;
-
     private String           fuel;
-
     private String           state;
-
     private Theme            theme;
-
     private DockingAccess    dockingAccess;
-
     private boolean          notoriousAccess;
-
     private Capacity         capacity;
-
     private Itinerary        itinerary;
-
     private Finances         marketFinances;
-
     private Finances         blackmarketFinances;
-
     private Finance          finance;
-
     private ServicesCrew     servicesCrew;
-
     private List<Cargo>      cargo;
-
     private Orders           orders;
-
     private CarrierLocker    carrierLocker;
-
     private List<Reputation> reputation;
-
     private Market           market;
-
     private Ships            ships;
-
     private Modules          modules;
 
     @JsonIgnore
@@ -138,7 +118,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().refuel().equals(State.UNMANNED);
     }
-    
+
     /**
      * If this service is installed
      * 
@@ -160,7 +140,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().repair().equals(State.UNMANNED);
     }
-    
+
     /**
      * If this service is installed
      * 
@@ -193,7 +173,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().rearm().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -215,7 +195,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().shipyard().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -237,7 +217,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().outfitting().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -259,7 +239,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().exploration().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -281,7 +261,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().voucherredemption().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -303,7 +283,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().blackmarket().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -325,7 +305,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().vistagenomics().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -347,7 +327,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().bartender().equals(State.UNAVAILABLE);
     }
-    
+
     /**
      * If this service is installed but suspended by the owner
      * 
@@ -369,7 +349,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     {
         return this.market.services().pioneersupplies().equals(State.UNAVAILABLE);
     }
-    
+
     @Override
     public String toJson()
     {

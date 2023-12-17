@@ -91,6 +91,11 @@ public class Elite4J
         {
             return Journal.get().events;
         }
+        
+        public static <T extends Event> Optional<T> parse(String json, Class<T> type)
+        {
+            return Optional.ofNullable(get().fromJson(json, type));
+        }
 
         public static <T extends Event> Optional<Event> parse(String json)
         {
@@ -110,7 +115,7 @@ public class Elite4J
 
         private JsonNode constructJsonNode(String json) throws IOException
         {
-            Objects.requireNonNull(json, "cannot constructJsonNode from null string");
+            Objects.requireNonNull(json, "cannot construct JsonNode from null string");
             JsonFactory factory = mapper.get().getFactory();
             JsonParser parser = factory.createParser(json);
             return mapper.get().readTree(parser);
@@ -119,7 +124,7 @@ public class Elite4J
         @SuppressWarnings("unchecked")
         private <T extends Event> Class<T> getEventClass(JsonNode node)
         {
-            Objects.requireNonNull(node, "cannot getClassEvent from null JsonNode");
+            Objects.requireNonNull(node, "cannot get ClassEvent from null JsonNode");
             var subtype = SubtypeHandler.getSubtypeIfPresent(node);
             if (subtype.isPresent())
             {

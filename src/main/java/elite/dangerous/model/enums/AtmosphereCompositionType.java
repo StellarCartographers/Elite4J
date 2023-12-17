@@ -36,8 +36,10 @@ public enum AtmosphereCompositionType
     /**
      * Gets the atmosphere composition type name.
      *
-     * @param identifier the identifier
-     * @return the atmosphere composition type name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the atmosphere composition type name
      */
     public String getAtmosphereCompositionTypeName(String identifier)
     {

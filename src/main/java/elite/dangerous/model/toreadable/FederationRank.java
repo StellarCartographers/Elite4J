@@ -2,16 +2,18 @@ package elite.dangerous.model.toreadable;
 
 import lombok.EliteObject;
 
-@EliteObject public class FederationRank
+@EliteObject
+public class FederationRank
 {
-
     private static final String[] LOCALISED_NAMES = {"None", "Recruit", "Cadet", "Midshipman", "Petty Officer", "Chief Petty Officer", "Warrant Officer", "Ensign", "Lieutenant", "Lt. Commander", "Post Commander", "Post Captain", "Rear Admiral", "Vice Admiral", "Admiral"};
 
     /**
      * Gets the readable name.
      *
-     * @param rank the rank
-     * @return the readable name
+     * @param  rank
+     *                  the rank
+     * 
+     * @return      the readable name
      */
     public static String getReadableName(int rank)
     {
@@ -21,8 +23,10 @@ import lombok.EliteObject;
     /**
      * Gets the rank.
      *
-     * @param rankName the rank name
-     * @return the rank
+     * @param  rankName
+     *                      the rank name
+     * 
+     * @return          the rank
      */
     public static int getRank(String rankName)
     {
@@ -34,7 +38,6 @@ import lombok.EliteObject;
                 rank = i;
             }
         }
-
         return rank;
     }
 }

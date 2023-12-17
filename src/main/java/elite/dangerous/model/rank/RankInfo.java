@@ -9,8 +9,6 @@ public interface RankInfo
         return String.valueOf(getExperienceRequired());
     }
 
-    
-
     public enum RewardType
     {
         COSMETIC,

@@ -7,7 +7,7 @@ public enum EliteRank
     III,
     IV,
     V;
-    
+
     @Override
     public String toString()
     {

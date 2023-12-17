@@ -6,6 +6,5 @@ import lombok.EliteObject;
 public class Fuel
 {
     private double fuelMain;
-
     private double fuelReservoir;
 }

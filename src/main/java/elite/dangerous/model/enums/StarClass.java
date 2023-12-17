@@ -40,8 +40,10 @@ public enum StarClass
     /**
      * Gets the star class name.
      *
-     * @param identifier the identifier
-     * @return the star class name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the star class name
      */
     public String getStarClassName(String identifier)
     {

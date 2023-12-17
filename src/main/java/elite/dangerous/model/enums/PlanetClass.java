@@ -42,8 +42,10 @@ public enum PlanetClass
     /**
      * Gets the planet class name.
      *
-     * @param identifier the identifier
-     * @return the planet class name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the planet class name
      */
     public String getPlanetClassName(String identifier)
     {

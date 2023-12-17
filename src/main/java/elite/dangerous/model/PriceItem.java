@@ -5,10 +5,7 @@ import lombok.EliteObject;
 @EliteObject
 public class PriceItem
 {
-
-    private int id;
-
+    private int    id;
     private String shipType;
-
-    private long shipPrice;
+    private long   shipPrice;
 }

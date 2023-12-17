@@ -7,6 +7,5 @@ import lombok.ObjectType;
 public abstract class ProportionalItem
 {
     private String name;
-
-    public float proportion;
+    public float   proportion;
 }

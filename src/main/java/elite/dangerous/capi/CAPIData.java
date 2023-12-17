@@ -7,5 +7,4 @@ import elite.dangerous.util.EliteType;
  */
 public abstract class CAPIData implements EliteType
 {
-
 }

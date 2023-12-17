@@ -41,8 +41,10 @@ public enum CrimeType
     /**
      * Gets the crime type name.
      *
-     * @param identifier the identifier
-     * @return the crime type name
+     * @param  identifier
+     *                        the identifier
+     * 
+     * @return            the crime type name
      */
     public String getCrimeTypeName(String identifier)
     {
