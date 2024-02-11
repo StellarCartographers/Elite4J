@@ -1,24 +1,31 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.model.scan;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.*;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
+
 import elite.dangerous.model.enums.BodyType;
 import elite.dangerous.model.scan.Parents.ParentsAdapter;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EliteObject;
 
+@EliteCreator
 @EliteObject
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 @JsonDeserialize(using = ParentsAdapter.class)
 public class Parents
 {
@@ -39,6 +46,7 @@ public class Parents
         return listFromBodyType(bodyType).toArray(new Parent[0]);
     }
 
+    @EliteCreator
     @EliteObject
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     static class Parent

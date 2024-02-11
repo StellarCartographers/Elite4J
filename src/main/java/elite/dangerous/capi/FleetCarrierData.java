@@ -1,37 +1,25 @@
-/**
- * Copyright (c) 2023 The Stellar Cartographers' Guild. All rights reserved.
- * This work is licensed under the terms of the MIT license.
- * For a copy, see <https://opensource.org/licenses/MIT>.
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
  */
 package elite.dangerous.capi;
 
+import lombok.*;
+
+import com.fasterxml.jackson.annotation.*;
+
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import elite.dangerous.Elite4J;
-import elite.dangerous.capi.modal.fc.Capacity;
-import elite.dangerous.capi.modal.fc.Cargo;
-import elite.dangerous.capi.modal.fc.CarrierLocker;
-import elite.dangerous.capi.modal.fc.DockingAccess;
-import elite.dangerous.capi.modal.fc.Finance;
-import elite.dangerous.capi.modal.fc.Finances;
-import elite.dangerous.capi.modal.fc.Itinerary;
-import elite.dangerous.capi.modal.fc.Market;
-import elite.dangerous.capi.modal.fc.Modules;
-import elite.dangerous.capi.modal.fc.Name;
-import elite.dangerous.capi.modal.fc.Reputation;
-import elite.dangerous.capi.modal.fc.ServicesCrew;
-import elite.dangerous.capi.modal.fc.Ships;
-import elite.dangerous.capi.modal.fc.State;
-import elite.dangerous.capi.modal.fc.Theme;
+import elite.dangerous.capi.modal.fc.*;
 import elite.dangerous.capi.modal.fc.orders.Orders;
-import elite.dangerous.fdev.FDevID;
-import lombok.AccessLevel;
-import lombok.EliteObject;
-import lombok.Getter;
+
 import space.tscg.api.JsonWrapper;
+import space.tscg.misc.FDevID;
 
 @EliteObject
 public class FleetCarrierData extends CAPIData implements JsonWrapper
@@ -127,7 +115,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isRefuelInstalled()
     {
-        return this.market.services().refuel().equals(State.UNAVAILABLE);
+        return this.market.services().refuel().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -149,7 +137,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isRepairInstalled()
     {
-        return this.market.services().repair().equals(State.UNAVAILABLE);
+        return this.market.services().repair().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -171,7 +159,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isRearmInstalled()
     {
-        return this.market.services().rearm().equals(State.UNAVAILABLE);
+        return this.market.services().rearm().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -193,7 +181,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isShipyardInstalled()
     {
-        return this.market.services().shipyard().equals(State.UNAVAILABLE);
+        return this.market.services().shipyard().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -215,7 +203,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isOutfittingInstalled()
     {
-        return this.market.services().outfitting().equals(State.UNAVAILABLE);
+        return this.market.services().outfitting().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -237,7 +225,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isUniversalCartographicsInstalled()
     {
-        return this.market.services().exploration().equals(State.UNAVAILABLE);
+        return this.market.services().exploration().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -259,7 +247,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isRedemptionOfficeInstalled()
     {
-        return this.market.services().voucherredemption().equals(State.UNAVAILABLE);
+        return this.market.services().voucherredemption().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -281,7 +269,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isBlackmarketInstalled()
     {
-        return this.market.services().blackmarket().equals(State.UNAVAILABLE);
+        return this.market.services().blackmarket().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -303,7 +291,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isVistaGenomicsInstalled()
     {
-        return this.market.services().vistagenomics().equals(State.UNAVAILABLE);
+        return this.market.services().vistagenomics().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -325,7 +313,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isBartenderInstalled()
     {
-        return this.market.services().bartender().equals(State.UNAVAILABLE);
+        return this.market.services().bartender().notEquals(State.UNAVAILABLE);
     }
 
     /**
@@ -347,7 +335,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     @JsonIgnore
     public boolean isPioneerSuppliesInstalled()
     {
-        return this.market.services().pioneersupplies().equals(State.UNAVAILABLE);
+        return this.market.services().pioneersupplies().notEquals(State.UNAVAILABLE);
     }
 
     @Override

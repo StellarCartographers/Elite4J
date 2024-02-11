@@ -1,37 +1,28 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.model.enums;
 
 public enum AtmosphereCompositionType
 {
-    Water("Water"),
-    Oxygen("Oxygen"),
-    Carbon_Dioxide("CarbonDioxide"),
-    Sulphur_Dioxide("SulphurDioxide"),
-    Ammonia("Ammonia"),
-    Methane("Methane"),
-    Nitrogen("Nitrogen"),
-    Hydrogen("Hydrogen"),
-    Helium("Helium"),
-    Neon("Neon"),
-    Argon("Argon"),
-    Silicates("Silicates"),
-    Iron("Iron");
-
-    private final String identifier;
-
-    AtmosphereCompositionType(String identifier)
-    {
-        this.identifier = identifier;
-    }
-
-    /**
-     * Gets the atmosphere composition type identifier.
-     *
-     * @return the atmosphere composition type identifier
-     */
-    public String getAtmosphereCompositionTypeIdentifier()
-    {
-        return this.identifier;
-    }
+    Water,
+    Oxygen,
+    CarbonDioxide,
+    SulphurDioxide,
+    Ammonia,
+    Methane,
+    Nitrogen,
+    Hydrogen,
+    Helium,
+    Neon,
+    Argon,
+    Silicates,
+    Iron;
 
     /**
      * Gets the atmosphere composition type name.
@@ -46,9 +37,9 @@ public enum AtmosphereCompositionType
         String name = "null";
         for (AtmosphereCompositionType atmosphereCompositionType : values())
         {
-            if (atmosphereCompositionType.getAtmosphereCompositionTypeIdentifier().equals(identifier))
+            if (atmosphereCompositionType.toString().equals(identifier))
             {
-                name = atmosphereCompositionType.name().replaceAll("_", " ").replaceAll("\\$", "-");
+                name = atmosphereCompositionType.toString();
             }
         }
         return name;

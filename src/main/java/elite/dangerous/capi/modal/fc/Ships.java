@@ -1,22 +1,27 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.capi.modal.fc;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import lombok.*;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
+import java.io.IOException;
+import java.util.*;
+
 import elite.dangerous.capi.modal.fc.Ships.FleetCarrierShipAdapter;
-import elite.dangerous.fdev.FDevID;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EliteObject;
+
+import space.tscg.misc.FDevID;
 
 @EliteObject
 @JsonDeserialize(using = FleetCarrierShipAdapter.class)
@@ -28,6 +33,7 @@ public class Ships
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public static class CarrierShip
     {
+        @JsonProperty("id")
         private FDevID id;
         private String name;
         private int    baseValue;

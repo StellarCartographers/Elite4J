@@ -1,15 +1,24 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.journal.events.buysell;
 
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.model.enums.MicroResourceCategory;
-import lombok.EliteObject;
+import lombok.*;
 
-@EliteObject
+import elite.dangerous.core.Event;
+import elite.dangerous.model.enums.ResourceCategory;
+
+@EliteObject 
 public class BuyMicroResources extends Event
 {
     private String                name;
 
-    private MicroResourceCategory category;
+    private ResourceCategory category;
 
     private int                   count;
 

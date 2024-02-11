@@ -1,23 +1,27 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.fdev;
 
-import java.util.Arrays;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
+import lombok.*;
+import lombok.extern.jackson.Jacksonized;
 
 import org.jetbrains.annotations.Nullable;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.jackson.Jacksonized;
+import java.util.*;
+import java.util.function.Function;
+
+import elite.dangerous.model.Ship;
+
 import space.tscg.api.carrier.ICarrierModule;
 import space.tscg.collections.list.UnalterableList;
 import space.tscg.collections.map.UnalterableMap;
-import space.tscg.misc.StringUtil;
+import space.tscg.misc.*;
 
 public final class Outfitting
 {
@@ -1385,8 +1389,8 @@ public final class Outfitting
         return UnalterableMap.unalterableMap(internalMap);
     }
 
-    public static Function<ICarrierModule, Module> ToModule = m -> getFromId(m.fdevId());
-    
+    public static Function<ICarrierModule, Module> ToModule = m -> getFromId(m.id());
+
     public static Outfitting.Module getFromId(int id)
     {
         return map.get(id);

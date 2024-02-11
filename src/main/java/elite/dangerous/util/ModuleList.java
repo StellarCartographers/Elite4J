@@ -1,3 +1,11 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.util;
 
 import static java.util.stream.Collector.Characteristics.*;
@@ -26,34 +34,34 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
 
     public static ModuleList fromCarrierModuleList(Collection<ICarrierModule> c)
     {
-        return new ModuleList(c.stream().map(m -> Outfitting.getFromId(m.fdevId())).toList());
+        return new ModuleList(c.stream().map(m -> Outfitting.getFromId(m.id())).toList());
     }
 
     public ModuleList()
     {
         super();
     }
-    
+
     public ModuleList(List<? extends Module> c)
     {
         super(c);
     }
-    
+
     protected Builder<ModuleList> toBuilder()
     {
         return super.Builder();
     }
-    
+
     public ModuleList filterByRating(Outfitting.Rating rate)
     {
         return this.stream().filter(module -> module.rating().equals(rate)).collect(ModuleCollector.toList());
     }
-    
+
     public ModuleSubList sublistByCategory(Outfitting.Category category)
     {
         return this.stream().filter(module -> module.category().equals(category)).collect(ModuleCollector.toSubList());
     }
-    
+
     public static class ModuleSubList extends ModuleList
     {
         private static final long serialVersionUID = -4627702634477796719L;
@@ -63,17 +71,17 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
             return this.stream().filter(module -> Type.getType(module).equals(type)).collect(ModuleCollector.toTypeSubList());
         }
     }
-    
-    public static class TypeSubList extends ModuleList {
 
+    public static class TypeSubList extends ModuleList
+    {
         private static final long serialVersionUID = 10122553252128817L;
-        
+
         public TypeSubList()
         {
             super();
         }
     }
-    
+
     static class ModuleCollector
     {
         static final Set<Collector.Characteristics> CH_ID = from(IDENTITY_FINISH);
@@ -142,10 +150,11 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
                 return characteristics;
             }
         }
-        
+
         public static <T extends Outfitting.Module> Collector<T, ?, TypeSubList> toTypeSubList()
         {
-            return new AccumulatorImpl<>((Supplier<TypeSubList>) TypeSubList::new, TypeSubList::add, (left, right) -> {
+            return new AccumulatorImpl<>((Supplier<TypeSubList>) TypeSubList::new, TypeSubList::add, (left, right) ->
+            {
                 left.addAll(right);
                 return left;
             }, CH_ID);
@@ -153,18 +162,20 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
 
         public static <T extends Outfitting.Module> Collector<T, ?, ModuleSubList> toSubList()
         {
-            return new AccumulatorImpl<>((Supplier<ModuleSubList>) ModuleSubList::new, ModuleSubList::add, (left, right) -> {
+            return new AccumulatorImpl<>((Supplier<ModuleSubList>) ModuleSubList::new, ModuleSubList::add, (left, right) ->
+            {
                 left.addAll(right);
                 return left;
             }, CH_ID);
         }
-        
+
         public static <T extends Outfitting.Module> Collector<T, ?, ModuleList> toList()
         {
-            return new AccumulatorImpl<>((Supplier<ModuleList>) ModuleList::new, ModuleList::add, (left, right) -> {
+            return new AccumulatorImpl<>((Supplier<ModuleList>) ModuleList::new, ModuleList::add, (left, right) ->
+            {
                 left.addAll(right);
                 return left;
             }, CH_ID);
         }
-    }    
+    }
 }

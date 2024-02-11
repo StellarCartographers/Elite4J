@@ -1,26 +1,20 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.journal.events.startup;
 
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.model.statistics.BankAccount;
-import elite.dangerous.model.statistics.CQC;
-import elite.dangerous.model.statistics.Combat;
-import elite.dangerous.model.statistics.Crafting;
-import elite.dangerous.model.statistics.Crew;
-import elite.dangerous.model.statistics.Crime;
-import elite.dangerous.model.statistics.Exobiology;
-import elite.dangerous.model.statistics.Exploration;
-import elite.dangerous.model.statistics.FleetCarrier;
-import elite.dangerous.model.statistics.MaterialTraderStats;
-import elite.dangerous.model.statistics.Mining;
-import elite.dangerous.model.statistics.Multicrew;
-import elite.dangerous.model.statistics.Passengers;
-import elite.dangerous.model.statistics.SearchAndRescue;
-import elite.dangerous.model.statistics.Smuggling;
-import elite.dangerous.model.statistics.ThargoidEncounters;
-import elite.dangerous.model.statistics.Trading;
-import lombok.EliteObject;
+import lombok.*;
 
-@EliteObject
+import elite.dangerous.core.Event;
+import elite.dangerous.model.statistics.*;
+import elite.dangerous.model.statistics.Passengers;
+
+@EliteObject 
 public class Statistics extends Event
 {
     private BankAccount         bankAccount;

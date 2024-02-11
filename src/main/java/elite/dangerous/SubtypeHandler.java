@@ -1,45 +1,32 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous;
 
 import static elite.dangerous.SubtypeHandler.Wrapper.*;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
+import lombok.*;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.*;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.Stream;
 
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.journal.events.combat.Bounty;
-import elite.dangerous.journal.events.combat.BountyDefault;
-import elite.dangerous.journal.events.combat.BountySkimmer;
-import elite.dangerous.journal.events.combat.Died;
-import elite.dangerous.journal.events.combat.DiedByPVP;
-import elite.dangerous.journal.events.combat.DiedByWing;
-import elite.dangerous.journal.events.combat.ShipTargeted;
-import elite.dangerous.journal.events.exploration.ScanPlanetOrMoon;
-import elite.dangerous.journal.events.exploration.ScanStar;
-import elite.dangerous.model.combat.ScanStageOne;
-import elite.dangerous.model.combat.ScanStageThree;
-import elite.dangerous.model.combat.ScanStageTwo;
-import elite.dangerous.model.combat.ShipTargetLocked;
-import elite.dangerous.model.combat.ShipTargetLost;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import elite.dangerous.core.Event;
+import elite.dangerous.journal.events.combat.*;
+import elite.dangerous.journal.events.exploration.*;
 
 class SubtypeHandler
 {
-
     static Optional<Class<?>> getSubtypeIfPresent(JsonNode node)
     {
         return Subtypes.get(node);
@@ -51,23 +38,18 @@ class SubtypeHandler
         BOUNTY(Bounty.class, Cast().To(BountySkimmer.class).When(node -> node.has("Target") && node.get("Target").asText().equals("Skimmer")).Default(BountyDefault.class)),
         DIED(Cast().To(DiedByPVP.class).When(node -> node.has("KillerShip")).To(DiedByWing.class).When(node -> node.has("Killers")).Default(Died.class)),
         SCAN(Cast().To(ScanPlanetOrMoon.class).When(node -> node.has("PlanetClass")).Default(ScanStar.class)),
-        SHIPTARGET(ShipTargeted.class,
-           Cast().To(ScanStageOne.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 1)
-                .To(ScanStageTwo.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 2)
-                .To(ScanStageThree.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 3)
-                .To(ShipTargetLocked.class).When(node -> node.get("TargetLocked").asBoolean())
-                .Default(ShipTargetLost.class))
+        SHIPTARGET(ShipTargeted.class, Cast().To(ScanStageOne.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 1).To(ScanStageTwo.class).When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 2).To(ScanStageThree.class)
+                        .When(node -> node.has("ScanStage") && node.get("ScanStage").asInt() == 3).To(ShipTargetLocked.class).When(node -> node.get("TargetLocked").asBoolean()).Default(ShipTargetLost.class))
         // @on
         ;
 
-        final Class<?> baseClass;
-
-        final Wrapper cast;
-
+        final Class<?>                 baseClass;
+        final Wrapper                  cast;
         static Map<Class<?>, Subtypes> MAP = new HashMap<>();
-
-        static {
-            Stream.of(Subtypes.values()).forEach(h -> {
+        static
+        {
+            Stream.of(Subtypes.values()).forEach(h ->
+            {
                 MAP.put(h.baseClass, h);
             });
         }
@@ -94,8 +76,7 @@ class SubtypeHandler
     private static class Ordered extends LinkedHashMap<Predicate<JsonNode>, Class<?>>
     {
         private static final long serialVersionUID = 868582529288824311L;
-
-        private Class<?>[] singleValue;
+        private Class<?>[]        singleValue;
 
         Ordered()
         {
@@ -104,7 +85,8 @@ class SubtypeHandler
 
         private void putFirst(Class<?> value)
         {
-            if (this.singleValue != null) {
+            if (this.singleValue != null)
+            {
                 return;
             }
             this.singleValue = new Class<?>[]{value};
@@ -203,8 +185,7 @@ class SubtypeHandler
     {
         @Getter
         Class<?> fallback;
-
-        Ordered map;
+        Ordered  map;
 
         Wrapper(Builder builder)
         {
@@ -214,12 +195,13 @@ class SubtypeHandler
 
         Class<?> getEventClass(JsonNode node)
         {
-            for (Predicate<JsonNode> when : map.keySet()) {
-                if (when.test(node)) {
+            for (Predicate<JsonNode> when : map.keySet())
+            {
+                if (when.test(node))
+                {
                     return map.get(when);
                 }
             }
-
             return fallback;
         }
 
@@ -233,15 +215,12 @@ class SubtypeHandler
         static final class Builder implements CastTo, WhenTrue, FinalAction
         {
             @Setter
-            Class<?> fallback;
-
-            Ordered map = new Ordered();
-
+            Class<?>         fallback;
+            Ordered          map = new Ordered();
             @Setter
             private Class<?> classReference;
-
             @Setter
-            private boolean toProvided;
+            private boolean  toProvided;
 
             @Override
             @NotNull
@@ -256,7 +235,8 @@ class SubtypeHandler
             @NotNull
             public FinalAction When(Predicate<JsonNode> when)
             {
-                if (!this.toProvided) {
+                if (!this.toProvided)
+                {
                     throw new RuntimeException("Tried setting 'when' (Predicate) before 'to' (Class<?>) reference was set");
                 }
                 this.map.put(when, this.classReference);

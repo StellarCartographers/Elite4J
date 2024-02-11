@@ -1,3 +1,11 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.util;
 
 import java.io.IOException;
@@ -55,7 +63,7 @@ public final class EventTimestamp
             gen.writePOJO(value.source);
         }
     }
-    
+
     public static class Deserialization extends StdDeserializer<EventTimestamp>
     {
         public Deserialization()
@@ -71,6 +79,5 @@ public final class EventTimestamp
             JsonNode node = p.getCodec().readTree(p);
             return EventTimestamp.of(node.asText());
         }
-        
     }
 }

@@ -1,57 +1,67 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import org.atteo.classindex.ClassIndex;
-import org.jetbrains.annotations.Nullable;
-import org.tinylog.Logger;
+import lombok.*;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.PrettyPrinter;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.util.*;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
+import org.atteo.classindex.ClassIndex;
+import org.tinylog.Logger;
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+
 import elite.dangerous.capi.CAPIData;
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.util.JsonValueOption;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import elite.dangerous.core.Event;
 
 public class Elite4J
 {
-    static final PrettyPrinter PRINTER = new JsonOutputFormatter();
+    
+    /* !formatter */
+    private static final ObjectMapper OUTPUT_MAPPER = new ObjectMapper()
+        .setSerializationInclusion(Include.NON_NULL)
+        .setVisibility(PropertyAccessor.FIELD, Visibility.ANY)
+        .enable(SerializationFeature.INDENT_OUTPUT)
+        .disable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS)
+        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+        .setDefaultPrettyPrinter(new DefaultPrettyPrinter().withArrayIndenter(new DefaultIndenter("    ", DefaultIndenter.SYS_LF)));
+    /* @formatter */
 
-    public static String ObjToString(Object obj)
+    public static String ObjToString(Object object)
     {
-        var pkg = obj.getClass().getPackageName();
-        if (pkg.startsWith("elite.dangerous.capi"))
-        {
-            return CAPI.get().mapper.asString(obj);
-        } else
-        {
-            return Journal.get().mapper.asString(obj);
+        try {
+            if (object instanceof Optional) {
+                if (((Optional<?>) object).isPresent())
+                    return OUTPUT_MAPPER.writeValueAsString(((Optional<?>) object).get());
+                else
+                    return "not present";
+            }
+            return OUTPUT_MAPPER.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            Logger.error(e);
+            e.printStackTrace();
+            return "Error";
         }
     }
 
     public static final class Journal
     {
         private volatile static Journal instance;
-
         private JournalEvents           events;
         private Journal.Mapper          mapper;
 
@@ -91,20 +101,20 @@ public class Elite4J
         {
             return Journal.get().events;
         }
-        
+
         public static <T extends Event> Optional<T> parse(String json, Class<T> type)
         {
             return Optional.ofNullable(get().fromJson(json, type));
         }
 
-        public static <T extends Event> Optional<Event> parse(String json)
+        public static <T extends Event> Optional<T> parse(String json)
         {
             Objects.requireNonNull(json, "cannot parse from null string");
             var instance = Journal.get();
             try
             {
                 var jsonNode = instance.constructJsonNode(InformalFieldNameHandler.parse(json));
-                var eventClass = instance.getEventClass(jsonNode);
+                Class<T> eventClass = instance.getEventClass(jsonNode);
                 return Optional.ofNullable(instance.fromJson(jsonNode.toString(), eventClass));
             } catch (IOException e)
             {
@@ -130,7 +140,6 @@ public class Elite4J
             {
                 return (Class<T>) subtype.get();
             }
-
             return (Class<T>) events.get(node.get("event").asText());
         }
 
@@ -146,60 +155,30 @@ public class Elite4J
             }
         }
 
-        @NoArgsConstructor(access = AccessLevel.PACKAGE)
-        static final class Mapper
+        static final class Mapper extends JsonMapper
         {
-            @Setter(AccessLevel.PRIVATE)
-            private JsonMapper mapper = defaultMapper();
+            private static final long serialVersionUID = 5727134984977613956L;
 
-            JsonMapper get()
+            private volatile static Journal.Mapper instance;
+
+            Journal.Mapper get()
             {
-                return mapper;
-            }
-
-            private JsonMapper.Builder copyMapper()
-            {
-                return mapper.rebuild();
-            }
-
-            private JsonMapper defaultMapper()
-            {
-                return JsonMapper.builder().propertyNamingStrategy(PropertyNamingStrategies.UPPER_CAMEL_CASE).visibility(PropertyAccessor.FIELD, Visibility.ANY).configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, false)
-                                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).configure(SerializationFeature.INDENT_OUTPUT, true).defaultPrettyPrinter(PRINTER).build();
-            }
-
-            String asString(Object obj, @Nullable JsonValueOption... options)
-            {
-                for (JsonValueOption jsonValueOption : options)
-                {
-                    mapper(jsonValueOption.setMapperOption(copyMapper()));
-                }
-
-                final String str = asString(obj);
-
-                mapper(defaultMapper());
-
-                return str;
-            }
-
-            String asString(Object obj)
-            {
-                try
-                {
-                    if (obj instanceof Optional)
-                    {
-                        if (((Optional<?>) obj).isPresent())
-                            return mapper.writeValueAsString(((Optional<?>) obj).get());
-                        else
-                            return "not present";
+                if (instance == null) {
+                    synchronized (Journal.Mapper.class) {
+                        if (instance == null) {
+                            instance = new Journal.Mapper();
+                        }
                     }
-                    return mapper.writeValueAsString(obj);
-                } catch (JsonProcessingException e)
-                {
-                    Logger.error(e);
-                    e.printStackTrace();
-                    return "Error";
                 }
+                return instance;
+            }
+
+            private Mapper()
+            {
+                this.setPropertyNamingStrategy(PropertyNamingStrategies.UPPER_CAMEL_CASE);
+                this.disable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+                this.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+                this.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
             }
         }
     }
@@ -250,60 +229,29 @@ public class Elite4J
             }
         }
 
-        @NoArgsConstructor(access = AccessLevel.PACKAGE)
-        static final class Mapper
+        static final class Mapper extends JsonMapper
         {
-            @Setter(AccessLevel.PRIVATE)
-            private JsonMapper mapper = defaultMapper();
+            private static final long serialVersionUID = 5727134984977613956L;
 
-            JsonMapper get()
+            private volatile static CAPI.Mapper instance;
+
+            CAPI.Mapper get()
             {
-                return mapper;
-            }
-
-            private JsonMapper.Builder copyMapper()
-            {
-                return mapper.rebuild();
-            }
-
-            private JsonMapper defaultMapper()
-            {
-                return JsonMapper.builder().serializationInclusion(Include.NON_NULL).visibility(PropertyAccessor.FIELD, Visibility.ANY).configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, false).configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                                .configure(SerializationFeature.INDENT_OUTPUT, true).defaultPrettyPrinter(PRINTER).build();
-            }
-
-            String asString(Object obj, @Nullable JsonValueOption... options)
-            {
-                for (JsonValueOption jsonValueOption : options)
-                {
-                    mapper(jsonValueOption.setMapperOption(copyMapper()));
-                }
-
-                final String str = asString(obj);
-
-                mapper(defaultMapper());
-
-                return str;
-            }
-
-            String asString(Object object)
-            {
-                try
-                {
-                    if (object instanceof Optional)
-                    {
-                        if (((Optional<?>) object).isPresent())
-                            return mapper.writeValueAsString(((Optional<?>) object).get());
-                        else
-                            return "not present";
+                if (instance == null) {
+                    synchronized (CAPI.Mapper.class) {
+                        if (instance == null) {
+                            instance = new CAPI.Mapper();
+                        }
                     }
-                    return mapper.writeValueAsString(object);
-                } catch (JsonProcessingException e)
-                {
-                    Logger.error(e);
-                    e.printStackTrace();
-                    return "Error";
                 }
+                return instance;
+            }
+
+            private Mapper()
+            {
+                this.disable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+                this.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+                this.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
             }
         }
     }

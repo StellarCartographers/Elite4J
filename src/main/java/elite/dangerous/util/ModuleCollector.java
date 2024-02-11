@@ -1,3 +1,11 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.util;
 
 import static java.util.stream.Collector.Characteristics.*;
@@ -87,7 +95,8 @@ public class ModuleCollector
 
     public static <T extends Outfitting.Module> Collector<T, ?, ModuleList> toList()
     {
-        return new AccumulatorImpl<>((Supplier<ModuleList>) ModuleList::new, ModuleList::add, (left, right) -> {
+        return new AccumulatorImpl<>((Supplier<ModuleList>) ModuleList::new, ModuleList::add, (left, right) ->
+        {
             left.addAll(right);
             return left;
         }, CH_ID);

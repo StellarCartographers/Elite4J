@@ -1,15 +1,19 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.journal.events.startup;
 
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.model.toreadable.CQCRank;
-import elite.dangerous.model.toreadable.CombatRank;
-import elite.dangerous.model.toreadable.EmpireRank;
-import elite.dangerous.model.toreadable.ExplorationRank;
-import elite.dangerous.model.toreadable.FederationRank;
-import elite.dangerous.model.toreadable.TradeRank;
-import lombok.EliteObject;
+import lombok.*;
 
-@EliteObject
+import elite.dangerous.core.Event;
+import elite.dangerous.model.toreadable.*;
+
+@EliteObject 
 public class Rank extends Event
 {
 

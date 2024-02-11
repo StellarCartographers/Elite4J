@@ -1,13 +1,22 @@
+/*
+ * This file is part of Elite4J, licensed under MIT.
+ * 
+ * Copyright (c) 2024 StellarCartographers.
+ * 
+ * You should have received a copy of the MIT license along with this program.  
+ * If not, see <https://opensource.org/licenses/MIT>.
+ */
 package elite.dangerous.journal.events.exploration;
+
+import lombok.*;
 
 import java.util.List;
 
-import elite.dangerous.journal.base.Event;
-import elite.dangerous.model.ssa.Genus;
-import elite.dangerous.model.ssa.Signal;
-import lombok.EliteObject;
+import elite.dangerous.core.Event;
+import elite.dangerous.model.ssa.*;
 
-@EliteObject
+
+@EliteObject 
 public class SAASignalsFound extends Event
 {
     private String       bodyName;
