@@ -25,18 +25,20 @@ tscg {
 }
 
 dependencies {
-    api Shared.Libs().StellarLib()
+    annotationProcessor 'org.projectlombok:lombok:ed-1.18.40'
+    annotationProcessor Shared.Deps().ClassIndex()
     
+    api Shared.Deps().ClassIndex()
+    api Shared.Libs().StellarLib()
+    api Shared.Deps().JacksonCore()
+    api Shared.Deps().JacksonAnnotations()
+    api Shared.Deps().JacksonDatabind()
+
+    compileOnly Shared.Deps().TinyLogApi()
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-    compileOnly 'org.jetbrains:annotations:24.0.1'
-    
-    annotationProcessor Shared.Deps().ClassIndex()
-    implementation Shared.Deps().ClassIndex()
-    implementation Shared.Deps().Jackson()
-    implementation Shared.Deps().TinyLogApi()
-    implementation Shared.Deps().CommonsCodec('1.16.1')
 }
 
 test {
