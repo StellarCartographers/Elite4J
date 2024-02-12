@@ -1,6 +1,7 @@
 import space.tscg.gradle.Shared
 
 plugins {
+    id "com.autonomousapps.dependency-analysis" version "1.29.0"
     id 'com.diffplug.spotless' version '6.+'
     id 'io.freefair.lombok' version '8.+'
     id 'tscg.defaults' version '2.2.2'
@@ -24,18 +25,17 @@ tscg {
 }
 
 dependencies {
+    api Shared.Libs().StellarLib()
+    
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     compileOnly 'org.jetbrains:annotations:24.0.1'
     
-    implementation Shared.Libs().StellarLib()
-
     annotationProcessor Shared.Deps().ClassIndex()
     implementation Shared.Deps().ClassIndex()
     implementation Shared.Deps().Jackson()
     implementation Shared.Deps().TinyLogApi()
-    implementation Shared.Deps().Expressible()
     implementation Shared.Deps().CommonsCodec('1.16.1')
 }
 
