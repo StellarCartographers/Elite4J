@@ -4,7 +4,7 @@ plugins {
     id "com.autonomousapps.dependency-analysis" version "1.29.0"
     id 'com.diffplug.spotless' version '6.+'
     id 'io.freefair.lombok' version '8.+'
-    id 'tscg.defaults' version '2.2.2'
+    id 'tscg.defaults' version '2.2.4'
     id 'java-library'
     id 'eclipse'
     id 'jacoco'
@@ -29,7 +29,8 @@ dependencies {
     annotationProcessor Shared.Deps().ClassIndex()
     
     api Shared.Deps().ClassIndex()
-    api Shared.Libs().StellarLib()
+    api Shared.Deps().CommonsCollections4()
+    //api Shared.Libs().StellarLib()
     api Shared.Deps().JacksonCore()
     api Shared.Deps().JacksonAnnotations()
     api Shared.Deps().JacksonDatabind()

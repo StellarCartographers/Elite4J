@@ -13,8 +13,8 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import elite.dangerous.core.Event;
-import elite.dangerous.journal.NonDefinedEvent;
+import elite.dangerous.journal.*;
+import elite.dangerous.journal.annotation.NonDefinedEvent;
 import elite.dangerous.util.ReflectionHelper;
 
 final class JournalEvents extends LinkedHashMap<String, Class<? extends Event>>

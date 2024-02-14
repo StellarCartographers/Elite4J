@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.stream.*;
 
 import elite.dangerous.capi.CAPIData;
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 
 public class Elite4J
 {

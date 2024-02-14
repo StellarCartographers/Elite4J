@@ -10,6 +10,7 @@ package elite.dangerous.util.testing;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomGenerator
 {
@@ -43,14 +44,69 @@ public class RandomGenerator
                     "Verminus", "Vespira", "Victoria", "Victory", "Vigilant", "Vindicator", "Viper", "Virginia", "Vision", "Visitor", "Voyager", "Vulture", "Wailing Wind", "Warlock", "Warrior", "Washington", "Watcher", "Wellington", "Whirlwind", "Wildcat", "Wisdom",
                     "Wish Upon a Star", "Wolf", "Wolverine", "Woodpecker", "Wyvern", "Xerxes", "Yucatan", "Zenith", "Zephyr", "Zeus", "Zion"));
 
-    public static String randomCallsign()
+    public static String randomCallSign()
     {
-        return "%s-%s".formatted(RandString.randomAlphanumeric(3).toUpperCase(), RandString.randomAlphanumeric(3).toUpperCase());
+        int count = 6;
+        int total = count;
+        char[] chars = null;
+        int end = 'z' + 1;
+        int start = ' ';
+        
+        final StringBuilder builder = new StringBuilder(count);
+        final int gap = end - start;
+        while (count-- != 0)
+        {
+            final int codePoint;
+            if (chars == null)
+            {
+                codePoint = ThreadLocalRandom.current().nextInt(gap) + start;
+                switch (Character.getType(codePoint)) {
+                    case Character.UNASSIGNED:
+                    case Character.PRIVATE_USE:
+                    case Character.SURROGATE:
+                        count++;
+                        continue;
+                }
+            } else
+            {
+                codePoint = chars[ThreadLocalRandom.current().nextInt(gap) + start];
+            }
+            final int numberOfChars = Character.charCount(codePoint);
+            if (count == 0 && numberOfChars > 1)
+            {
+                count++;
+                continue;
+            }
+            if (Character.isLetter(codePoint) || Character.isDigit(codePoint))
+            {
+                builder.appendCodePoint(codePoint);
+                if (numberOfChars == 2)
+                {
+                    count--;
+                }
+            } else
+            {
+                count++;
+            }
+        }
+        return new StringBuffer(builder.toString()).insert(total / 2, "-").toString().toUpperCase();
     }
 
     public static String randomCarrierId()
     {
-        return RandString.random(10, "123456789");
+        var previous = 0;
+        var idArray = new String[10];
+        for (int i = 0; i < idArray.length; i++)
+        {
+            var idx = new Random().nextInt(1, 9);
+            while(idx == previous)
+            {
+                idx = new Random().nextInt(1, 9);
+            }
+            idArray[i] = String.valueOf(idx);
+            previous = idx;
+        }
+        return String.join("", idArray);
     }
 
     public static String randomCarrierName()

@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.book;
 
 import lombok.*;
 
-import elite.dangerous.core.Cancel;
+import elite.dangerous.journal.Cancel;
 
 @EliteObject 
 public class CancelTaxi extends Cancel

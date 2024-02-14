@@ -15,13 +15,11 @@ import lombok.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.*;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Stream;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 import elite.dangerous.journal.events.combat.*;
 import elite.dangerous.journal.events.exploration.*;
 
@@ -223,7 +221,7 @@ class SubtypeHandler
             private boolean  toProvided;
 
             @Override
-            @NotNull
+            @NonNull
             public WhenTrue To(Class<?> to)
             {
                 this.classReference(to);
@@ -232,7 +230,7 @@ class SubtypeHandler
             }
 
             @Override
-            @NotNull
+            @NonNull
             public FinalAction When(Predicate<JsonNode> when)
             {
                 if (!this.toProvided)
@@ -246,7 +244,7 @@ class SubtypeHandler
             }
 
             @Override
-            @NotNull
+            @NonNull
             public Wrapper Default(Class<?> fallback)
             {
                 this.fallback(fallback);
@@ -254,7 +252,7 @@ class SubtypeHandler
             }
 
             @Override
-            @NotNull
+            @NonNull
             public Wrapper Create()
             {
                 if (this.fallback == null)
@@ -265,22 +263,22 @@ class SubtypeHandler
 
         private interface CastTo
         {
-            @NotNull
+            @NonNull
             WhenTrue To(Class<?> to);
         }
 
         private interface WhenTrue
         {
-            @NotNull
+            @NonNull
             FinalAction When(Predicate<JsonNode> when);
         }
 
         private interface FinalAction extends CastTo
         {
-            @NotNull
+            @NonNull
             Wrapper Default(Class<?> fallback);
 
-            @NotNull
+            @NonNull
             Wrapper Create();
         }
     }

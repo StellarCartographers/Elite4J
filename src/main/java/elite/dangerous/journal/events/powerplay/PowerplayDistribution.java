@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.powerplay;
 
 import lombok.*;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 
 @EliteObject(ObjectType.PARENT)
 public abstract class PowerplayDistribution extends Event

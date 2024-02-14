@@ -12,7 +12,7 @@ import lombok.*;
 
 import java.util.List;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 import elite.dangerous.model.MicroResource;
 import elite.dangerous.model.enums.ResourceCategory;
 

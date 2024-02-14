@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.startup;
 
 import lombok.*;
 
-import elite.dangerous.core.Squadron;
+import elite.dangerous.journal.Squadron;
 
 @EliteObject 
 public class SquadronStartup extends Squadron

@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.book;
 
 import lombok.*;
 
-import elite.dangerous.core.Book;
+import elite.dangerous.journal.Book;
 
 @EliteObject 
 public class BookDropship extends Book

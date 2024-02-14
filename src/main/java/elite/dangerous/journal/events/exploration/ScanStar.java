@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.exploration;
 
 import lombok.*;
 
-import elite.dangerous.journal.NonDefinedEvent;
+import elite.dangerous.journal.annotation.NonDefinedEvent;
 
 @EliteObject 
 @NonDefinedEvent

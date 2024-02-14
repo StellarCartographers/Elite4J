@@ -2144,7 +2144,7 @@ public class LocalTestingData
 
     public static String emptyFleetCarrierDataAsString()
     {
-        var randCallsign = "\"" + randomCallsign() + "\"";
+        var randCallsign = "\"" + randomCallSign() + "\"";
         var randName = "\"" + randomCarrierNameAsHex() + "\"";
         var randId = randomCarrierId();
         return allEmptyJson.formatted(randCallsign, randName, randName, randId, randCallsign);
@@ -2152,7 +2152,7 @@ public class LocalTestingData
 
     public static String fleetCarrierDataAsString()
     {
-        var randCallsign = "\"" + randomCallsign() + "\"";
+        var randCallsign = "\"" + randomCallSign() + "\"";
         var randName = "\"" + randomCarrierNameAsHex() + "\"";
         var randId = randomCarrierId();
         return json.formatted(randCallsign, randName, randName, randId, randCallsign);

@@ -12,7 +12,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 
-import elite.dangerous.core.Suit;
+import elite.dangerous.journal.Suit;
 
 @EliteObject 
 public class LoadoutRemoveModule extends Suit

@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.fleetcarriers;
 
 import lombok.*;
 
-import elite.dangerous.core.CarrierPack;
+import elite.dangerous.journal.CarrierPack;
 
 @EliteObject 
 public class CarrierModulePack extends CarrierPack

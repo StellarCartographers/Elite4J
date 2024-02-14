@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.squadron;
 
 import lombok.*;
 
-import elite.dangerous.core.SquadronXmotion;
+import elite.dangerous.journal.SquadronXmotion;
 
 @EliteObject 
 public class SquadronDemotion extends SquadronXmotion

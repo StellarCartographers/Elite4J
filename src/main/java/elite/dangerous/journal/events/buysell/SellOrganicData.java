@@ -12,7 +12,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 import elite.dangerous.model.BioDataItem;
 
 @EliteObject 

@@ -10,13 +10,13 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @EliteCreator 
 @EliteObject
 public class Ship
 {
-    private FDevID id;
+    private ID id;
     private String symbol;
     private String name;
 }

@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.other;
 
 import lombok.*;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 
 @EliteObject 
 public class KickCrewMember extends Event

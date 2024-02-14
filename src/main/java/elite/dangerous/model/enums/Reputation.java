@@ -1,16 +1,16 @@
 package elite.dangerous.model.enums;
 
-import java.util.function.Function;
+import static elite.dangerous.util.OnlyIf.*;
 
-import space.tscg.misc.*;
+import java.util.function.Function;
 
 public enum Reputation
 {
-    HOSTILE(Numbers.le(-90)),
-    UNFRIENDLY(Numbers.le(-35), Numbers.gt(-90)),
-    CORDINAL(Numbers.ge(4), Numbers.lt(35)),
-    FRIENDLY(Numbers.ge(35), Numbers.lt(90)),
-    ALLIED(Numbers.ge(90)),
+    HOSTILE(isLessOrEqual(-90)),
+    UNFRIENDLY(isLessOrEqual(-35), isGreater(-90)),
+    CORDINAL(isGreaterOrEqual(4), isLess(35)),
+    FRIENDLY(isGreaterOrEqual(35), isLess(90)),
+    ALLIED(isGreaterOrEqual(90)),
     NEUTRAL;
 
     private Function<Double, Boolean> f1;
@@ -55,7 +55,7 @@ public enum Reputation
     @Override
     public String toString()
     {
-        return StringUtil.capitalize(super.toString());
+        return super.toString().substring(0, 1).toUpperCase() + super.toString().substring(1).toLowerCase();
     }
 
     /**
@@ -68,9 +68,9 @@ public enum Reputation
      */
     public static Reputation getReadableName(double reputation)
     {
-        for(Reputation rep : Reputation.values())
+        for (Reputation rep : Reputation.values())
         {
-            if(rep.check(reputation))
+            if (rep.check(reputation))
                 return rep;
         }
         return NEUTRAL;

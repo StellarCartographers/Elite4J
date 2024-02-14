@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.other;
 
 import lombok.*;
 
-import elite.dangerous.core.Dock;
+import elite.dangerous.journal.Dock;
 
 @EliteObject 
 public class DockSRV extends Dock

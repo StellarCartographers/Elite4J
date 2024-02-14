@@ -11,7 +11,7 @@ package elite.dangerous.journal.events.fleetcarriers;
 import lombok.EliteObject;
 
 import elite.dangerous.api.journal.fleetcarriers.ICarrierJumpRequest;
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 
 @EliteObject
 public class CarrierJumpRequest extends Event implements ICarrierJumpRequest

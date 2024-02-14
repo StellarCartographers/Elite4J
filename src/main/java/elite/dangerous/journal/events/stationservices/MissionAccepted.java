@@ -12,7 +12,7 @@ import lombok.*;
 
 import java.util.Date;
 
-import elite.dangerous.core.Event;
+import elite.dangerous.journal.Event;
 
 @EliteObject 
 public class MissionAccepted extends Event

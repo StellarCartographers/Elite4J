@@ -11,10 +11,10 @@ package elite.dangerous.fdev;
 import java.util.Map;
 
 import elite.dangerous.model.Ship;
+import elite.dangerous.model.identity.ID;
 import elite.dangerous.util.ReflectionHelper;
 
 import space.tscg.collections.map.UnalterableMap;
-import space.tscg.misc.FDevID;
 
 public final class Shipyard
 {
@@ -59,13 +59,13 @@ public final class Shipyard
     public static Map<Integer, Ship> map;
     static
     {
-        var builder = new UnalterableMap.Builder<Integer, Ship>();
+        var builder = new UnalterableMap.Builder<Long, Ship>();
         for (var field : ReflectionHelper.getAllFieldsOfType(Shipyard.class, Ship.class))
         {
             try
             {
                 Ship ship = (Ship) field.get(null);
-                builder.add(ship.id().toLong().intValue(), ship);
+                builder.add(ship.id().asLong().intValue(), ship);
             } catch (IllegalArgumentException | IllegalAccessException e)
             {
                 e.printStackTrace();
@@ -76,7 +76,7 @@ public final class Shipyard
 
     private static Ship create(int id, String symbol, String name)
     {
-        return Ship.Creator().id(FDevID.of(id)).symbol(symbol).name(name).create();
+        return Ship.Creator().id(new ID(id)).symbol(symbol).name(name).create();
     }
     
     public static Ship getFromId(int id)

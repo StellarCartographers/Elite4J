@@ -8,15 +8,11 @@
  */
 package elite.dangerous.livery.ship.general;
 
+import lombok.*;
+
 import java.awt.Color;
 
-import org.jetbrains.annotations.Nullable;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import space.tscg.misc.StringUtil;
+import elite.dangerous.util.Functions;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -57,19 +53,17 @@ public abstract class Detailing
         YELLOW(Color.YELLOW),
         NONE(null);
 
-        @Nullable
         Color color;
 
         @Override
         public String toString()
         {
-            return StringUtil.capitalize(super.toString());
+            return Functions.Capitalize(super.toString());
         }
 
-        @Nullable
         public Color getJavaColor()
         {
-            return color;
+            return color == null ? Color.getColor("", Color.TRANSLUCENT) : color;
         }
     }
 }

@@ -12,7 +12,7 @@ import lombok.*;
 
 import java.util.List;
 
-import elite.dangerous.journal.NonDefinedEvent;
+import elite.dangerous.journal.annotation.NonDefinedEvent;
 import elite.dangerous.model.Killer;
 
 @EliteObject 

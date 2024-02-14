@@ -10,7 +10,7 @@ package elite.dangerous.journal.events.suit;
 
 import lombok.*;
 
-import elite.dangerous.core.Suit;
+import elite.dangerous.journal.Suit;
 
 @EliteObject 
 public class RenameSuitLoadout extends Suit
