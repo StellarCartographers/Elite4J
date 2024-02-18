@@ -14,13 +14,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @EliteObject
 public class Market
 {
     @JsonProperty("id")
-    private FDevID                 id;
+    private ID                 id;
     private String                 name;
     private final String           outpostType = "fleetcarrier";
     private List<Object>           imported;

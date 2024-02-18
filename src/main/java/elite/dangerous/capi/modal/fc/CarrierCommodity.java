@@ -12,13 +12,13 @@ import lombok.EliteObject;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @EliteObject
 public class CarrierCommodity
 {
     @JsonProperty("id")
-    private FDevID id;
+    private ID id;
     private String categoryname;
     private String name;
     private int    stock;

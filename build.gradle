@@ -16,7 +16,7 @@ lombok {
 
 group = 'space.tscg'
 version = '1.0.0-SNAPSHOT'
-description = 'Java Mapped Elite Dangerous Data Types (PlayerJournal/CAPI/FDevIDs)'
+description = 'Java Mapped Elite Dangerous Data Types (PlayerJournal/CAPI/IDs)'
 
 tscg {
     devName 'ROMVoid95'
@@ -29,12 +29,11 @@ dependencies {
     annotationProcessor Shared.Deps().ClassIndex()
     
     api Shared.Deps().ClassIndex()
-    api Shared.Deps().CommonsCollections4()
-    //api Shared.Libs().StellarLib()
     api Shared.Deps().JacksonCore()
     api Shared.Deps().JacksonAnnotations()
     api Shared.Deps().JacksonDatabind()
 
+    implementation Shared.Deps().CommonsCollections4()
     compileOnly Shared.Deps().TinyLogApi()
     
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
@@ -43,6 +42,7 @@ dependencies {
 }
 
 test {
+    useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
 

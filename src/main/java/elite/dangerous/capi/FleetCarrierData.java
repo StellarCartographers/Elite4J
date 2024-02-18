@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.*;
 
 import java.util.List;
 
-import elite.dangerous.Elite4J;
 import elite.dangerous.capi.modal.fc.*;
 import elite.dangerous.capi.modal.fc.orders.Orders;
-
-import space.tscg.api.JsonWrapper;
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @EliteObject
-public class FleetCarrierData extends CAPIData implements JsonWrapper
+public class FleetCarrierData extends CAPIData
 {
     @Getter(AccessLevel.PRIVATE)
     @JsonProperty(value = "name", index = 0)
@@ -78,7 +75,7 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
      * @return Carrier ID
      */
     @JsonIgnore
-    public FDevID carrierId()
+    public ID carrierId()
     {
         return this.market.id();
     }
@@ -336,11 +333,5 @@ public class FleetCarrierData extends CAPIData implements JsonWrapper
     public boolean isPioneerSuppliesInstalled()
     {
         return this.market.services().pioneersupplies().notEquals(State.UNAVAILABLE);
-    }
-
-    @Override
-    public String toJson()
-    {
-        return Elite4J.ObjToString(this);
     }
 }

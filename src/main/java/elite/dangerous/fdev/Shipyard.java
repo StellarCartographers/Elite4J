@@ -12,9 +12,7 @@ import java.util.Map;
 
 import elite.dangerous.model.Ship;
 import elite.dangerous.model.identity.ID;
-import elite.dangerous.util.ReflectionHelper;
-
-import space.tscg.collections.map.UnalterableMap;
+import elite.dangerous.util.*;
 
 public final class Shipyard
 {
@@ -56,16 +54,16 @@ public final class Shipyard
     public static final Ship         VIPER                = create(128049273, "Viper", "Viper MkIII");
     public static final Ship         VIPER_MKIV           = create(128672255, "Viper_MkIV", "Viper MkIV");
     public static final Ship         VULTURE              = create(128049309, "Vulture", "Vulture");
-    public static Map<Integer, Ship> map;
+    public static Map<Long, Ship> map;
     static
     {
-        var builder = new UnalterableMap.Builder<Long, Ship>();
+        Functions.MapBuilder<Long, Ship> builder = Functions.mapBuilder();
         for (var field : ReflectionHelper.getAllFieldsOfType(Shipyard.class, Ship.class))
         {
             try
             {
                 Ship ship = (Ship) field.get(null);
-                builder.add(ship.id().asLong().intValue(), ship);
+                builder.add(ship.id().asLong(), ship);
             } catch (IllegalArgumentException | IllegalAccessException e)
             {
                 e.printStackTrace();
@@ -74,12 +72,12 @@ public final class Shipyard
         map = builder.build();
     }
 
-    private static Ship create(int id, String symbol, String name)
+    private static Ship create(long id, String symbol, String name)
     {
         return Ship.Creator().id(new ID(id)).symbol(symbol).name(name).create();
     }
     
-    public static Ship getFromId(int id)
+    public static Ship getFromId(long id)
     {
         return map.get(id);
     }

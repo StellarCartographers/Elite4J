@@ -20,8 +20,7 @@ import java.io.IOException;
 import java.util.*;
 
 import elite.dangerous.capi.modal.fc.Ships.FleetCarrierShipAdapter;
-
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @EliteObject
 @JsonDeserialize(using = FleetCarrierShipAdapter.class)
@@ -34,7 +33,7 @@ public class Ships
     public static class CarrierShip
     {
         @JsonProperty("id")
-        private FDevID id;
+        private ID id;
         private String name;
         private int    baseValue;
         private String sku;
@@ -45,7 +44,7 @@ public class Ships
             var name = Objects.requireNonNull(node.get("name").asText());
             var baseValue = Objects.requireNonNull(node.get("basevalue").asInt());
             var sku = node.get("sku").isNull() ? null : node.get("sku").asText();
-            return new CarrierShip(new FDevID(id), name, baseValue, sku);
+            return new CarrierShip(new ID(id), name, baseValue, sku);
         }
     }
     

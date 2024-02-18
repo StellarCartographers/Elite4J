@@ -20,8 +20,7 @@ import java.io.IOException;
 import java.util.*;
 
 import elite.dangerous.capi.modal.fc.Modules.*;
-
-import space.tscg.misc.FDevID;
+import elite.dangerous.model.identity.ID;
 
 @SuppressWarnings("serial")
 @JsonDeserialize(using = DeserializeAdapter.class)
@@ -32,7 +31,7 @@ public class Modules extends ArrayList<CarrierModule>
     public static class CarrierModule
     {
         @JsonProperty("id")
-        private FDevID id;
+        private ID id;
         private String category;
         private String name;
         private int    cost;
@@ -41,7 +40,7 @@ public class Modules extends ArrayList<CarrierModule>
 
         public static CarrierModule fromJsonNode(JsonNode node)
         {
-            var id = Objects.requireNonNull(new FDevID(node.get("id").asLong()), "node field 'id' cannot be null");
+            var id = Objects.requireNonNull(new ID(node.get("id").asLong()), "node field 'id' cannot be null");
             var category = Objects.requireNonNull(node.get("category").asText(), "node field 'category' cannot be null");
             var name = Objects.requireNonNull(node.get("name").asText(), "node field 'name' cannot be null");
             var cost = Objects.requireNonNull(node.get("cost").asInt(), "node field 'cost' cannot be null");

@@ -10,32 +10,17 @@ package elite.dangerous.util;
 
 import static java.util.stream.Collector.Characteristics.*;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.*;
+import java.util.function.*;
 import java.util.stream.Collector;
 
 import elite.dangerous.fdev.Outfitting;
 import elite.dangerous.fdev.Outfitting.Module;
 import elite.dangerous.fdev.Outfitting.Type;
-import space.tscg.api.carrier.ICarrierModule;
-import space.tscg.collections.list.UnalterableList;
 
-public class ModuleList extends UnalterableList<Outfitting.Module>
+public class ModuleList extends ArrayList<Outfitting.Module>
 {
     private static final long serialVersionUID = 3779517560899428595L;
-
-    public static ModuleList fromCarrierModuleList(Collection<ICarrierModule> c)
-    {
-        return new ModuleList(c.stream().map(m -> Outfitting.getFromId(m.id())).toList());
-    }
 
     public ModuleList()
     {
@@ -45,11 +30,6 @@ public class ModuleList extends UnalterableList<Outfitting.Module>
     public ModuleList(List<? extends Module> c)
     {
         super(c);
-    }
-
-    protected Builder<ModuleList> toBuilder()
-    {
-        return super.Builder();
     }
 
     public ModuleList filterByRating(Outfitting.Rating rate)
