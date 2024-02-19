@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.fleetcarriers.CarrierDepositFuel;
-
 class CarrierDepositFuelTest
 {
-    private static CarrierDepositFuel event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

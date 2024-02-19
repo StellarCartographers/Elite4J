@@ -8,7 +8,7 @@
  */
 package elite.dangerous.model;
 
-import lombok.*;
+import lombok.EliteObject;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder

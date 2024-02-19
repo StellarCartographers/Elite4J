@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.suit.RenameSuitLoadout;
-
 class RenameSuitLoadoutTest
 {
-    private static RenameSuitLoadout event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

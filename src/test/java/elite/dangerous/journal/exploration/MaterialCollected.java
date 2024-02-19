@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.exploration.MaterialCollected;
-
 class MaterialCollectedTest
 {
-    private static MaterialCollected event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

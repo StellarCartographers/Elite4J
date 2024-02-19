@@ -2,7 +2,7 @@ package elite.dangerous.journal.backpack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
 import elite.dangerous.Elite4J;
 import elite.dangerous.journal.events.backpack.BackpackChange;

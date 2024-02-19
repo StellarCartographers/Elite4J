@@ -17,12 +17,11 @@ public record Functions()
     {
         return new ListBuilder<E>();
     }
-    
+
     public static <K, V> MapBuilder<K, V> mapBuilder()
     {
         return new MapBuilder<K, V>();
     }
-    
     public static class MapBuilder<K, V>
     {
         private Map<K, V> builderMap = new HashMap<>();
@@ -38,7 +37,7 @@ public record Functions()
             return UnmodifiableMap.unmodifiableMap(builderMap);
         }
     }
-    
+
     public static class ListBuilder<E>
     {
         private List<E> builderList = new ArrayList<>();

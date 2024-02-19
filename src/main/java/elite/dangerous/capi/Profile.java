@@ -8,10 +8,9 @@
  */
 package elite.dangerous.capi;
 
-import elite.dangerous.capi.modal.profile.Commander;
-import elite.dangerous.capi.modal.profile.LastSystem;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
+
+import elite.dangerous.capi.modal.profile.*;
 
 @Getter
 @Builder(builderMethodName = "Builder")

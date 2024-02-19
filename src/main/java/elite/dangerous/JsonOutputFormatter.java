@@ -8,11 +8,10 @@
  */
 package elite.dangerous;
 
-import java.io.IOException;
-
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.util.DefaultIndenter;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.core.util.*;
+
+import java.io.IOException;
 
 class JsonOutputFormatter extends DefaultPrettyPrinter
 {

@@ -18,7 +18,7 @@ import java.util.*;
 public class Commodities
 {
     private volatile static Commodities instance;
-    private Map<Long, Commodity>     map;
+    private Map<Long, Commodity>        map;
     private Map<String, String>         toLowerCaseSymbolMap;
 
     private static Commodities _instance()

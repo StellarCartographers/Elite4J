@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.startup.Rank;
-
 class RankTest
 {
-    private static Rank event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

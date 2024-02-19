@@ -8,12 +8,9 @@
  */
 package elite.dangerous;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
-import elite.dangerous.journal.*;
+import elite.dangerous.journal.Event;
 import elite.dangerous.journal.annotation.NonDefinedEvent;
 import elite.dangerous.util.ReflectionHelper;
 

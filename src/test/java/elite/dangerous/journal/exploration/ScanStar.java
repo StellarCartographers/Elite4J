@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.exploration.ScanStar;
-
 class ScanStarTest
 {
-    private static ScanStar event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

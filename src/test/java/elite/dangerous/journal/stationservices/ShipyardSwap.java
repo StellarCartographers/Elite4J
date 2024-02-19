@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.stationservices.ShipyardSwap;
-
 class ShipyardSwapTest
 {
-    private static ShipyardSwap event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

@@ -8,24 +8,16 @@
  */
 package elite.dangerous.util;
 
-import java.io.IOException;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.annotation.*;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
-import elite.dangerous.util.EventTimestamp.Deserialization;
-import elite.dangerous.util.EventTimestamp.Serialization;
+import java.io.IOException;
+import java.time.*;
+
+import elite.dangerous.util.EventTimestamp.*;
 
 @JsonSerialize(using = Serialization.class)
 @JsonDeserialize(using = Deserialization.class)

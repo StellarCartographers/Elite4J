@@ -18,7 +18,7 @@ public final class NodeBuilder
         for (int i = 0; i < ifaceMethods.length; i++)
         {
             var method = ifaceMethods[i];
-            if(!method.getName().equals("toObjectNode"))
+            if (!method.getName().equals("toObjectNode"))
                 keyValueMap.put(method.getName(), invokeMethod(method, object));
         }
         ObjectNode node = MAPPER.createObjectNode();
@@ -30,18 +30,21 @@ public final class NodeBuilder
         }
         return node;
     }
-    
+
     private static Object invokeMethod(Method method, Object object)
     {
         try
         {
-            if(method.canAccess(object))
+            if (method.canAccess(object))
             {
                 return method.invoke(object);
-            } else {
-                if (method.trySetAccessible()) {
+            } else
+            {
+                if (method.trySetAccessible())
+                {
                     return method.invoke(object);
-                } else {
+                } else
+                {
                     return "could-not-access";
                 }
             }
@@ -51,20 +54,20 @@ public final class NodeBuilder
             return null;
         }
     }
-    
+
     private static void addValue(ObjectNode node, String key, Object obj)
     {
-        if(String.class.isInstance(obj))
+        if (String.class.isInstance(obj))
             node.put(key, (String) obj);
-        else if(Boolean.class.isInstance(obj))
+        else if (Boolean.class.isInstance(obj))
             node.put(key, (boolean) obj);
-        else if(Double.class.isInstance(obj))
+        else if (Double.class.isInstance(obj))
             node.put(key, (double) obj);
-        else if(Float.class.isInstance(obj))
+        else if (Float.class.isInstance(obj))
             node.put(key, (float) obj);
-        else if(Long.class.isInstance(obj))
+        else if (Long.class.isInstance(obj))
             node.put(key, (long) obj);
-        else if(Integer.class.isInstance(obj))
+        else if (Integer.class.isInstance(obj))
             node.put(key, (int) obj);
     }
 }

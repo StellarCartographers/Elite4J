@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.stationservices.ModuleStore;
-
 class ModuleStoreTest
 {
-    private static ModuleStore event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

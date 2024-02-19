@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.other.KickCrewMember;
-
 class KickCrewMemberTest
 {
-    private static KickCrewMember event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

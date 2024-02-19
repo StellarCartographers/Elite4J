@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.combat.Interdiction;
-
 class InterdictionTest
 {
-    private static Interdiction event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

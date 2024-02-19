@@ -10,18 +10,13 @@ package elite.dangerous.util;
 
 import static java.util.stream.Collector.Characteristics.*;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.Set;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import lombok.experimental.UtilityClass;
+
+import java.util.*;
+import java.util.function.*;
 import java.util.stream.Collector;
 
 import elite.dangerous.fdev.Outfitting;
-import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class ModuleCollector

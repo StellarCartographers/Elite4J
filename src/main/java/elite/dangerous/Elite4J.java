@@ -10,9 +10,9 @@ package elite.dangerous;
 
 import lombok.*;
 
-import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.core.util.*;
 import com.fasterxml.jackson.databind.*;
@@ -30,7 +30,6 @@ import elite.dangerous.journal.Event;
 
 public class Elite4J
 {
-    
     /* !formatter */
     private static final ObjectMapper OUTPUT_MAPPER = new ObjectMapper()
         .setSerializationInclusion(Include.NON_NULL)
@@ -44,15 +43,18 @@ public class Elite4J
 
     public static String ObjToString(Object object)
     {
-        try {
-            if (object instanceof Optional) {
+        try
+        {
+            if (object instanceof Optional)
+            {
                 if (((Optional<?>) object).isPresent())
                     return OUTPUT_MAPPER.writeValueAsString(((Optional<?>) object).get());
                 else
                     return "not present";
             }
             return OUTPUT_MAPPER.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
+        } catch (JsonProcessingException e)
+        {
             Logger.error(e);
             e.printStackTrace();
             return "Error";
@@ -166,15 +168,17 @@ public class Elite4J
 
         static final class Mapper extends JsonMapper
         {
-            private static final long serialVersionUID = 5727134984977613956L;
-
+            private static final long              serialVersionUID = 5727134984977613956L;
             private volatile static Journal.Mapper instance;
 
             Journal.Mapper get()
             {
-                if (instance == null) {
-                    synchronized (Journal.Mapper.class) {
-                        if (instance == null) {
+                if (instance == null)
+                {
+                    synchronized (Journal.Mapper.class)
+                    {
+                        if (instance == null)
+                        {
                             instance = new Journal.Mapper();
                         }
                     }
@@ -240,15 +244,17 @@ public class Elite4J
 
         static final class Mapper extends JsonMapper
         {
-            private static final long serialVersionUID = 5727134984977613956L;
-
+            private static final long           serialVersionUID = 5727134984977613956L;
             private volatile static CAPI.Mapper instance;
 
             CAPI.Mapper get()
             {
-                if (instance == null) {
-                    synchronized (CAPI.Mapper.class) {
-                        if (instance == null) {
+                if (instance == null)
+                {
+                    synchronized (CAPI.Mapper.class)
+                    {
+                        if (instance == null)
+                        {
                             instance = new CAPI.Mapper();
                         }
                     }

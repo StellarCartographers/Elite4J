@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.other.JetConeDamage;
-
 class JetConeDamageTest
 {
-    private static JetConeDamage event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-import elite.dangerous.journal.events.stationservices.RedeemVoucher;
-
 class RedeemVoucherTest
 {
-    private static RedeemVoucher event;
+    
 
     @BeforeAll
     static void setupTest() throws Exception

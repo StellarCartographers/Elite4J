@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 
 import elite.dangerous.Elite4J;
 import elite.dangerous.journal.EventTest;
-import elite.dangerous.journal.events.backpack.*;
+import elite.dangerous.journal.events.backpack.TransferMicroResources;
 
 class TransferMicroResourcesTest extends EventTest
 {
