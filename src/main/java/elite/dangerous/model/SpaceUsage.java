@@ -10,7 +10,8 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
+@EliteCreator
+@EliteObject
 public class SpaceUsage
 {
     private int totalCapacity;

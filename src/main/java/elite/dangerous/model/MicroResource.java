@@ -8,15 +8,12 @@
  */
 package elite.dangerous.model;
 
-import static lombok.ObjectType.*;
-
-import lombok.EliteObject;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
 
 import elite.dangerous.model.enums.ResourceCategory;
 
-@SuperBuilder
-@EliteObject(PARENT)
+@EliteObject
+@EliteCreator
 public class MicroResource
 {
     private String           name;

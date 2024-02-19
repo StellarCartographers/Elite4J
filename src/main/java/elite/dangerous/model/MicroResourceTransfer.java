@@ -9,11 +9,15 @@
 package elite.dangerous.model;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
-@SuperBuilder
+import elite.dangerous.model.enums.ResourceCategory;
+
+@EliteCreator
 @EliteObject
-public class MicroResourceTransfer extends MicroResource
+public class MicroResourceTransfer
 {
-    private String direction;
+    private String           name;
+    private ResourceCategory category;
+    private int              count;
+    private String           direction;
 }

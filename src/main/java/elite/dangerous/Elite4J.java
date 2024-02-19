@@ -10,9 +10,9 @@ package elite.dangerous;
 
 import lombok.*;
 
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.core.util.*;
 import com.fasterxml.jackson.databind.*;
@@ -104,7 +104,16 @@ public class Elite4J
 
         public static <T extends Event> Optional<T> parse(String json, Class<T> type)
         {
-            return Optional.ofNullable(get().fromJson(json, type));
+            try
+            {
+                var instance = Journal.get();
+                var jsonNode = instance.constructJsonNode(InformalFieldNameHandler.parse(json));
+                return Optional.ofNullable(instance.fromJson(jsonNode.toString(), type));
+            } catch (IOException e)
+            {
+                Logger.error(e);
+                return Optional.empty();
+            }
         }
 
         public static <T extends Event> Optional<T> parse(String json)

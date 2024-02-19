@@ -3,14 +3,14 @@
  * 
  * Copyright (c) 2024 StellarCartographers.
  * 
- * You should have received a copy of the MIT license along with this program.  
+ * You should have received a copy of the MIT license along with this program.
  * If not, see <https://opensource.org/licenses/MIT>.
  */
 package elite.dangerous.model.toreadable;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
+@EliteObject
 public class CQCRank
 {
     private static final String[] LOCALISED_NAMES = {"Helpless", "Mostly Helpless", "Amateur", "Semi Professional", "Professional", "Champion", "Hero", "Legend", "Elite"};

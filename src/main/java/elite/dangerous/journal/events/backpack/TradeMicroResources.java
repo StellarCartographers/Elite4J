@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2024 StellarCartographers.
  * 
- * You should have received a copy of the MIT license along with this program.  
+ * You should have received a copy of the MIT license along with this program.
  * If not, see <https://opensource.org/licenses/MIT>.
  */
 package elite.dangerous.journal.events.backpack;
@@ -16,17 +16,15 @@ import elite.dangerous.journal.Event;
 import elite.dangerous.model.MicroResource;
 import elite.dangerous.model.enums.ResourceCategory;
 
-@EliteObject 
+/**
+ * This event is logged when the player exchanges owned microresources to receive some other type of microresource
+ */
+@EliteObject
 public class TradeMicroResources extends Event
 {
-
-    private List<MicroResource>   offered;
-
-    private String                received;
-
-    private int                   count;
-
-    private long                  marketID;
-
-    private ResourceCategory category;
+    private List<MicroResource> offered;
+    private String              received;
+    private int                 count;
+    private long                marketID;
+    private ResourceCategory    category;
 }

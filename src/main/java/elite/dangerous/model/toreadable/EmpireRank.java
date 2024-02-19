@@ -3,14 +3,14 @@
  * 
  * Copyright (c) 2024 StellarCartographers.
  * 
- * You should have received a copy of the MIT license along with this program.  
+ * You should have received a copy of the MIT license along with this program.
  * If not, see <https://opensource.org/licenses/MIT>.
  */
 package elite.dangerous.model.toreadable;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
+@EliteObject
 public class EmpireRank
 {
     private static final String[] LOCALISED_NAMES = {"None", "Outsider", "Serf", "Master", "Squire", "Knight", "Lord", "Baron", "Viscount ", "Count", "Earl", "Marquis", "Duke", "Prince", "King"};

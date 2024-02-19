@@ -10,7 +10,10 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
-public class StationEconomy extends ProportionalItem
+@EliteCreator
+@EliteObject
+public class StationEconomy
 {
+    private String name;
+    public float   proportion;
 }

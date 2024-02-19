@@ -13,7 +13,7 @@ import lombok.*;
 import java.util.List;
 
 @EliteCreator
-@EliteObject(ObjectType.PARENT)
+@EliteObject
 public class Faction
 {
     private String             name;

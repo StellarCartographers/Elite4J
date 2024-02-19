@@ -10,7 +10,10 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
-public class AsteroidMaterial extends ProportionalItem
+@EliteCreator
+@EliteObject
+public class AsteroidMaterial
 {
+    private String name;
+    public float   proportion;
 }

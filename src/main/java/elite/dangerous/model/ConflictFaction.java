@@ -10,10 +10,25 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-@EliteCreator 
-@EliteObject(ObjectType.CHILD)
-public class ConflictFaction extends Faction
+import java.util.List;
+
+@EliteCreator
+@EliteObject
+public class ConflictFaction
 {
-    private String stake;
-    private int    daysWon;
+    private String             name;
+    private String             factionState;
+    private String             government;
+    private String             allegiance;
+    private String             happiness;
+    private double             myReputation;
+    private double             influence;
+    private List<FactionState> activeStates;
+    private List<FactionState> pendingStates;
+    private List<FactionState> recoveringStates;
+    private boolean            squadronSystem;
+    private boolean            happiestSystem;
+    private boolean            homeSystem;
+    private String             stake;
+    private int                daysWon;
 }

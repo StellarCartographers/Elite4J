@@ -11,9 +11,16 @@ package elite.dangerous.model;
 import lombok.*;
 
 @EliteCreator
-@EliteObject(ObjectType.CHILD)
-public class StoredShipRemote extends StoredShipHere
+@EliteObject
+public class StoredShipRemote
 {
-    private String starSystem;
-    private long   shipMarketID, transferTime, transferPrice;
+    private boolean hot;
+    private String  name;
+    private String  shipType;
+    private long    value;
+    private int     shipID;
+    private String  starSystem;
+    private long    shipMarketID;
+    private long    transferTime;
+    private long    transferPrice;
 }

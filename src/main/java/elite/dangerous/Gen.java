@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 import elite.dangerous.journal.Event;
+import elite.dangerous.journal.events.backpack.BackpackChange;
 
 public class Gen
 {
@@ -11,15 +12,15 @@ public class Gen
 
     public static void main(String[] args) throws IOException
     {
-        Elite4J.Journal.getJournalEvents().values().forEach(c -> {
-            try
-            {
-                createTestClass(c);
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        });
+        String removedJson = "{ \"timestamp\":\"2023-11-14T05:55:24Z\", \"event\":\"BackpackChange\", \"Removed\":[ { \"Name\":\"largecapacitypowerregulator\", \"Name_Localised\":\"Power Regulator\", \"OwnerID\":0, \"MissionID\":945537343, \"Count\":1, \"Type\":\"Item\" } ] }";
+        String addedJson = "{ \"timestamp\":\"2023-11-14T06:42:07Z\", \"event\":\"BackpackChange\", \"Added\":[ { \"Name\":\"microhydraulics\", \"Name_Localised\":\"Micro Hydraulics\", \"OwnerID\":0, \"Count\":1, \"Type\":\"Component\" } ] }";
+        var event = Elite4J.Journal.parse(removedJson).get();
+        
+        BackpackChange change = (BackpackChange) event;
+        
+        System.out.println(change.removed() != null);
+        System.out.println(change.added() != null);
+        System.out.println(change.removed().get(0).name());
     }
 
     private static boolean createTestClass(Class<?> clazz) throws IOException

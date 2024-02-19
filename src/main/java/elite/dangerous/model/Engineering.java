@@ -12,7 +12,8 @@ import lombok.*;
 
 import java.util.List;
 
-@EliteCreator @EliteObject
+@EliteCreator
+@EliteObject
 public class Engineering
 {
     private String             engineer, blueprintName, experimentalEffect;

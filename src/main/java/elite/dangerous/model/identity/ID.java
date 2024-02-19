@@ -18,12 +18,12 @@ import elite.dangerous.model.identity.ID.*;
 public sealed class ID permits IntID
 {
     private final long id;
-    
+
     public long asLong()
     {
         return id;
     }
-    
+
     public String asText()
     {
         return String.valueOf(id);

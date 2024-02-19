@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 import elite.dangerous.model.enums.BodyType;
 import elite.dangerous.model.scan.Parents.ParentsAdapter;
 
-@EliteCreator
 @EliteObject
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
@@ -46,7 +45,6 @@ public class Parents
         return listFromBodyType(bodyType).toArray(new Parent[0]);
     }
 
-    @EliteCreator
     @EliteObject
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     static class Parent

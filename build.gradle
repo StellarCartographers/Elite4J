@@ -11,7 +11,7 @@ plugins {
 }
 
 lombok {
-    version = "ed-1.18.40"
+    version = "ed-1.18.42"
 }
 
 group = 'space.tscg'
@@ -25,7 +25,7 @@ tscg {
 }
 
 dependencies {
-    annotationProcessor 'org.projectlombok:lombok:ed-1.18.40'
+    annotationProcessor 'org.projectlombok:lombok:ed-1.18.42'
     annotationProcessor Shared.Deps().ClassIndex()
     
     api Shared.Deps().ClassIndex()
@@ -34,11 +34,12 @@ dependencies {
     api Shared.Deps().JacksonDatabind()
 
     implementation Shared.Deps().CommonsCollections4()
-    compileOnly Shared.Deps().TinyLogApi()
+    implementation Shared.Deps().TinyLog()
     
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly Shared.Deps().TinyLog()
 }
 
 test {

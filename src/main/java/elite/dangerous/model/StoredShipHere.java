@@ -11,11 +11,12 @@ package elite.dangerous.model;
 import lombok.*;
 
 @EliteCreator
-@EliteObject(ObjectType.PARENT)
+@EliteObject
 public class StoredShipHere
 {
     private boolean hot;
-    private String  name, shipType;
+    private String  name;
+    private String  shipType;
     private long    value;
     private int     shipID;
 }

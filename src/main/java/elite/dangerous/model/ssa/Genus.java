@@ -12,7 +12,8 @@ import lombok.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@EliteCreator @EliteObject
+@EliteCreator
+@EliteObject
 public class Genus
 {
     @JsonProperty("genus")

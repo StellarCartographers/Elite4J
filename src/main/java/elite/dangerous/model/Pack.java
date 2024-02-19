@@ -10,7 +10,8 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-@EliteCreator @EliteObject
+@EliteCreator
+@EliteObject
 public class Pack
 {
     private String packTheme;

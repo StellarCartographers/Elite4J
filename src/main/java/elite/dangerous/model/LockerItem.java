@@ -10,11 +10,12 @@ package elite.dangerous.model;
 
 import lombok.*;
 
-import elite.dangerous.model.material.Item;
-
-@EliteCreator @EliteObject
-public class LockerItem extends Item
+@EliteCreator
+@EliteObject
+public class LockerItem
 {
-    private long ownerID;
-    private long missionID;
+    private String name;
+    private int    count;
+    private long   ownerID;
+    private long   missionID;
 }

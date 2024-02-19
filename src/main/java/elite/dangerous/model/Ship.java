@@ -12,11 +12,11 @@ import lombok.*;
 
 import elite.dangerous.model.identity.ID;
 
-@EliteCreator 
+@EliteCreator
 @EliteObject
 public class Ship
 {
-    private ID id;
+    private ID     id;
     private String symbol;
     private String name;
 }

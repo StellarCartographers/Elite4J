@@ -11,7 +11,8 @@ package elite.dangerous.model;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@SuperBuilder @EliteObject
+@SuperBuilder
+@EliteObject
 public class Reward
 {
     private String faction;

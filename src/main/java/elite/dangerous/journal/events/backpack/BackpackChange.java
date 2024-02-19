@@ -21,10 +21,9 @@ import elite.dangerous.model.backpack.BackpackItem;
  * @apiNote note this can be written at the same time as other events like
  *          {@link elite.dangerous.journal.events.backpack.UseConsumable UseConsumable}
  */
-@EliteObject 
+@EliteObject
 public class BackpackChange extends Event
 {
-    private List<BackpackItem> added;
-
-    private List<BackpackItem> removed;
+    private List<BackpackItem> added = List.of();
+    private List<BackpackItem> removed = List.of();
 }
